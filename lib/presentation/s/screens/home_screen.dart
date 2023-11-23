@@ -1,3 +1,4 @@
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:qate3_app/constants/carousel_slider.dart';
 import 'package:qate3_app/constants/colors.dart';
@@ -13,8 +14,31 @@ import 'package:qate3_app/presentation/s/screens/scanner.dart';
 import 'package:qate3_app/presentation/s/widgets.dart';
 import '../../../constants/custom_appbar.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  void requestPermission() async {
+    FirebaseMessaging messaging = FirebaseMessaging.instance;
+    NotificationSettings settings = await messaging.requestPermission(
+        alert: true,
+        announcement: false,
+        badge: true,
+        carPlay: false,
+        criticalAlert: false,
+        provisional: false,
+        sound: true);
+    if (settings.authorizationStatus == AuthorizationStatus.authorized) {
+      print('User Granted Permission');
+    }
+    FirebaseMessaging.onMessage.listen((RemoteMessage message) {
+      navigateTo(context, const HomeScreen());
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
