@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:qate3_app/constants/custom_appbar.dart';
 import 'package:qate3_app/constants/custom_category_item.dart';
 import 'package:qate3_app/presentation/s/screens/Home/Drinks/Bring/bring_coffee.dart';
+import 'package:qate3_app/presentation/s/screens/Home/Drinks/Bring/bring_juice.dart';
 import 'package:qate3_app/presentation/s/screens/Home/Drinks/Bring/bring_milk.dart';
 import 'package:qate3_app/presentation/s/screens/Home/Drinks/Bring/bring_nescafe.dart';
 import 'package:qate3_app/presentation/s/screens/Home/Drinks/Bring/bring_soda.dart';
 import 'package:qate3_app/presentation/s/screens/Home/Drinks/Bring/bring_tea.dart';
 import 'package:qate3_app/presentation/s/screens/Home/Drinks/Bring/bring_water.dart';
 import 'package:qate3_app/presentation/s/screens/Home/Drinks/Qate3/qate3_coffee.dart';
+import 'package:qate3_app/presentation/s/screens/Home/Drinks/Qate3/qate3_juice.dart';
 import 'package:qate3_app/presentation/s/screens/Home/Drinks/Qate3/qate3_milk.dart';
 import 'package:qate3_app/presentation/s/screens/Home/Drinks/Qate3/qate3_nescafe.dart';
 import 'package:qate3_app/presentation/s/screens/Home/Drinks/Qate3/qate3_soda.dart';
@@ -85,6 +87,17 @@ class DrinksScreen extends StatelessWidget {
               title: 'الشاي',
               screen1: Qate3Tea(),
               screen2: BringTea(),
+            )),
+      ),
+      CategoryItemData(
+        imageUrl: 'assets/home/31.jpg',
+        title: ' العصائر',
+        onTap: () => navigateTo(
+            context,
+            const CustomChoice(
+              title: 'العصائر',
+              screen1: Qate3Juice(),
+              screen2: BringJuice(),
             )),
       ),
     ];

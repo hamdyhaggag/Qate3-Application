@@ -138,6 +138,7 @@ class _ScreenLayoutState extends State<ScreenLayout> {
               'هل تود الخروج من التطبيق ؟',
               style: TextStyle(
                 fontWeight: FontWeight.bold,
+                fontSize: 17.0,
               ),
             ),
           ),

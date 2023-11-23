@@ -9,7 +9,7 @@ class Qate3Soda extends StatelessWidget {
   Widget build(BuildContext context) {
     return Qate3Model(
       itemCountCallback: (index) {
-        return 12;
+        return 14;
       },
       barTitle: ' المشروبات الغازية المقاطعة',
       imagePath1: 'assets/Drinks/Qate3/s1.jpg',
@@ -24,6 +24,8 @@ class Qate3Soda extends StatelessWidget {
       imagePath10: 'assets/Drinks/Qate3/s10.jpg',
       imagePath11: 'assets/Drinks/Qate3/s11.jpg',
       imagePath12: 'assets/Drinks/Qate3/s12.jpg',
+      imagePath13: 'assets/Drinks/Qate3/s13.jpg',
+      imagePath14: 'assets/Drinks/Qate3/s14.jpg',
       title1: 'سفن أب',
       title2: 'ريدبول',
       title3: 'فانتا',
@@ -36,6 +38,8 @@ class Qate3Soda extends StatelessWidget {
       title10: 'بربيكان',
       title11: 'موسي',
       title12: 'بيبسي',
+      title13: 'فيروز',
+      title14: 'راني',
     );
   }
 }

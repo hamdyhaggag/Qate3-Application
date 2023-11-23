@@ -94,7 +94,7 @@ class _SplashScreenState extends State<SplashScreen>
                           child: Text(
                             "مـــن أجـــل فــلــســطــيــن",
                             style: TextStyle(
-                              fontSize: screenSize.width * 0.06,
+                              fontSize: screenSize.width * 0.04,
                               color: const Color(0xff007a3c),
                               fontWeight: FontWeight.bold,
                               fontFamily: 'Cairo',
