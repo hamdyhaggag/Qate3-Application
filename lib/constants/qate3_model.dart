@@ -54,6 +54,8 @@ class Qate3Model extends StatelessWidget {
     this.imagePath23 = '',
     this.title24 = '',
     this.imagePath24 = '',
+    this.title25 = '',
+    this.imagePath25 = '',
   }) : super(key: key);
 
   final String barTitle;
@@ -106,6 +108,8 @@ class Qate3Model extends StatelessWidget {
   final String imagePath23;
   final String title24;
   final String imagePath24;
+  final String title25;
+  final String imagePath25;
 
   @override
   Widget build(BuildContext context) {
@@ -171,17 +175,19 @@ class Qate3Model extends StatelessWidget {
       case 17:
         return ChoiceModel(imagePath18, title18);
       case 18:
-        return ChoiceModel(imagePath18, title18);
+        return ChoiceModel(imagePath19, title19);
       case 19:
-        return ChoiceModel(imagePath18, title18);
+        return ChoiceModel(imagePath20, title20);
       case 20:
-        return ChoiceModel(imagePath18, title18);
+        return ChoiceModel(imagePath21, title21);
       case 21:
-        return ChoiceModel(imagePath18, title18);
+        return ChoiceModel(imagePath22, title22);
       case 22:
-        return ChoiceModel(imagePath18, title18);
+        return ChoiceModel(imagePath23, title23);
       case 23:
-        return ChoiceModel(imagePath18, title18);
+        return ChoiceModel(imagePath24, title24);
+      case 24:
+        return ChoiceModel(imagePath25, title25);
 
       default:
         return ChoiceModel('assets/images/redcircle.svg', 'Default');

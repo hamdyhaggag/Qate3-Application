@@ -22,12 +22,12 @@ class Qate3Perfium extends StatelessWidget {
       imagePath8: 'assets/personal/Qate3/p8.jpg',
       title1: 'لايف إز',
       title2: 'بلوم',
-      title3: 'فيشي',
+      title3: 'فيتشي',
       title4: 'فيكتوريا سيكريت',
-      title5: 'بيور واندر',
-      title6: 'توباكو فلاور',
-      title7: 'إنديان نايت',
-      title8: 'لافي إيست بيل',
+      title5: 'توباكو فلاور',
+      title6: 'إنديان نايت',
+      title7: 'لافي إيست بيل',
+      title8: 'سوفاج',
     );
   }
 }

@@ -10,6 +10,7 @@ import 'package:qate3_app/presentation/s/screens/Home/clean/clean.dart';
 import 'package:qate3_app/presentation/s/screens/Home/kitchen/kitchen.dart';
 import 'package:qate3_app/presentation/s/screens/Home/personal%20cleanliness/personal.dart';
 import 'package:qate3_app/presentation/s/screens/Home/restaurent/restaurent.dart';
+import 'package:qate3_app/presentation/s/screens/brand.dart';
 import 'package:qate3_app/presentation/s/screens/scanner.dart';
 import 'package:qate3_app/presentation/s/widgets.dart';
 import '../../../constants/custom_appbar.dart';
@@ -91,6 +92,12 @@ class _HomeScreenState extends State<HomeScreen> {
       //   subtitle: 'قسم محلات الملابس',
       //   onTap: () => navigateTo(context, const ClothesScreen()),
       // ),
+      CategoryItemData(
+        imageUrl: 'assets/home/32.jpg',
+        title: ' علامات تجارية',
+        subtitle: ' مقاطعة براندات ',
+        onTap: () => navigateTo(context, const BrandsScreen()),
+      ),
       CategoryItemData(
         imageUrl: 'assets/home/30.jpg',
         title: ' سكانر',

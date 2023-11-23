@@ -9,7 +9,7 @@ class Qate3Clean extends StatelessWidget {
   Widget build(BuildContext context) {
     return Qate3Model(
       itemCountCallback: (index) {
-        return 14;
+        return 15;
       },
       barTitle: ' منتجات المنظفات المقاطعة',
       imagePath1: 'assets/clean/Qate3/1.jpg',
@@ -26,6 +26,7 @@ class Qate3Clean extends StatelessWidget {
       imagePath12: 'assets/clean/Qate3/12.jpg',
       imagePath13: 'assets/clean/Qate3/13.jpg',
       imagePath14: 'assets/clean/Qate3/14.jpg',
+      imagePath15: 'assets/clean/Qate3/15.jpg',
       title1: 'بونكس',
       title2: ' أومو',
       title3: 'لايف بوي',
@@ -40,6 +41,7 @@ class Qate3Clean extends StatelessWidget {
       title12: 'إيريل',
       title13: 'برسيل ',
       title14: 'ديتول ',
+      title15: 'هاربك ',
     );
   }
 }

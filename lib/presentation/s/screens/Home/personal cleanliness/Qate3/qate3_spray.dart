@@ -24,10 +24,10 @@ class Qate3Spray extends StatelessWidget {
       title2: 'ريكسونا',
       title3: 'نوير',
       title4: 'دوف',
-      title5: 'ستارفيل',
-      title6: 'أكس',
-      title7: 'ليدي سبيد ستيك',
-      title8: 'نيفيا',
+      title5: 'أكس',
+      title6: 'ليدي سبيد ستيك',
+      title7: 'نيفيا',
+      title8: 'فيتشي رول ان',
     );
   }
 }

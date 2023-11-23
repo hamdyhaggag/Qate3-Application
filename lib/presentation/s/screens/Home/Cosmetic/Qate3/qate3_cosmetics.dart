@@ -9,7 +9,7 @@ class Qate3Cosmetics extends StatelessWidget {
   Widget build(BuildContext context) {
     return Qate3Model(
       itemCountCallback: (index) {
-        return 18;
+        return 24;
       },
       barTitle: ' منتجات التجميل المقاطعة',
       imagePath1: 'assets/cosmetic/Qate3/1.jpg',
@@ -30,6 +30,12 @@ class Qate3Cosmetics extends StatelessWidget {
       imagePath16: 'assets/cosmetic/Qate3/16.jpg',
       imagePath17: 'assets/cosmetic/Qate3/17.jpg',
       imagePath18: 'assets/cosmetic/Qate3/18.jpg',
+      imagePath19: 'assets/cosmetic/Qate3/19.jpg',
+      imagePath20: 'assets/cosmetic/Qate3/20.jpg',
+      imagePath21: 'assets/cosmetic/Qate3/21.jpg',
+      imagePath22: 'assets/cosmetic/Qate3/22.jpg',
+      imagePath23: 'assets/cosmetic/Qate3/23.jpg',
+      imagePath24: 'assets/cosmetic/Qate3/24.jpg',
       title1: 'غارينيه بيور أكتيف',
       title2: 'كيرا في',
       title3: 'دووف',
@@ -37,7 +43,7 @@ class Qate3Cosmetics extends StatelessWidget {
       title5: 'هايدرو بوست',
       title6: 'سوبر ستاي',
       title7: 'برايت كومبليت',
-      title8: 'فينوس',
+      title8: 'باث أند بودي',
       title9: 'جيلات',
       title10: 'غارينيه سوبرفوود',
       title11: 'فازلين',
@@ -47,7 +53,13 @@ class Qate3Cosmetics extends StatelessWidget {
       title15: 'كليو صن',
       title16: 'غارينيه برايت',
       title17: 'أكتي كلير',
-      title18: 'دراكون',
+      title18: 'سوبر ستاي',
+      title19: 'ماكس فاكتور',
+      title20: 'فيس فينيتي',
+      title21: 'فير لافلي',
+      title22: 'كليو صن',
+      title23: 'فينوس',
+      title24: 'فيت مي',
     );
   }
 }
