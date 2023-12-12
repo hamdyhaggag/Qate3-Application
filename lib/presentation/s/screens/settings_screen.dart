@@ -97,6 +97,23 @@ class SettingsScreen extends StatelessWidget {
                       onTap: () {
                         sendEmail();
                       },
+                      icons: FontAwesomeIcons.magnifyingGlass,
+                      iconStyle: IconStyle(
+                        backgroundColor: Colors.red,
+                      ),
+                      title: 'إسأل عن منتج',
+                      subtitle: "لو فيه منتج مش موجود",
+                      titleMaxLine: 1,
+                      subtitleMaxLine: 1,
+                      trailing: SizedBox(
+                        width: 24.0,
+                        child: Container(),
+                      ),
+                    ),
+                    SettingsItem(
+                      onTap: () {
+                        sendEmail();
+                      },
                       icons: FontAwesomeIcons.solidEnvelope,
                       iconStyle: IconStyle(
                         iconsColor: Colors.white,

@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:qate3_app/constants/carousel_slider.dart';
 import 'package:qate3_app/constants/colors.dart';
 import 'package:qate3_app/constants/custom_category_item.dart';
+import 'package:qate3_app/presentation/s/screens/Home/Cegar/cegar.dart';
 import 'package:qate3_app/presentation/s/screens/Home/Cosmetic/cosmetics.dart';
+import 'package:qate3_app/presentation/s/screens/Home/Devices/devices.dart';
 import 'package:qate3_app/presentation/s/screens/Home/Drinks/drinks.dart';
 import 'package:qate3_app/presentation/s/screens/Home/Snacks/snack.dart';
 import 'package:qate3_app/presentation/s/screens/Home/cars/cars.dart';
@@ -104,6 +106,24 @@ class _HomeScreenState extends State<HomeScreen> {
         title: ' السيارات ',
         subtitle: ' مقاطعة السيارات ',
         onTap: () => navigateTo(context, const CarsScreen()),
+      ),
+      CategoryItemData(
+        imageUrl: 'assets/home/48.jpg',
+        title: ' محطات البنزين ',
+        subtitle: ' مقاطعة محطات البنزين ',
+        onTap: () => navigateTo(context, const DevicesScreen()),
+      ),
+      CategoryItemData(
+        imageUrl: 'assets/home/49.jpg',
+        title: ' الأجهزة الكهربائية ',
+        subtitle: ' مقاطعة الأجهزة ',
+        onTap: () => navigateTo(context, const DevicesScreen()),
+      ),
+      CategoryItemData(
+        imageUrl: 'assets/home/50.jpg',
+        title: ' السجائر  ',
+        subtitle: ' مقاطعة السجائر ',
+        onTap: () => navigateTo(context, const CegarScreen()),
       ),
       CategoryItemData(
         imageUrl: 'assets/home/30.jpg',
