@@ -14,7 +14,7 @@ class Qate3Boharat extends StatelessWidget {
       imagePath1: 'assets/kitchen/Qate3/bo1.jpg',
       imagePath2: 'assets/kitchen/Qate3/bo2.jpg',
       imagePath3: 'assets/kitchen/Qate3/bo3.jpg',
-      title1: 'كنوز ',
+      title1: 'كنور ',
       title2: ' ماجي  ',
       title3: 'فاين فودز  ',
     );

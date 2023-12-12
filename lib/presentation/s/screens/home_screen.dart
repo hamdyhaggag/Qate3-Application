@@ -6,6 +6,7 @@ import 'package:qate3_app/constants/custom_category_item.dart';
 import 'package:qate3_app/presentation/s/screens/Home/Cosmetic/cosmetics.dart';
 import 'package:qate3_app/presentation/s/screens/Home/Drinks/drinks.dart';
 import 'package:qate3_app/presentation/s/screens/Home/Snacks/snack.dart';
+import 'package:qate3_app/presentation/s/screens/Home/cars/cars.dart';
 import 'package:qate3_app/presentation/s/screens/Home/clean/clean.dart';
 import 'package:qate3_app/presentation/s/screens/Home/kitchen/kitchen.dart';
 import 'package:qate3_app/presentation/s/screens/Home/personal%20cleanliness/personal.dart';
@@ -97,6 +98,12 @@ class _HomeScreenState extends State<HomeScreen> {
         title: ' علامات تجارية',
         subtitle: ' مقاطعة براندات ',
         onTap: () => navigateTo(context, const BrandsScreen()),
+      ),
+      CategoryItemData(
+        imageUrl: 'assets/home/47.jpg',
+        title: ' السيارات ',
+        subtitle: ' مقاطعة السيارات ',
+        onTap: () => navigateTo(context, const CarsScreen()),
       ),
       CategoryItemData(
         imageUrl: 'assets/home/30.jpg',

@@ -56,6 +56,26 @@ class Qate3Model extends StatelessWidget {
     this.imagePath24 = '',
     this.title25 = '',
     this.imagePath25 = '',
+    this.title26 = '',
+    this.imagePath26 = '',
+    this.title27 = '',
+    this.imagePath27 = '',
+    this.title28 = '',
+    this.imagePath28 = '',
+    this.title29 = '',
+    this.imagePath29 = '',
+    this.title30 = '',
+    this.imagePath30 = '',
+    this.title31 = '',
+    this.imagePath31 = '',
+    this.title32 = '',
+    this.imagePath32 = '',
+    this.title33 = '',
+    this.imagePath33 = '',
+    this.title34 = '',
+    this.imagePath34 = '',
+    this.title35 = '',
+    this.imagePath35 = '',
   }) : super(key: key);
 
   final String barTitle;
@@ -110,6 +130,26 @@ class Qate3Model extends StatelessWidget {
   final String imagePath24;
   final String title25;
   final String imagePath25;
+  final String title26;
+  final String imagePath26;
+  final String title27;
+  final String imagePath27;
+  final String title28;
+  final String imagePath28;
+  final String title29;
+  final String imagePath29;
+  final String title30;
+  final String imagePath30;
+  final String title31;
+  final String imagePath31;
+  final String title32;
+  final String imagePath32;
+  final String title33;
+  final String imagePath33;
+  final String title34;
+  final String imagePath34;
+  final String title35;
+  final String imagePath35;
 
   @override
   Widget build(BuildContext context) {
@@ -188,6 +228,26 @@ class Qate3Model extends StatelessWidget {
         return ChoiceModel(imagePath24, title24);
       case 24:
         return ChoiceModel(imagePath25, title25);
+      case 25:
+        return ChoiceModel(imagePath26, title26);
+      case 26:
+        return ChoiceModel(imagePath27, title27);
+      case 27:
+        return ChoiceModel(imagePath28, title28);
+      case 28:
+        return ChoiceModel(imagePath29, title29);
+      case 29:
+        return ChoiceModel(imagePath30, title30);
+      case 30:
+        return ChoiceModel(imagePath31, title31);
+      case 31:
+        return ChoiceModel(imagePath32, title32);
+      case 32:
+        return ChoiceModel(imagePath33, title33);
+      case 33:
+        return ChoiceModel(imagePath34, title34);
+      case 34:
+        return ChoiceModel(imagePath35, title35);
 
       default:
         return ChoiceModel('assets/images/redcircle.svg', 'Default');

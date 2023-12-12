@@ -9,7 +9,7 @@ class Qate3Bescauit extends StatelessWidget {
   Widget build(BuildContext context) {
     return Qate3Model(
       itemCountCallback: (index) {
-        return 15;
+        return 16;
       },
       barTitle: ' منتجات البسكويت المقاطعة',
       imagePath1: 'assets/Snacks/Qate3/b1.jpg',
@@ -27,6 +27,7 @@ class Qate3Bescauit extends StatelessWidget {
       imagePath13: 'assets/Snacks/Qate3/b13.jpg',
       imagePath14: 'assets/Snacks/Qate3/b14.jpg',
       imagePath15: 'assets/Snacks/Qate3/b15.jpg',
+      imagePath16: 'assets/Snacks/Qate3/b16.jpg',
       title1: 'ويفرز',
       title2: ' مولتو',
       title3: 'هوهوز',
@@ -42,6 +43,7 @@ class Qate3Bescauit extends StatelessWidget {
       title13: 'ماكس تي',
       title14: 'تودو',
       title15: 'مكفتيز',
+      title16: 'سفن دايز',
     );
   }
 }

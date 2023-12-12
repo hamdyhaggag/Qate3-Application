@@ -17,7 +17,7 @@ class BringBoharat extends StatelessWidget {
       imagePath3: 'assets/kitchen/Bring/bo3.jpg',
       imagePath4: 'assets/kitchen/Bring/bo4.jpg',
       title1: 'حاج عرفة ',
-      title2: '  تشيكن شيبسي ',
+      title2: '  تشيكن كريسبي ',
       title3: '  الضحى',
       title4: ' تتبيلة التكا ',
     );
