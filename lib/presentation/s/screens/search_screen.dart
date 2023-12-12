@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:qate3_app/presentation/s/screens/Home/Benzen/Qate3/qate3_cegar.dart';
+import 'package:qate3_app/presentation/s/screens/Home/Cegar/Qate3/qate3_cegar.dart';
+import 'package:qate3_app/presentation/s/screens/Home/Devices/Qate3/qate3_devices.dart';
 import 'package:qate3_app/presentation/s/screens/Home/Drinks/Qate3/qate3_coffee.dart';
 import 'package:qate3_app/presentation/s/screens/Home/Drinks/Qate3/qate3_milk.dart';
 import 'package:qate3_app/presentation/s/screens/Home/Drinks/Qate3/qate3_nescafe.dart';
@@ -11,6 +14,7 @@ import 'package:qate3_app/presentation/s/screens/Home/Snacks/Qate3/qate3_chipsy.
 import 'package:qate3_app/presentation/s/screens/Home/Snacks/Qate3/qate3_chocolate.dart';
 import 'package:qate3_app/presentation/s/screens/Home/Snacks/Qate3/qate3_icecream.dart';
 import 'package:qate3_app/presentation/s/screens/Home/Snacks/Qate3/qate3_zbady.dart';
+import 'package:qate3_app/presentation/s/screens/Home/cars/Qate3/qate3_cars.dart';
 import 'package:qate3_app/presentation/s/screens/Home/clean/Qate3/qate3_clean.dart';
 import 'package:qate3_app/presentation/s/screens/Home/kitchen/Qate3/qate3_boharat.dart';
 import 'package:qate3_app/presentation/s/screens/Home/kitchen/Qate3/qate3_gebna.dart';
@@ -101,10 +105,15 @@ class _SearchScreenState extends State<SearchScreen> {
         'البرفيوم', (context) => navigateTo(context, const Qate3Perfium())),
     ItemModel(
         'مسحوق\n الغسيل', (context) => navigateTo(context, const Qate3Clean())),
-    ItemModel('الصابون', (context) => navigateTo(context, const Qate3Clean())),
     ItemModel('معجون\n أسنان',
         (context) => navigateTo(context, const Qate3Toothpaste())),
     ItemModel('الشاي', (context) => navigateTo(context, const Qate3Tea())),
+    ItemModel('السيارات', (context) => navigateTo(context, const Qate3Cars())),
+    ItemModel('الأجهزة الكهربائية',
+        (context) => navigateTo(context, const Qate3Devices())),
+    ItemModel(
+        'محطات البنزين', (context) => navigateTo(context, const Qate3Benzen())),
+    ItemModel('السجائر', (context) => navigateTo(context, const Qate3Cegar())),
   ];
 
   List<ItemModel> filteredItems = [];
