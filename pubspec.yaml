@@ -56,10 +56,16 @@ flutter:
     - assets/home/0.jpeg
     - assets/home/
     - assets/images/
-    - assets/cars/Qate3/
     - assets/cars/Bring/
-    - assets/Devices/Qate3/
+    - assets/cars/Qate3/
     - assets/Devices/Bring/
+    - assets/Devices/Qate3/
+    - assets/Benzen/Bring/
+    - assets/Benzen/Qate3/
+    - assets/Cegar/Bring/
+    - assets/Cegar/Qate3/
+    - assets/flight/Bring/
+    - assets/flight/Qate3/
     - assets/clean/Bring/
     - assets/clean/Qate3/
     - assets/Drinks/Bring/

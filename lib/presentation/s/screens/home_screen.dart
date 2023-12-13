@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:qate3_app/constants/carousel_slider.dart';
 import 'package:qate3_app/constants/colors.dart';
 import 'package:qate3_app/constants/custom_category_item.dart';
+import 'package:qate3_app/presentation/s/screens/Home/Benzen/benzen.dart';
 import 'package:qate3_app/presentation/s/screens/Home/Cegar/cegar.dart';
 import 'package:qate3_app/presentation/s/screens/Home/Cosmetic/cosmetics.dart';
 import 'package:qate3_app/presentation/s/screens/Home/Devices/devices.dart';
@@ -10,6 +11,7 @@ import 'package:qate3_app/presentation/s/screens/Home/Drinks/drinks.dart';
 import 'package:qate3_app/presentation/s/screens/Home/Snacks/snack.dart';
 import 'package:qate3_app/presentation/s/screens/Home/cars/cars.dart';
 import 'package:qate3_app/presentation/s/screens/Home/clean/clean.dart';
+import 'package:qate3_app/presentation/s/screens/Home/flight/flight.dart';
 import 'package:qate3_app/presentation/s/screens/Home/kitchen/kitchen.dart';
 import 'package:qate3_app/presentation/s/screens/Home/personal%20cleanliness/personal.dart';
 import 'package:qate3_app/presentation/s/screens/Home/restaurent/restaurent.dart';
@@ -111,7 +113,7 @@ class _HomeScreenState extends State<HomeScreen> {
         imageUrl: 'assets/home/48.jpg',
         title: ' محطات البنزين ',
         subtitle: ' مقاطعة محطات البنزين ',
-        onTap: () => navigateTo(context, const DevicesScreen()),
+        onTap: () => navigateTo(context, const BenzenScreen()),
       ),
       CategoryItemData(
         imageUrl: 'assets/home/49.jpg',
@@ -124,6 +126,12 @@ class _HomeScreenState extends State<HomeScreen> {
         title: ' السجائر  ',
         subtitle: ' مقاطعة السجائر ',
         onTap: () => navigateTo(context, const CegarScreen()),
+      ),
+      CategoryItemData(
+        imageUrl: 'assets/home/51.jpg',
+        title: ' الطيران  ',
+        subtitle: ' مقاطعة الطيران ',
+        onTap: () => navigateTo(context, const FlightScreen()),
       ),
       CategoryItemData(
         imageUrl: 'assets/home/30.jpg',

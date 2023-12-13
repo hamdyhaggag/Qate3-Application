@@ -2,8 +2,8 @@ import 'package:flutter/cupertino.dart';
 
 import '../../../../../../constants/qate3_model.dart';
 
-class Qate3Flight extends StatelessWidget {
-  const Qate3Flight({super.key});
+class Qate3Benzen extends StatelessWidget {
+  const Qate3Benzen({super.key});
 
   @override
   Widget build(BuildContext context) {

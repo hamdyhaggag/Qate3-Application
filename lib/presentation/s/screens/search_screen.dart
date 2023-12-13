@@ -112,7 +112,7 @@ class _SearchScreenState extends State<SearchScreen> {
     ItemModel('الأجهزة الكهربائية',
         (context) => navigateTo(context, const Qate3Devices())),
     ItemModel(
-        'محطات البنزين', (context) => navigateTo(context, const Qate3Benzen())),
+        'محطات البنزين', (context) => navigateTo(context, const Qate3Flight())),
     ItemModel('السجائر', (context) => navigateTo(context, const Qate3Cegar())),
   ];
 
