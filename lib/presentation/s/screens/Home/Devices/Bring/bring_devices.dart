@@ -19,14 +19,14 @@ class BringDevices extends StatelessWidget {
       imagePath6: 'assets/Devices/Bring/6.jpg',
       imagePath7: 'assets/Devices/Bring/7.jpg',
       imagePath8: 'assets/Devices/Bring/8.jpg',
-      title1: '',
-      title2: ' ',
-      title3: '',
-      title4: '',
-      title5: ' ',
-      title6: '  ',
-      title7: '  ',
-      title8: '  ',
+      title1: 'إل جي',
+      title2: ' شاومي',
+      title3: 'سامسونج',
+      title4: 'اوليمبيك الكتريك',
+      title5: 'كريازي ',
+      title6: ' فريش ',
+      title7: ' جاك ',
+      title8: ' هايير ',
     );
   }
 }
