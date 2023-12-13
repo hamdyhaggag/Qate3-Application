@@ -4,13 +4,14 @@ import 'package:qate3_app/constants/carousel_slider.dart';
 import 'package:qate3_app/constants/colors.dart';
 import 'package:qate3_app/constants/custom_category_item.dart';
 import 'package:qate3_app/presentation/s/screens/Home/Benzen/benzen.dart';
-import 'package:qate3_app/presentation/s/screens/Home/Cegar/cegar.dart';
+import 'package:qate3_app/presentation/s/screens/Home/Cegar/bank.dart';
 import 'package:qate3_app/presentation/s/screens/Home/Cosmetic/cosmetics.dart';
 import 'package:qate3_app/presentation/s/screens/Home/Devices/devices.dart';
 import 'package:qate3_app/presentation/s/screens/Home/Drinks/drinks.dart';
 import 'package:qate3_app/presentation/s/screens/Home/Snacks/snack.dart';
 import 'package:qate3_app/presentation/s/screens/Home/cars/cars.dart';
 import 'package:qate3_app/presentation/s/screens/Home/clean/clean.dart';
+import 'package:qate3_app/presentation/s/screens/Home/clothes/clothes.dart';
 import 'package:qate3_app/presentation/s/screens/Home/flight/flight.dart';
 import 'package:qate3_app/presentation/s/screens/Home/kitchen/kitchen.dart';
 import 'package:qate3_app/presentation/s/screens/Home/personal%20cleanliness/personal.dart';
@@ -58,7 +59,7 @@ class _HomeScreenState extends State<HomeScreen> {
       CategoryItemData(
         imageUrl: 'assets/home/2.jpg',
         title: 'السناكس',
-        subtitle: 'شيبسي و شيكولاته',
+        subtitle: ' قسم السناكس',
         onTap: () => navigateTo(context, const SnacksScreeen()),
       ),
       CategoryItemData(
@@ -70,7 +71,7 @@ class _HomeScreenState extends State<HomeScreen> {
       CategoryItemData(
         imageUrl: 'assets/home/4.jpg',
         title: ' مستلزمات المطبخ',
-        subtitle: 'جبن و ألبان',
+        subtitle: 'قسم المطبخ',
         onTap: () => navigateTo(context, const KitchenScreen()),
       ),
       CategoryItemData(
@@ -91,12 +92,12 @@ class _HomeScreenState extends State<HomeScreen> {
         subtitle: 'قسم مزيل العرق ',
         onTap: () => navigateTo(context, const PersonalScreen()),
       ),
-      // CategoryItemData(
-      //   imageUrl: 'assets/home/8.jpg',
-      //   title: ' الملابس',
-      //   subtitle: 'قسم محلات الملابس',
-      //   onTap: () => navigateTo(context, const ClothesScreen()),
-      // ),
+      CategoryItemData(
+        imageUrl: 'assets/home/8.jpg',
+        title: ' الملابس',
+        subtitle: 'قسم محلات الملابس',
+        onTap: () => navigateTo(context, const ClothesScreen()),
+      ),
       CategoryItemData(
         imageUrl: 'assets/home/32.jpg',
         title: ' علامات تجارية',
@@ -123,9 +124,9 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       CategoryItemData(
         imageUrl: 'assets/home/50.jpg',
-        title: ' السجائر  ',
-        subtitle: ' مقاطعة السجائر ',
-        onTap: () => navigateTo(context, const CegarScreen()),
+        title: ' البنوك  ',
+        subtitle: ' مقاطعة البنوك ',
+        onTap: () => navigateTo(context, const BankScreen()),
       ),
       CategoryItemData(
         imageUrl: 'assets/home/51.jpg',

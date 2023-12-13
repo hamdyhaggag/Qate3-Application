@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import '../../../../../../constants/bring_model.dart';
 
-class BringFlight extends StatelessWidget {
-  const BringFlight({super.key});
+class BringBenzen extends StatelessWidget {
+  const BringBenzen({super.key});
 
   @override
   Widget build(BuildContext context) {

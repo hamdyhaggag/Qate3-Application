@@ -2,8 +2,8 @@ import 'package:flutter/cupertino.dart';
 
 import '../../../../../../constants/qate3_model.dart';
 
-class Qate3Benzen extends StatelessWidget {
-  const Qate3Benzen({super.key});
+class Qate3Flight extends StatelessWidget {
+  const Qate3Flight({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +11,7 @@ class Qate3Benzen extends StatelessWidget {
       itemCountCallback: (index) {
         return 25;
       },
-      barTitle: ' محطات البنزين المقاطعة',
+      barTitle: ' الطيران المقاطعة',
       imagePath1: 'assets/Devices/Qate3/1.jpg',
       imagePath2: 'assets/Devices/Qate3/2.jpg',
       imagePath3: 'assets/Devices/Qate3/3.jpg',

@@ -62,8 +62,8 @@ flutter:
     - assets/Devices/Qate3/
     - assets/Benzen/Bring/
     - assets/Benzen/Qate3/
-    - assets/Cegar/Bring/
-    - assets/Cegar/Qate3/
+    - assets/Bank/Bring/
+    - assets/Bank/Qate3/
     - assets/flight/Bring/
     - assets/flight/Qate3/
     - assets/clean/Bring/
@@ -80,6 +80,8 @@ flutter:
     - assets/cosmetic/Qate3/
     - assets/restaurent/Bring/
     - assets/restaurent/Qate3/
+    - assets/clothes/Bring/
+    - assets/clothes/Qate3/
 
   fonts:
     - family: Cairo

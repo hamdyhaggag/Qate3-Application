@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import '../../../../../../constants/bring_model.dart';
 
-class BringCegar extends StatelessWidget {
-  const BringCegar({super.key});
+class BringBank extends StatelessWidget {
+  const BringBank({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -10,7 +10,7 @@ class BringCegar extends StatelessWidget {
       itemCountCallback: (index) {
         return 6;
       },
-      barTitle: ' منتجات السجائر البديلة',
+      barTitle: ' منتجات البنوك البديلة',
       imagePath1: 'assets/Devices/Bring/1.jpg',
       imagePath2: 'assets/Devices/Bring/2.jpg',
       imagePath3: 'assets/Devices/Bring/3.jpg',

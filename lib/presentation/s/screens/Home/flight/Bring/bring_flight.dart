@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import '../../../../../../constants/bring_model.dart';
 
-class BringBenzen extends StatelessWidget {
-  const BringBenzen({super.key});
+class BringFlight extends StatelessWidget {
+  const BringFlight({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -10,7 +10,7 @@ class BringBenzen extends StatelessWidget {
       itemCountCallback: (index) {
         return 6;
       },
-      barTitle: ' محطات البنزين البديلة',
+      barTitle: ' الطيران البديل',
       imagePath1: 'assets/Devices/Bring/1.jpg',
       imagePath2: 'assets/Devices/Bring/2.jpg',
       imagePath3: 'assets/Devices/Bring/3.jpg',
