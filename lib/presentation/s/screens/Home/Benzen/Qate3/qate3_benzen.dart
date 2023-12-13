@@ -11,7 +11,7 @@ class Qate3Benzen extends StatelessWidget {
       itemCountCallback: (index) {
         return 9;
       },
-      barTitle: ' محطات البنزين المقاطعة',
+      barTitle: ' محطات البنزين والزيوت المقاطعة',
       imagePath1: 'assets/Benzen/Qate3/1.jpg',
       imagePath2: 'assets/Benzen/Qate3/2.jpg',
       imagePath3: 'assets/Benzen/Qate3/3.jpg',
