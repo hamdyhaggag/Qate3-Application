@@ -8,21 +8,19 @@ class BringBank extends StatelessWidget {
   Widget build(BuildContext context) {
     return BringModel(
       itemCountCallback: (index) {
-        return 6;
+        return 5;
       },
       barTitle: ' منتجات البنوك البديلة',
-      imagePath1: 'assets/Devices/Bring/1.jpg',
-      imagePath2: 'assets/Devices/Bring/2.jpg',
-      imagePath3: 'assets/Devices/Bring/3.jpg',
-      imagePath4: 'assets/Devices/Bring/4.jpg',
-      imagePath5: 'assets/Devices/Bring/5.jpg',
-      imagePath6: 'assets/Devices/Bring/6.jpg',
-      title1: 'بي واي دي',
-      title2: 'إم جي ',
-      title3: 'جيلي',
-      title4: 'لادا',
-      title5: 'بروتون ',
-      title6: ' سانج يونج',
+      imagePath1: 'assets/Bank/Bring/1.jpg',
+      imagePath2: 'assets/Bank/Bring/2.jpg',
+      imagePath3: 'assets/Bank/Bring/3.jpg',
+      imagePath4: 'assets/Bank/Bring/4.jpg',
+      imagePath5: 'assets/Bank/Bring/5.jpg',
+      title1: ' البنك الأهلي ',
+      title2: ' بنك مصر ',
+      title3: 'بنك القاهرة',
+      title4: 'بنك الإسكندرية',
+      title5: ' بنك قطر ',
     );
   }
 }

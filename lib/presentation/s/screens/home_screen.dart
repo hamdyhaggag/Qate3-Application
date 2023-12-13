@@ -130,7 +130,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       CategoryItemData(
         imageUrl: 'assets/home/51.jpg',
-        title: ' الطيران  ',
+        title: ' رحلات الطيران  ',
         subtitle: ' مقاطعة الطيران ',
         onTap: () => navigateTo(context, const FlightScreen()),
       ),
