@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:qate3_app/presentation/s/screens/Home/Benzen/Qate3/qate3_benzen.dart';
 import 'package:qate3_app/presentation/s/screens/Home/Cegar/Qate3/qate3_bank.dart';
 import 'package:qate3_app/presentation/s/screens/Home/Devices/Qate3/qate3_devices.dart';
 import 'package:qate3_app/presentation/s/screens/Home/Drinks/Qate3/qate3_coffee.dart';
@@ -16,6 +17,7 @@ import 'package:qate3_app/presentation/s/screens/Home/Snacks/Qate3/qate3_zbady.d
 import 'package:qate3_app/presentation/s/screens/Home/cars/Qate3/qate3_cars.dart';
 import 'package:qate3_app/presentation/s/screens/Home/clean/Qate3/qate3_clean.dart';
 import 'package:qate3_app/presentation/s/screens/Home/clothes/Qate3/qate3_clothes.dart';
+import 'package:qate3_app/presentation/s/screens/Home/flight/Qate3/qate3_flight.dart';
 import 'package:qate3_app/presentation/s/screens/Home/kitchen/Qate3/qate3_boharat.dart';
 import 'package:qate3_app/presentation/s/screens/Home/kitchen/Qate3/qate3_gebna.dart';
 import 'package:qate3_app/presentation/s/screens/Home/personal%20cleanliness/Qate3/qate3_perfium.dart';
@@ -111,10 +113,12 @@ class _SearchScreenState extends State<SearchScreen> {
     ItemModel('السيارات', (context) => navigateTo(context, const Qate3Cars())),
     ItemModel('الأجهزة الكهربائية',
         (context) => navigateTo(context, const Qate3Devices())),
-    ItemModel(
-        'محطات البنزين', (context) => navigateTo(context, const Qate3Bank())),
+    ItemModel('البنوك', (context) => navigateTo(context, const Qate3Bank())),
     ItemModel(
         'الملابس', (context) => navigateTo(context, const Qate3Clothes())),
+    ItemModel('الطيران', (context) => navigateTo(context, const Qate3Flight())),
+    ItemModel(
+        'محطات البنزين', (context) => navigateTo(context, const Qate3Benzen())),
   ];
 
   List<ItemModel> filteredItems = [];
