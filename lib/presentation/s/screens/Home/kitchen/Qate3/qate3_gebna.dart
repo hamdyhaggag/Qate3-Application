@@ -9,7 +9,7 @@ class Qate3Gebna extends StatelessWidget {
   Widget build(BuildContext context) {
     return Qate3Model(
       itemCountCallback: (index) {
-        return 6;
+        return 7;
       },
       barTitle: ' منتجات الجبن المقاطعة',
       imagePath1: 'assets/kitchen/Qate3/g1.jpg',
@@ -18,12 +18,14 @@ class Qate3Gebna extends StatelessWidget {
       imagePath4: 'assets/kitchen/Qate3/g4.jpg',
       imagePath5: 'assets/kitchen/Qate3/g5.jpg',
       imagePath6: 'assets/kitchen/Qate3/g6.jpg',
+      imagePath7: 'assets/kitchen/Qate3/g7.jpg',
       title1: 'لافاشكري',
       title2: ' كيري',
       title3: 'أبو الولد ',
       title4: ' بريزيدن',
       title5: ' فيلادلفيا',
       title6: ' كرافت',
+      title7: ' طعمه',
     );
   }
 }

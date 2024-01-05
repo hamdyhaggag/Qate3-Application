@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:qate3_app/constants/carousel_slider.dart';
 import 'package:qate3_app/constants/colors.dart';
 import 'package:qate3_app/constants/custom_category_item.dart';
+import 'package:qate3_app/presentation/s/screens/Home/Banks/bank.dart';
 import 'package:qate3_app/presentation/s/screens/Home/Benzen/benzen.dart';
-import 'package:qate3_app/presentation/s/screens/Home/Cegar/bank.dart';
 import 'package:qate3_app/presentation/s/screens/Home/Cosmetic/cosmetics.dart';
 import 'package:qate3_app/presentation/s/screens/Home/Devices/devices.dart';
 import 'package:qate3_app/presentation/s/screens/Home/Drinks/drinks.dart';
@@ -17,7 +17,6 @@ import 'package:qate3_app/presentation/s/screens/Home/kitchen/kitchen.dart';
 import 'package:qate3_app/presentation/s/screens/Home/personal%20cleanliness/personal.dart';
 import 'package:qate3_app/presentation/s/screens/Home/restaurent/restaurent.dart';
 import 'package:qate3_app/presentation/s/screens/brand.dart';
-import 'package:qate3_app/presentation/s/screens/scanner.dart';
 import 'package:qate3_app/presentation/s/widgets.dart';
 import '../../../constants/custom_appbar.dart';
 
@@ -58,7 +57,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       CategoryItemData(
         imageUrl: 'assets/home/2.jpg',
-        title: 'السناكس',
+        title: 'سناكس',
         subtitle: ' قسم السناكس',
         onTap: () => navigateTo(context, const SnacksScreeen()),
       ),
@@ -82,7 +81,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       CategoryItemData(
         imageUrl: 'assets/home/6.jpg',
-        title: ' منتجات التجميل',
+        title: ' مستحضرات التجميل',
         subtitle: 'قسم الكوزماتيكس',
         onTap: () => navigateTo(context, const CosmeticsScreen()),
       ),
@@ -133,12 +132,6 @@ class _HomeScreenState extends State<HomeScreen> {
         title: ' رحلات الطيران  ',
         subtitle: ' مقاطعة الطيران ',
         onTap: () => navigateTo(context, const FlightScreen()),
-      ),
-      CategoryItemData(
-        imageUrl: 'assets/home/30.jpg',
-        title: ' سكانر',
-        subtitle: 'ماسح ضوئي للمنتجات ',
-        onTap: () => navigateTo(context, const ScannerPage()),
       ),
     ];
     return Scaffold(

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:qate3_app/presentation/s/screens/Home/Cegar/Bring/bring_bank.dart';
-import 'package:qate3_app/presentation/s/screens/Home/Cegar/Qate3/qate3_bank.dart';
+import 'package:qate3_app/presentation/s/screens/Home/Banks/Bring/bring_bank.dart';
+import 'package:qate3_app/presentation/s/screens/Home/Banks/Qate3/qate3_bank.dart';
 import 'package:qate3_app/presentation/s/screens/custom_choise.dart';
 
 class BankScreen extends StatelessWidget {

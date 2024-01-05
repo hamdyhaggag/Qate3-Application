@@ -9,7 +9,7 @@ class BringCosmetics extends StatelessWidget {
   Widget build(BuildContext context) {
     return BringModel(
       itemCountCallback: (index) {
-        return 18;
+        return 19;
       },
       barTitle: '  منتجات التجميل البديلة',
       imagePath1: 'assets/cosmetic/Bring/1.jpg',
@@ -30,6 +30,7 @@ class BringCosmetics extends StatelessWidget {
       imagePath16: 'assets/cosmetic/Bring/16.jpg',
       imagePath17: 'assets/cosmetic/Bring/17.jpg',
       imagePath18: 'assets/cosmetic/Bring/18.jpg',
+      imagePath19: 'assets/cosmetic/Bring/19.jpg',
       title1: 'أزها وايتنينج',
       title2: 'أرجان أويل',
       title3: 'أفون كير',
@@ -48,6 +49,7 @@ class BringCosmetics extends StatelessWidget {
       title16: ' بايوديرما',
       title17: ' فارم ستاي',
       title18: 'إيفا',
+      title19: 'شان جيل',
     );
   }
 }

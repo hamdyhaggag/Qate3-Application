@@ -42,6 +42,8 @@ class BringModel extends StatelessWidget {
     this.imagePath17 = '',
     this.title18 = '',
     this.imagePath18 = '',
+    this.title19 = '',
+    this.imagePath19 = '',
   }) : super(key: key);
 
   final String barTitle;
@@ -82,6 +84,8 @@ class BringModel extends StatelessWidget {
   final String imagePath17;
   final String title18;
   final String imagePath18;
+  final String title19;
+  final String imagePath19;
 
   @override
   Widget build(BuildContext context) {
