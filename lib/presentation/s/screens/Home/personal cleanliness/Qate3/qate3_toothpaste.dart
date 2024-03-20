@@ -8,7 +8,7 @@ class Qate3Toothpaste extends StatelessWidget {
   Widget build(BuildContext context) {
     return Qate3Model(
       itemCountCallback: (index) {
-        return 6;
+        return 7;
       },
       barTitle: ' منتجات العناية بالفم المقاطعة',
       imagePath1: 'assets/personal/Qate3/t1.jpg',
@@ -17,12 +17,15 @@ class Qate3Toothpaste extends StatelessWidget {
       imagePath4: 'assets/personal/Qate3/t4.jpg',
       imagePath5: 'assets/personal/Qate3/t5.jpg',
       imagePath6: 'assets/personal/Qate3/t6.jpg',
+      imagePath7: 'assets/personal/Qate3/t7.jpg',
       title1: 'كولجيت',
       title2: 'سيجنال',
       title3: 'أورال بي',
       title4: 'كريست',
       title5: 'سنسوداين',
       title6: 'كلوز اب',
+      title7: 'مسواك',
+
     );
   }
 }

@@ -9,7 +9,7 @@ class BringBescauit extends StatelessWidget {
   Widget build(BuildContext context) {
     return BringModel(
       itemCountCallback: (index) {
-        return 8;
+        return 9;
       },
       barTitle: 'منتجات البسكويت البديلة',
       imagePath1: 'assets/Snacks/Bring/b1.jpg',
@@ -20,6 +20,7 @@ class BringBescauit extends StatelessWidget {
       imagePath6: 'assets/Snacks/Bring/b6.jpg',
       imagePath7: 'assets/Snacks/Bring/b7.jpg',
       imagePath8: 'assets/Snacks/Bring/b8.jpg',
+      imagePath9: 'assets/Snacks/Bring/b9.jpg',
       title1: ' دروو',
       title2: 'بسكاتو شاتو',
       title3: 'الشمعدان',
@@ -28,6 +29,7 @@ class BringBescauit extends StatelessWidget {
       title6: 'دومتي ساندوتش',
       title7: 'سوفت كرواسون',
       title8: 'برانش كرواسون',
+      title9: 'ماجيك',
     );
   }
 }

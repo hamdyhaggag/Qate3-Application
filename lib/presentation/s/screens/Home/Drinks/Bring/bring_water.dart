@@ -8,7 +8,7 @@ class BringWater extends StatelessWidget {
   Widget build(BuildContext context) {
     return BringModel(
       itemCountCallback: (index) {
-        return 9;
+        return 10;
       },
       barTitle: ' منتجات المياة البديلة',
       imagePath1: 'assets/Drinks/Bring/w1.jpg',
@@ -20,6 +20,7 @@ class BringWater extends StatelessWidget {
       imagePath7: 'assets/Drinks/Bring/w7.jpg',
       imagePath8: 'assets/Drinks/Bring/w8.jpg',
       imagePath9: 'assets/Drinks/Bring/w9.jpg',
+      imagePath10: 'assets/Drinks/Bring/w10.jpg',
       title1: 'إيلانو',
       title2: ' أكوا دلتا',
       title3: 'بوفانا',
@@ -29,6 +30,7 @@ class BringWater extends StatelessWidget {
       title7: ' سيوة',
       title8: 'صافي',
       title9: 'حياة',
+      title10: 'إيفورا',
     );
   }
 }

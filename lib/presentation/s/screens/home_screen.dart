@@ -8,6 +8,7 @@ import 'package:qate3_app/presentation/s/screens/Home/Benzen/benzen.dart';
 import 'package:qate3_app/presentation/s/screens/Home/Cosmetic/cosmetics.dart';
 import 'package:qate3_app/presentation/s/screens/Home/Devices/devices.dart';
 import 'package:qate3_app/presentation/s/screens/Home/Drinks/drinks.dart';
+import 'package:qate3_app/presentation/s/screens/Home/Medicine/medicine.dart';
 import 'package:qate3_app/presentation/s/screens/Home/Snacks/snack.dart';
 import 'package:qate3_app/presentation/s/screens/Home/cars/cars.dart';
 import 'package:qate3_app/presentation/s/screens/Home/clean/clean.dart';
@@ -80,6 +81,11 @@ class _HomeScreenState extends State<HomeScreen> {
         onTap: () => navigateTo(context, const CleanScreen()),
       ),
       CategoryItemData(
+        imageUrl: 'assets/home/52.jpg',
+        title: '  شركات الأدوية',
+        subtitle: 'قسم الأدوية',
+        onTap: () => navigateTo(context, const MedicineScreen()),
+      ), CategoryItemData(
         imageUrl: 'assets/home/6.jpg',
         title: ' مستحضرات التجميل',
         subtitle: 'قسم الكوزماتيكس',
