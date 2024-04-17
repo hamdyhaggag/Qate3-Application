@@ -9,7 +9,7 @@ class BringChipsy extends StatelessWidget {
   Widget build(BuildContext context) {
     return BringModel(
       itemCountCallback: (index) {
-        return 18;
+        return 22;
       },
       barTitle: 'منتجات الشيبسي البديلة',
       imagePath1: 'assets/Snacks/Bring/chi1.jpg',
@@ -30,6 +30,10 @@ class BringChipsy extends StatelessWidget {
       imagePath16: 'assets/Snacks/Bring/chi16.jpg',
       imagePath17: 'assets/Snacks/Bring/chi17.jpg',
       imagePath18: 'assets/Snacks/Bring/chi18.jpg',
+      imagePath19: 'assets/Snacks/Bring/chi19.jpg',
+      imagePath20: 'assets/Snacks/Bring/chi20.jpg',
+      imagePath21: 'assets/Snacks/Bring/chi21.jpg',
+      imagePath22: 'assets/Snacks/Bring/chi22.jpg',
       title1: ' فلامنكو',
       title2: ' فوكس',
       title3: 'مصراوي',
@@ -48,6 +52,10 @@ class BringChipsy extends StatelessWidget {
       title16: ' ليالينا',
       title17: ' رو',
       title18: ' تايجر',
+      title19: ' اكسترانو',
+      title20: ' نايس',
+      title21: ' سول',
+      title22: 'مانشي ',
     );
   }
 }

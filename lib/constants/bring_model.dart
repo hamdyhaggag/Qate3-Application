@@ -44,6 +44,14 @@ class BringModel extends StatelessWidget {
     this.imagePath18 = '',
     this.title19 = '',
     this.imagePath19 = '',
+    this.title20 = '',
+    this.imagePath20 = '',
+    this.title21 = '',
+    this.imagePath21 = '',
+    this.title22 = '',
+    this.imagePath22 = '',
+    this.title23= '',
+    this.imagePath23 = '',
   }) : super(key: key);
 
   final String barTitle;
@@ -86,6 +94,14 @@ class BringModel extends StatelessWidget {
   final String imagePath18;
   final String title19;
   final String imagePath19;
+  final String title20;
+  final String imagePath20;
+  final String title21;
+  final String imagePath21;
+  final String title22;
+  final String imagePath22;
+  final String title23;
+  final String imagePath23;
 
   @override
   Widget build(BuildContext context) {
@@ -150,6 +166,16 @@ class BringModel extends StatelessWidget {
         return ChoiceModel(imagePath17, title17);
       case 17:
         return ChoiceModel(imagePath18, title18);
+      case 18:
+        return ChoiceModel(imagePath19, title19);
+      case 19:
+        return ChoiceModel(imagePath20, title20);
+      case 20:
+        return ChoiceModel(imagePath21, title21);
+      case 21:
+        return ChoiceModel(imagePath22, title22);
+      case 22:
+        return ChoiceModel(imagePath23, title23);
       default:
         return ChoiceModel('assets/images/greencircle.svg', 'Default');
     }

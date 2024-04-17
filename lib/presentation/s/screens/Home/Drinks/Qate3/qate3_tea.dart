@@ -8,13 +8,15 @@ class Qate3Tea extends StatelessWidget {
   Widget build(BuildContext context) {
     return Qate3Model(
       itemCountCallback: (index) {
-        return 2;
+        return 3;
       },
       barTitle: ' منتجات الشاي المقاطعة',
-      imagePath1: 'assets/home/14.jpg',
+      imagePath1: 'assets/Drinks/Qate3/t1.jpg',
       imagePath2: 'assets/Drinks/Qate3/t2.jpg',
+      imagePath3: 'assets/Drinks/Qate3/t3.jpg',
       title1: ' ليبتون',
       title2: 'أحمد تي',
+      title3: ' تويننجز',
     );
   }
 }

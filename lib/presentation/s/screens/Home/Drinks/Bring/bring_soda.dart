@@ -9,7 +9,7 @@ class BringSoda extends StatelessWidget {
   Widget build(BuildContext context) {
     return BringModel(
       itemCountCallback: (index) {
-        return 12;
+        return 13;
       },
       barTitle: ' المشروبات الغازية البديلة',
       imagePath1: 'assets/Drinks/Bring/s1.jpg',
@@ -24,6 +24,7 @@ class BringSoda extends StatelessWidget {
       imagePath10: 'assets/Drinks/Bring/s10.jpg',
       imagePath11: 'assets/Drinks/Bring/s11.jpg',
       imagePath12: 'assets/Drinks/Bring/s12.jpg',
+      imagePath13: 'assets/Drinks/Bring/s13.jpg',
       title1: 'سينا كولا',
       title2: 'بيج كولا',
       title3: 'فري جو',
@@ -36,6 +37,7 @@ class BringSoda extends StatelessWidget {
       title10: 'جرين كولا',
       title11: ' فريز',
       title12: ' يو جو',
+      title13: ' ماكسي',
     );
   }
 }

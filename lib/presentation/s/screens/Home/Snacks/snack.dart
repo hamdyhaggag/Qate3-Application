@@ -5,8 +5,10 @@ import 'package:qate3_app/presentation/s/screens/Home/Snacks/Bring/bring_bescaui
 import 'package:qate3_app/presentation/s/screens/Home/Snacks/Bring/bring_chipsy.dart';
 import 'package:qate3_app/presentation/s/screens/Home/Snacks/Bring/bring_chocolate.dart';
 import 'package:qate3_app/presentation/s/screens/Home/Snacks/Bring/bring_icecream.dart';
+import 'package:qate3_app/presentation/s/screens/Home/Snacks/Bring/bring_indomi.dart';
 import 'package:qate3_app/presentation/s/screens/Home/Snacks/Bring/bring_lban.dart';
 import 'package:qate3_app/presentation/s/screens/Home/Snacks/Bring/bring_zbady.dart';
+import 'package:qate3_app/presentation/s/screens/Home/Snacks/Qate3/Qate3_indomi.dart';
 import 'package:qate3_app/presentation/s/screens/Home/Snacks/Qate3/qate3_bescauit.dart';
 import 'package:qate3_app/presentation/s/screens/Home/Snacks/Qate3/qate3_chipsy.dart';
 import 'package:qate3_app/presentation/s/screens/Home/Snacks/Qate3/qate3_chocolate.dart';
@@ -45,6 +47,16 @@ class SnacksScreeen extends StatelessWidget {
             )),
       ),
       CategoryItemData(
+        imageUrl: 'assets/home/53.jpg',
+        title: 'نودلز',
+        onTap: () => navigateTo(
+            context,
+            const CustomChoice(
+              title: 'إندومي',
+              screen1: Qate3Indomi(),
+              screen2: BringIndomi(),
+            )),
+      ),CategoryItemData(
         imageUrl: 'assets/home/17.jpg',
         title: 'شيكولاته',
         onTap: () => navigateTo(

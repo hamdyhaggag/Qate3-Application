@@ -8,7 +8,7 @@ class BringJuice extends StatelessWidget {
   Widget build(BuildContext context) {
     return BringModel(
       itemCountCallback: (index) {
-        return 5;
+        return 6;
       },
       barTitle: ' منتجات العصير البديلة',
       imagePath1: 'assets/Drinks/Bring/j1.jpg',
@@ -16,11 +16,14 @@ class BringJuice extends StatelessWidget {
       imagePath3: 'assets/Drinks/Bring/j3.jpg',
       imagePath4: 'assets/Drinks/Bring/j4.jpg',
       imagePath5: 'assets/Drinks/Bring/j5.jpg',
+      imagePath6: 'assets/Drinks/Bring/j6.jpg',
       title1: 'بست',
       title2: ' فروتي',
       title3: ' عصير دينا ',
       title4: '  عصير أجا ',
       title5: 'عصير جهينة',
+      title6: 'سن توب ',
+
     );
   }
 }

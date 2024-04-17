@@ -81,27 +81,27 @@ class _SplashScreenState extends State<SplashScreen>
                           width: screenSize.width * 0.9,
                         ),
                       ),
-                      Positioned(
-                        bottom: screenSize.height * 0.090,
-                        child: AnimatedBuilder(
-                          animation: _animation,
-                          builder: (context, child) {
-                            return Opacity(
-                              opacity: _animation.value,
-                              child: child,
-                            );
-                          },
-                          child: Text(
-                            "مـــن أجـــل فــلــســطــيــن",
-                            style: TextStyle(
-                              fontSize: screenSize.width * 0.04,
-                              color: const Color(0xff007a3c),
-                              fontWeight: FontWeight.bold,
-                              fontFamily: 'Cairo',
-                            ),
-                          ),
-                        ),
-                      ),
+                      // Positioned(
+                      //   bottom: screenSize.height * 0.090,
+                      //   child: AnimatedBuilder(
+                      //     animation: _animation,
+                      //     builder: (context, child) {
+                      //       return Opacity(
+                      //         opacity: _animation.value,
+                      //         child: child,
+                      //       );
+                      //     },
+                      //     child: Text(
+                      //       "مـــن أجـــل فــلــســطــيــن",
+                      //       style: TextStyle(
+                      //         fontSize: screenSize.width * 0.04,
+                      //         color: const Color(0xff007a3c),
+                      //         fontWeight: FontWeight.bold,
+                      //         fontFamily: 'Cairo',
+                      //       ),
+                      //     ),
+                      //   ),
+                      // ),
                     ],
                   ),
                 ],
