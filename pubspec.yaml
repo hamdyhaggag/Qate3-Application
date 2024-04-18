@@ -85,6 +85,8 @@ flutter:
     - assets/clothes/Qate3/
     - assets/Medicine/Bring/
     - assets/Medicine/Qate3/
+    - assets/Children/Bring/
+    - assets/Children/Qate3/
   fonts:
     - family: Cairo
       fonts:

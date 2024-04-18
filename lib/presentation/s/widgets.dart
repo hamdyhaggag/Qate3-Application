@@ -138,6 +138,16 @@ void sendEmail() async {
 }
 
 //////////////////////
+void openFormLink() async {
+  const String formLink = 'https://6m0oi2hw.forms.app/ttbyk-ktaa-llktrht-o-lmshkl-o-ltkyym';
+
+  try {
+    await launch(formLink);
+  } catch (e) {
+    print('Error launching form link: $e');
+  }
+}
+//////////////////////
 contactDev(context) {
   showDialog(
     context: context,

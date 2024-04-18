@@ -112,7 +112,7 @@ class SettingsScreen extends StatelessWidget {
                     ),
                     SettingsItem(
                       onTap: () {
-                        sendEmail();
+                        openFormLink();
                       },
                       icons: FontAwesomeIcons.solidEnvelope,
                       iconStyle: IconStyle(

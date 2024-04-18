@@ -67,6 +67,8 @@ class CreativeDialog extends StatelessWidget {
           onPressed: () {
             Navigator.of(context).pop();
             _vibrateFeedback();
+            _showWhatsNewDialog(context);
+
           },
           child: const Text(
             'حسناً',
@@ -80,6 +82,67 @@ class CreativeDialog extends StatelessWidget {
     );
   }
 }
+void _showWhatsNewDialog(BuildContext context) {
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return AlertDialog(
+        title: const Center(
+          child: Directionality(
+            textDirection: TextDirection.rtl,
+            child: Text(
+              'ما الجديد في هذا الإصدار ؟',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+        ),
+        content: SingleChildScrollView(
+          child: ListBody(
+            children: [
+              const Directionality(
+                textDirection: TextDirection.rtl,
+                child: Text(
+                  '''
+● تم إضافة قسم جديد لمستلزمات الأطفال و يشمل :
+                - الحفاضات
+                - الحليب
+                - الزيوت و الشامبو
+                - الكورن فليكس
+● تم إضافة قسم جديد للأدوية .
+● تم إضافةالعديد من المنتجات المختلفة في جميع الأقسام .
+● تم إضافة طريقة جديدة للتواصل معنا بشكل أسهل و أسرع .
+  ''',
+
+                  style: TextStyle(
+                    color: Colors.black,
+                  ),
+                ),
+              ),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.01),
+            ],
+          ),
+        ),
+        actions: <Widget>[
+          TextButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+            child: const Text(
+              'حسناً',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                color: Colors.red,
+              ),
+            ),
+          ),
+        ],
+      );
+    },
+  );
+}
+
 
 class ScreenLayout extends StatefulWidget {
   final int selectedIndex;
