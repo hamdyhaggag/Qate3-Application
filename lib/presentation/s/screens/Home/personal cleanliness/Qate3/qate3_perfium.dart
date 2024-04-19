@@ -9,9 +9,9 @@ class Qate3Perfium extends StatelessWidget {
   Widget build(BuildContext context) {
     return Qate3Model(
       itemCountCallback: (index) {
-        return 8;
+        return 10;
       },
-      barTitle: ' منتجات البرفيوم المقاطعة',
+      barTitle: ' منتجات البرفيوم و اللوشن  المقاطعة',
       imagePath1: 'assets/personal/Qate3/p1.jpg',
       imagePath2: 'assets/personal/Qate3/p2.jpg',
       imagePath3: 'assets/personal/Qate3/p3.jpg',
@@ -20,6 +20,8 @@ class Qate3Perfium extends StatelessWidget {
       imagePath6: 'assets/personal/Qate3/p6.jpg',
       imagePath7: 'assets/personal/Qate3/p7.jpg',
       imagePath8: 'assets/personal/Qate3/p8.jpg',
+      imagePath9: 'assets/cosmetic/Qate3/8.jpg',
+      imagePath10: 'assets/personal/Qate3/l1.jpg',
       title1: 'لايف إز',
       title2: 'بلوم',
       title3: 'فيتشي',
@@ -28,6 +30,8 @@ class Qate3Perfium extends StatelessWidget {
       title6: 'إنديان نايت',
       title7: 'لافي إيست بيل',
       title8: 'سوفاج',
+      title9: 'باث أند بودي',
+      title10: 'فيكتوريا سيكريت',
     );
   }
 }

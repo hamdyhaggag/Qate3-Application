@@ -9,7 +9,7 @@ class Qate3Chocolate extends StatelessWidget {
   Widget build(BuildContext context) {
     return Qate3Model(
       itemCountCallback: (index) {
-        return 15;
+        return 16;
       },
       barTitle: ' منتجات الشيكولاته المقاطعة',
       imagePath1: 'assets/Snacks/Qate3/cho1.jpg',
@@ -27,6 +27,7 @@ class Qate3Chocolate extends StatelessWidget {
       imagePath13: 'assets/Snacks/Qate3/cho13.jpg',
       imagePath14: 'assets/Snacks/Qate3/cho14.jpg',
       imagePath15: 'assets/Snacks/Qate3/cho15.jpg',
+      imagePath16: 'assets/kitchen/Qate3/n1.jpg',
 
       title1: 'باليستو',
       title2: 'مارز',
@@ -43,6 +44,7 @@ class Qate3Chocolate extends StatelessWidget {
       title13: 'جالاكسي',
       title14: 'مورو',
       title15: 'كيندر',
+      title16: 'نوتيلا',
 
     );
   }

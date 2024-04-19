@@ -41,11 +41,11 @@ class PersonalScreen extends StatelessWidget {
       ),
       CategoryItemData(
         imageUrl: 'assets/home/28.jpg',
-        title: 'البرفيوم',
+        title: ' البرفيوم و اللوشن',
         onTap: () => navigateTo(
             context,
             const CustomChoice(
-              title: 'البرفيوم',
+              title: 'البرفيوم و اللوشن',
               screen1: Qate3Perfium(),
               screen2: BringPerfium(),
             )),

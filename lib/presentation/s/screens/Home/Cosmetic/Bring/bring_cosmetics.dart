@@ -48,7 +48,7 @@ class BringCosmetics extends StatelessWidget {
       title15: ' شيجلام',
       title16: ' بايوديرما',
       title17: ' فارم ستاي',
-      title18: 'إيفا',
+      title18: 'منتجات أرجينتو',
       title19: 'شان جيل',
     );
   }
