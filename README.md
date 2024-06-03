@@ -17,7 +17,7 @@ The app is updated regularly to ensure accurate and up-to-date information
 *Awarness Screen*
 
 
-*Searsh Screen*
+*Search Screen*
 
 
 *Settings Screen*
