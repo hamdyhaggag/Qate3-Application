@@ -43,45 +43,6 @@ class ContributeScreen extends StatelessWidget {
                   ),
                   const TextSpan(
                     text: '''
-                  
-                    
-المهندس طارق بدر :
-نعبر عن امتناننا العميق لمساهمتك في توعية المستخدمين بأسباب المقاطعة ، تميزت مشاركاتك بالعمق والتفصيل .
-''',
-                  ),
-                  TextSpan(
-                    text: 'twitter',
-                    style: const TextStyle(
-                      color: Colors.red,
-                      decoration: TextDecoration.underline,
-                    ),
-                    recognizer: TapGestureRecognizer()
-                      ..onTap = () {
-                        _launchURL('https://twitter.com/tarekbadrsh');
-                      },
-                  ),
-                  const TextSpan(
-                    text: '''
-                    
-                    
-صفحة مقاطعة المنتجات :
-شكرًا لكم على توفير المعلومات الموجودة في المنشورات  حول المنتجات المقاطعة وتقديم بدائل مستدامة ، جهودكم تعزز مسيرتنا نحو التحرر الاقتصادي .
-''',
-                  ),
-                  TextSpan(
-                    text: 'facebook',
-                    style: const TextStyle(
-                      color: Colors.red,
-                      decoration: TextDecoration.underline,
-                    ),
-                    recognizer: TapGestureRecognizer()
-                      ..onTap = () {
-                        _launchURL(
-                            'https://facebook.com/profile.php/?id=100064604547305');
-                      },
-                  ),
-                  const TextSpan(
-                    text: '''
                 
                     
 وسام مصطفى :

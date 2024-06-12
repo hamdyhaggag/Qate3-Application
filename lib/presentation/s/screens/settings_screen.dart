@@ -162,7 +162,7 @@ class SettingsScreen extends StatelessWidget {
                       onTap: () {
                         navigateTo(context, const ContributeScreen());
                       },
-                      icons: FontAwesomeIcons.peopleGroup,
+                      icons: FontAwesomeIcons.layerGroup,
                       iconStyle: IconStyle(
                         backgroundColor: Colors.red,
                       ),
@@ -198,11 +198,12 @@ class SettingsScreen extends StatelessWidget {
         ));
   }
 
-  void _launchURL(String url) async {
-    if (await url_launcher.canLaunch(url)) {
-      await url_launcher.launch(url);
+  void _launchURL(String urlString) async {
+    Uri url = Uri.parse(urlString);
+    if (await url_launcher.canLaunchUrl(url)) {
+      await url_launcher.launchUrl(url);
     } else {
-      throw 'Could not launch $url';
+      throw 'Could not launch $urlString';
     }
   }
 }
