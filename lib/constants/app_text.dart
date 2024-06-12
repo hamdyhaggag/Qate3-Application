@@ -17,7 +17,7 @@ class AppText extends StatelessWidget {
   AppText(
     this.text, {
     this.fontSize = 14,
-    this.color = Colors.black, // Provide a default color
+    this.color = Colors.black,
     this.fontWeight = FontWeight.w100,
     this.align = TextAlign.start,
     this.textDirection = TextDirection.rtl,

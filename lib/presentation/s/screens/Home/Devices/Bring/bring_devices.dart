@@ -8,7 +8,7 @@ class BringDevices extends StatelessWidget {
   Widget build(BuildContext context) {
     return BringModel(
       itemCountCallback: (index) {
-        return 8;
+        return 11;
       },
       barTitle: ' منتجات الأجهزة البديلة',
       imagePath1: 'assets/Devices/Bring/1.jpg',
@@ -19,14 +19,20 @@ class BringDevices extends StatelessWidget {
       imagePath6: 'assets/Devices/Bring/6.jpg',
       imagePath7: 'assets/Devices/Bring/7.jpg',
       imagePath8: 'assets/Devices/Bring/8.jpg',
-      title1: 'إل جي',
-      title2: ' شاومي',
-      title3: 'سامسونج',
-      title4: 'اوليمبيك الكتريك',
-      title5: 'كريازي ',
-      title6: ' فريش ',
-      title7: ' جاك ',
-      title8: ' هايير ',
+      imagePath9: 'assets/Devices/Bring/9.jpg',
+      imagePath10: 'assets/Devices/Bring/10.jpg',
+      imagePath11: 'assets/Devices/Bring/11.jpg',
+      title1: 'تورنادو',
+      title2: ' توشيبا',
+      title3: 'شارب',
+      title4: 'إل جي',
+      title5: ' شاومي',
+      title6: 'سامسونج',
+      title7: 'اوليمبيك الكتريك',
+      title8: 'كريازي ',
+      title9: ' فريش ',
+      title10: ' جاك ',
+      title11: ' هايير ',
     );
   }
 }

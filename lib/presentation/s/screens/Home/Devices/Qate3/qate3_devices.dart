@@ -9,7 +9,7 @@ class Qate3Devices extends StatelessWidget {
   Widget build(BuildContext context) {
     return Qate3Model(
       itemCountCallback: (index) {
-        return 16;
+        return 13;
       },
       barTitle: ' منتجات الأجهزة المقاطعة',
       imagePath1: 'assets/Devices/Qate3/1.jpg',
@@ -25,25 +25,19 @@ class Qate3Devices extends StatelessWidget {
       imagePath11: 'assets/Devices/Qate3/11.jpg',
       imagePath12: 'assets/Devices/Qate3/12.jpg',
       imagePath13: 'assets/Devices/Qate3/13.jpg',
-      imagePath14: 'assets/Devices/Qate3/14.jpg',
-      imagePath15: 'assets/Devices/Qate3/15.jpg',
-      imagePath16: 'assets/Devices/Qate3/16.jpg',
       title1: ' جروهي ',
       title2: 'جينرال إليكتريك ',
       title3: ' براون',
-      title4: 'تورنادو',
-      title5: 'مولينكس ',
-      title6: ' فيليبس',
-      title7: ' توشيبا',
-      title8: 'شارب',
-      title9: 'زانوسي',
-      title10: 'أريستون',
-      title11: 'هيتاشي',
-      title12: ' بوش',
-      title13: 'باناسونيك  ',
-      title14: '   إيزي',
-      title15: ' ديلونجي ',
-      title16: '  بلاك اند ديكر',
+      title4: 'مولينكس ',
+      title5: ' فيليبس',
+      title6: 'زانوسي',
+      title7: 'أريستون',
+      title8: 'هيتاشي',
+      title9: ' بوش',
+      title10: 'باناسونيك  ',
+      title11: '   إيزي',
+      title12: ' ديلونجي ',
+      title13: '  بلاك اند ديكر',
     );
   }
 }
