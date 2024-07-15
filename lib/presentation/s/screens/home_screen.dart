@@ -86,12 +86,14 @@ class _HomeScreenState extends State<HomeScreen> {
         title: '  مستلزمات الأطفال',
         subtitle: 'قسم الأطفال',
         onTap: () => navigateTo(context, const ChildrenScreen()),
-      ),CategoryItemData(
+      ),
+      CategoryItemData(
         imageUrl: 'assets/home/52.jpg',
         title: '  شركات الأدوية',
         subtitle: 'قسم الأدوية',
         onTap: () => navigateTo(context, const MedicineScreen()),
-      ), CategoryItemData(
+      ),
+      CategoryItemData(
         imageUrl: 'assets/home/6.jpg',
         title: ' مستحضرات التجميل',
         subtitle: 'قسم الكوزماتيكس',

@@ -2,7 +2,7 @@ name: qate3_app
 description: "A new Flutter project."
 
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
-version: 1.2.0+12
+version: 1.3.0+13
 
 
 environment:
@@ -39,6 +39,8 @@ dependencies:
   shimmer: ^3.0.0
   firebase_messaging: ^14.7.5
   firebase_core: ^2.23.0
+  flutter_bloc: ^8.1.6
+  day_night_switch: ^1.0.4
 
 
 dev_dependencies:

@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:qate3_app/presentation/s/screens/Home/Banks/Qate3/qate3_bank.dart';
+import 'package:qate3_app/presentation/s/screens/Home/Banks/bank.dart';
 import 'package:qate3_app/presentation/s/screens/Home/Benzen/Qate3/qate3_benzen.dart';
+import 'package:qate3_app/presentation/s/screens/Home/Benzen/benzen.dart';
+import 'package:qate3_app/presentation/s/screens/Home/Children/children.dart';
 import 'package:qate3_app/presentation/s/screens/Home/Devices/Qate3/qate3_devices.dart';
+import 'package:qate3_app/presentation/s/screens/Home/Devices/devices.dart';
 import 'package:qate3_app/presentation/s/screens/Home/Drinks/Qate3/qate3_coffee.dart';
 import 'package:qate3_app/presentation/s/screens/Home/Drinks/Qate3/qate3_milk.dart';
 import 'package:qate3_app/presentation/s/screens/Home/Drinks/Qate3/qate3_nescafe.dart';
@@ -15,9 +19,12 @@ import 'package:qate3_app/presentation/s/screens/Home/Snacks/Qate3/qate3_chocola
 import 'package:qate3_app/presentation/s/screens/Home/Snacks/Qate3/qate3_icecream.dart';
 import 'package:qate3_app/presentation/s/screens/Home/Snacks/Qate3/qate3_zbady.dart';
 import 'package:qate3_app/presentation/s/screens/Home/cars/Qate3/qate3_cars.dart';
+import 'package:qate3_app/presentation/s/screens/Home/cars/cars.dart';
 import 'package:qate3_app/presentation/s/screens/Home/clean/Qate3/qate3_clean.dart';
 import 'package:qate3_app/presentation/s/screens/Home/clothes/Qate3/qate3_clothes.dart';
+import 'package:qate3_app/presentation/s/screens/Home/clothes/clothes.dart';
 import 'package:qate3_app/presentation/s/screens/Home/flight/Qate3/qate3_flight.dart';
+import 'package:qate3_app/presentation/s/screens/Home/flight/flight.dart';
 import 'package:qate3_app/presentation/s/screens/Home/kitchen/Qate3/qate3_boharat.dart';
 import 'package:qate3_app/presentation/s/screens/Home/kitchen/Qate3/qate3_gebna.dart';
 import 'package:qate3_app/presentation/s/screens/Home/personal%20cleanliness/Qate3/qate3_perfium.dart';
@@ -110,15 +117,18 @@ class _SearchScreenState extends State<SearchScreen> {
     ItemModel('معجون\n أسنان',
         (context) => navigateTo(context, const Qate3Toothpaste())),
     ItemModel('الشاي', (context) => navigateTo(context, const Qate3Tea())),
-    ItemModel('السيارات', (context) => navigateTo(context, const Qate3Cars())),
+    ItemModel('السيارات', (context) => navigateTo(context, const CarsScreen())),
     ItemModel('الأجهزة الكهربائية',
-        (context) => navigateTo(context, const Qate3Devices())),
-    ItemModel('البنوك', (context) => navigateTo(context, const Qate3Bank())),
+        (context) => navigateTo(context, const DevicesScreen())),
+    ItemModel('البنوك', (context) => navigateTo(context, const BankScreen())),
     ItemModel(
-        'الملابس', (context) => navigateTo(context, const Qate3Clothes())),
-    ItemModel('الطيران', (context) => navigateTo(context, const Qate3Flight())),
+        'الملابس', (context) => navigateTo(context, const ClothesScreen())),
     ItemModel(
-        'محطات البنزين', (context) => navigateTo(context, const Qate3Benzen())),
+        'الطيران', (context) => navigateTo(context, const FlightScreen())),
+    ItemModel('محطات البنزين',
+        (context) => navigateTo(context, const BenzenScreen())),
+    ItemModel('مستلزمات الأطفال',
+        (context) => navigateTo(context, const ChildrenScreen())),
   ];
 
   List<ItemModel> filteredItems = [];
