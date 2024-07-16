@@ -45,7 +45,10 @@ Widget buildRow(IconData icon, String url, String title, Color color) {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Icon(icon, color: color, size: 25),
-          AppText(title),
+          AppText(
+            title,
+            color: Colors.black,
+          ),
         ],
       ),
     ),
@@ -60,7 +63,7 @@ donate(context) {
         title: AppText(
           'ادعمنا من خلال :',
           textDirection: TextDirection.rtl,
-          color: Colors.red,
+          color: Colors.white,
           fontWeight: FontWeight.bold,
           fontFamily: 'Cairo',
         ),
@@ -74,7 +77,7 @@ donate(context) {
                   FontAwesomeIcons.moneyCheckDollar,
                   'https://www.buymeacoffee.com/hamdyhaggag74',
                   'Buy Me A Coffee',
-                  Colors.red,
+                  Colors.white,
                 ),
               ),
               const SizedBox(height: 10),
@@ -83,7 +86,7 @@ donate(context) {
                   FontAwesomeIcons.paypal,
                   'https://www.paypal.com/paypalme/hamdyhaggag74',
                   'paypal',
-                  Colors.red,
+                  Colors.white,
                 ),
               ),
             ],
@@ -139,7 +142,8 @@ void sendEmail() async {
 
 //////////////////////
 void openFormLink() async {
-  const String formLink = 'https://6m0oi2hw.forms.app/ttbyk-ktaa-llktrht-o-lmshkl-o-ltkyym';
+  const String formLink =
+      'https://6m0oi2hw.forms.app/ttbyk-ktaa-llktrht-o-lmshkl-o-ltkyym';
 
   try {
     await launch(formLink);
@@ -147,6 +151,7 @@ void openFormLink() async {
     print('Error launching form link: $e');
   }
 }
+
 //////////////////////
 contactDev(context) {
   showDialog(

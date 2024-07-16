@@ -25,7 +25,7 @@ class SnacksScreeen extends StatelessWidget {
   Widget build(BuildContext context) {
     final List<CategoryItemData> categoryItems = [
       CategoryItemData(
-        imageUrl: 'assets/home/15.jpg',
+        imageUrl: 'assets/home/15.png',
         title: 'شيبسي',
         onTap: () => navigateTo(
             context,
@@ -36,7 +36,7 @@ class SnacksScreeen extends StatelessWidget {
             )),
       ),
       CategoryItemData(
-        imageUrl: 'assets/home/16.jpg',
+        imageUrl: 'assets/home/16.png',
         title: 'لبان',
         onTap: () => navigateTo(
             context,
@@ -47,7 +47,7 @@ class SnacksScreeen extends StatelessWidget {
             )),
       ),
       CategoryItemData(
-        imageUrl: 'assets/home/53.jpg',
+        imageUrl: 'assets/home/53.png',
         title: 'نودلز',
         onTap: () => navigateTo(
             context,
@@ -56,8 +56,9 @@ class SnacksScreeen extends StatelessWidget {
               screen1: Qate3Indomi(),
               screen2: BringIndomi(),
             )),
-      ),CategoryItemData(
-        imageUrl: 'assets/home/17.jpg',
+      ),
+      CategoryItemData(
+        imageUrl: 'assets/home/17.png',
         title: 'شيكولاته',
         onTap: () => navigateTo(
             context,
@@ -68,7 +69,7 @@ class SnacksScreeen extends StatelessWidget {
             )),
       ),
       CategoryItemData(
-        imageUrl: 'assets/home/18.jpg',
+        imageUrl: 'assets/home/18.png',
         title: ' البسكويت',
         onTap: () => navigateTo(
             context,
@@ -79,7 +80,7 @@ class SnacksScreeen extends StatelessWidget {
             )),
       ),
       CategoryItemData(
-        imageUrl: 'assets/home/19.jpg',
+        imageUrl: 'assets/home/19.png',
         title: ' زبادي',
         onTap: () => navigateTo(
             context,
@@ -90,7 +91,7 @@ class SnacksScreeen extends StatelessWidget {
             )),
       ),
       CategoryItemData(
-        imageUrl: 'assets/home/20.jpg',
+        imageUrl: 'assets/home/20.png',
         title: 'أيس كريم',
         onTap: () => navigateTo(
             context,
@@ -102,7 +103,7 @@ class SnacksScreeen extends StatelessWidget {
       ),
     ];
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Theme.of(context).primaryColor,
       appBar: const CustomAppBar(title: 'قسم السناكس', isHome: false),
       body: SingleChildScrollView(
         child: GridView.builder(

@@ -7,9 +7,9 @@ class MedicineScreen extends StatelessWidget {
   const MedicineScreen({super.key});
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-        backgroundColor: Colors.white,
-        body: CustomChoice(
+    return Scaffold(
+        backgroundColor: Theme.of(context).primaryColor,
+        body: const CustomChoice(
             title: ' شركات الأدوية',
             screen1: Qate3Medicine(),
             screen2: BringMedicine()));

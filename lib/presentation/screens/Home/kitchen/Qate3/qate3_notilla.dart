@@ -12,7 +12,7 @@ class Qate3Notilla extends StatelessWidget {
         return 1;
       },
       barTitle: ' منتجات النوتيلا المقاطعة',
-      imagePath1: 'assets/kitchen/Qate3/n1.jpg',
+      imagePath1: 'assets/kitchen/Qate3/n1.png',
       title1: 'نوتيلا',
     );
   }

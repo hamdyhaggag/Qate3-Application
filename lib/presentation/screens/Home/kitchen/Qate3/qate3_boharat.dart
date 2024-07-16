@@ -11,9 +11,9 @@ class Qate3Boharat extends StatelessWidget {
         return 3;
       },
       barTitle: ' منتجات البهارات المقاطعة',
-      imagePath1: 'assets/kitchen/Qate3/bo1.jpg',
-      imagePath2: 'assets/kitchen/Qate3/bo2.jpg',
-      imagePath3: 'assets/kitchen/Qate3/bo3.jpg',
+      imagePath1: 'assets/kitchen/Qate3/bo1.png',
+      imagePath2: 'assets/kitchen/Qate3/bo2.png',
+      imagePath3: 'assets/kitchen/Qate3/bo3.png',
       title1: 'كنور ',
       title2: ' ماجي  ',
       title3: 'فاين فودز  ',

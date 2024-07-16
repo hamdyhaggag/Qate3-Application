@@ -6,8 +6,8 @@ class AppInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-        backgroundColor: Colors.white,
+    return Scaffold(
+        backgroundColor: Theme.of(context).primaryColor,
         appBar: CustomAppBar(title: 'معلومات عن التطبيق'),
         body: Padding(
           padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),

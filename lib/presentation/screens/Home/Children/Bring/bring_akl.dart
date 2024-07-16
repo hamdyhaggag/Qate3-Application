@@ -12,20 +12,14 @@ class BringAkl extends StatelessWidget {
         return 4;
       },
       barTitle: 'كورن فليكس البديل',
-      imagePath1: 'assets/Children/Bring/E1.jpg',
-      imagePath2: 'assets/Children/Bring/E2.jpg',
-      imagePath3: 'assets/Children/Bring/E3.jpg',
-      imagePath4: 'assets/Children/Bring/E4.jpg',
-
-
-
+      imagePath1: 'assets/Children/Bring/E1.png',
+      imagePath2: 'assets/Children/Bring/E2.png',
+      imagePath3: 'assets/Children/Bring/E3.png',
+      imagePath4: 'assets/Children/Bring/E4.png',
       title1: 'ريري',
       title2: 'روزو',
       title3: 'روز جاردن',
       title4: ' ديلانسي',
-
-
-
     );
   }
 }

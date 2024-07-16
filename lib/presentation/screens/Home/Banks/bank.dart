@@ -8,9 +8,9 @@ class BankScreen extends StatelessWidget {
   const BankScreen({super.key});
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-        backgroundColor: Colors.white,
-        body: CustomChoice(
+    return Scaffold(
+        backgroundColor: Theme.of(context).primaryColor,
+        body:const CustomChoice(
             title: 'البنوك', screen1: Qate3Bank(), screen2: BringBank()));
   }
 }

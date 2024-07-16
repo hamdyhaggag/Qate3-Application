@@ -12,20 +12,18 @@ class Qate3Halib extends StatelessWidget {
         return 6;
       },
       barTitle: ' حليب للأطفال مقاطعة',
-      imagePath1: 'assets/Children/Qate3/MILK1.jpg',
-      imagePath2: 'assets/Children/Qate3/MILK2.jpg',
-      imagePath3: 'assets/Children/Qate3/MILK3.jpg',
-      imagePath4: 'assets/Children/Qate3/MILK4.jpg',
-      imagePath5: 'assets/Children/Qate3/MILK5.jpg',
-      imagePath6: 'assets/Children/Qate3/MILK6.jpg',
-
+      imagePath1: 'assets/Children/Qate3/MILK1.png',
+      imagePath2: 'assets/Children/Qate3/MILK2.png',
+      imagePath3: 'assets/Children/Qate3/MILK3.png',
+      imagePath4: 'assets/Children/Qate3/MILK4.png',
+      imagePath5: 'assets/Children/Qate3/MILK5.png',
+      imagePath6: 'assets/Children/Qate3/MILK6.png',
       title1: 'نيدو',
       title2: 'بيبيلاك',
       title3: 'نان',
       title4: 'بروميس ',
       title5: 'بروجرس جولد',
       title6: 'دانجو',
-
     );
   }
 }

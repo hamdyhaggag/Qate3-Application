@@ -9,7 +9,7 @@ class ClothesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-        body: CustomChoice(
+        body: const CustomChoice(
             title: 'الملابس',
             screen1: Qate3Clothes(),
             screen2: BringClothes()));

@@ -8,9 +8,9 @@ class FlightScreen extends StatelessWidget {
   const FlightScreen({super.key});
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-        backgroundColor: Colors.white,
-        body: CustomChoice(
+    return Scaffold(
+        backgroundColor: Theme.of(context).primaryColor,
+        body: const CustomChoice(
             title: 'رحلات الطيران',
             screen1: Qate3Flight(),
             screen2: BringFlight()));

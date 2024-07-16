@@ -24,7 +24,7 @@ class DrinksScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final List<CategoryItemData> categoryItems = [
       CategoryItemData(
-        imageUrl: 'assets/home/9.jpg',
+        imageUrl: 'assets/home/9.png',
         title: 'المياة',
         onTap: () => navigateTo(
             context,
@@ -35,7 +35,7 @@ class DrinksScreen extends StatelessWidget {
             )),
       ),
       CategoryItemData(
-        imageUrl: 'assets/home/10.jpg',
+        imageUrl: 'assets/home/10.png',
         title: 'المشروبات الغازية',
         onTap: () => navigateTo(
             context,
@@ -46,7 +46,7 @@ class DrinksScreen extends StatelessWidget {
             )),
       ),
       CategoryItemData(
-        imageUrl: 'assets/home/11.jpg',
+        imageUrl: 'assets/home/11.png',
         title: 'الألبان',
         onTap: () => navigateTo(
             context,
@@ -57,7 +57,7 @@ class DrinksScreen extends StatelessWidget {
             )),
       ),
       CategoryItemData(
-        imageUrl: 'assets/home/12.jpg',
+        imageUrl: 'assets/home/12.png',
         title: ' القهوة',
         onTap: () => navigateTo(
             context,
@@ -68,7 +68,7 @@ class DrinksScreen extends StatelessWidget {
             )),
       ),
       CategoryItemData(
-        imageUrl: 'assets/home/13.jpg',
+        imageUrl: 'assets/home/13.png',
         title: ' النسكافية',
         onTap: () => navigateTo(
             context,
@@ -79,7 +79,7 @@ class DrinksScreen extends StatelessWidget {
             )),
       ),
       CategoryItemData(
-        imageUrl: 'assets/home/14.jpg',
+        imageUrl: 'assets/home/14.png',
         title: ' الشاي',
         onTap: () => navigateTo(
             context,
@@ -90,7 +90,7 @@ class DrinksScreen extends StatelessWidget {
             )),
       ),
       CategoryItemData(
-        imageUrl: 'assets/home/31.jpg',
+        imageUrl: 'assets/home/31.png',
         title: ' العصائر',
         onTap: () => navigateTo(
             context,
@@ -102,7 +102,7 @@ class DrinksScreen extends StatelessWidget {
       ),
     ];
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Theme.of(context).primaryColor,
       appBar: const CustomAppBar(title: 'قسم المشروبات', isHome: false),
       body: SingleChildScrollView(
         child: GridView.builder(

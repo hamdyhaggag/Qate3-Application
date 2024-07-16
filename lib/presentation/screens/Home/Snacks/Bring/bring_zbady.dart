@@ -12,8 +12,8 @@ class BringZbady extends StatelessWidget {
         return 2;
       },
       barTitle: ' منتجات الزبادي البديلة',
-      imagePath1: 'assets/Snacks/Bring/z1.jpg',
-      imagePath2: 'assets/Snacks/Bring/z2.jpg',
+      imagePath1: 'assets/Snacks/Bring/z1.png',
+      imagePath2: 'assets/Snacks/Bring/z2.png',
       title1: 'جهينة',
       title2: ' لبنيتا ',
     );

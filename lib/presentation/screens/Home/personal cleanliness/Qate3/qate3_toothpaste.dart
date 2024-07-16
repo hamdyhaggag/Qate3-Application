@@ -11,14 +11,13 @@ class Qate3Toothpaste extends StatelessWidget {
         return 7;
       },
       barTitle: ' منتجات العناية بالفم المقاطعة',
-      imagePath1: 'assets/personal/Qate3/t1.jpg',
-      imagePath2: 'assets/personal/Qate3/t2.jpg',
-      imagePath3: 'assets/personal/Qate3/t3.jpg',
-      imagePath4: 'assets/personal/Qate3/t4.jpg',
-      imagePath5: 'assets/personal/Qate3/t5.jpg',
-      imagePath6: 'assets/personal/Qate3/t6.jpg',
-      imagePath7: 'assets/personal/Qate3/t7.jpg',
-
+      imagePath1: 'assets/personal/Qate3/t1.png',
+      imagePath2: 'assets/personal/Qate3/t2.png',
+      imagePath3: 'assets/personal/Qate3/t3.png',
+      imagePath4: 'assets/personal/Qate3/t4.png',
+      imagePath5: 'assets/personal/Qate3/t5.png',
+      imagePath6: 'assets/personal/Qate3/t6.png',
+      imagePath7: 'assets/personal/Qate3/t7.png',
       title1: 'كولجيت',
       title2: 'سيجنال',
       title3: 'أورال بي',
@@ -26,7 +25,6 @@ class Qate3Toothpaste extends StatelessWidget {
       title5: 'سنسوداين',
       title6: 'كلوز اب',
       title7: 'مسواك',
-
     );
   }
 }

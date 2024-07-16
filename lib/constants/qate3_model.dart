@@ -154,7 +154,7 @@ class Qate3Model extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Theme.of(context).primaryColor,
       appBar: CustomAppBar(title: barTitle, isHome: false),
       body: Padding(
         padding: EdgeInsets.symmetric(

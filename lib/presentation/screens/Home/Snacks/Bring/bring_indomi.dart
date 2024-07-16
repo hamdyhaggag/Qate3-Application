@@ -12,9 +12,9 @@ class BringIndomi extends StatelessWidget {
         return 3;
       },
       barTitle: 'منتجات الإندومي البديلة',
-      imagePath1: 'assets/Snacks/Bring/ind1.jpg',
-      imagePath2: 'assets/Snacks/Bring/ind2.jpg',
-      imagePath3: 'assets/Snacks/Bring/ind3.jpg',
+      imagePath1: 'assets/Snacks/Bring/ind1.png',
+      imagePath2: 'assets/Snacks/Bring/ind2.png',
+      imagePath3: 'assets/Snacks/Bring/ind3.png',
       title1: 'إندومي',
       title2: 'سوبرمي',
       title3: 'مكرونيلا',

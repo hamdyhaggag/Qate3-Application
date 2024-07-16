@@ -11,19 +11,18 @@ class BringJuice extends StatelessWidget {
         return 6;
       },
       barTitle: ' منتجات العصير البديلة',
-      imagePath1: 'assets/Drinks/Bring/j1.jpg',
-      imagePath2: 'assets/Drinks/Bring/j2.jpg',
-      imagePath3: 'assets/Drinks/Bring/j3.jpg',
-      imagePath4: 'assets/Drinks/Bring/j4.jpg',
-      imagePath5: 'assets/Drinks/Bring/j5.jpg',
-      imagePath6: 'assets/Drinks/Bring/j6.jpg',
+      imagePath1: 'assets/Drinks/Bring/j1.png',
+      imagePath2: 'assets/Drinks/Bring/j2.png',
+      imagePath3: 'assets/Drinks/Bring/j3.png',
+      imagePath4: 'assets/Drinks/Bring/j4.png',
+      imagePath5: 'assets/Drinks/Bring/j5.png',
+      imagePath6: 'assets/Drinks/Bring/j6.png',
       title1: 'بست',
       title2: ' فروتي',
       title3: ' عصير دينا ',
       title4: '  عصير أجا ',
       title5: 'عصير جهينة',
       title6: 'سن توب ',
-
     );
   }
 }

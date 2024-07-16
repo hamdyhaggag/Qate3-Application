@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:qate3_app/constants/carousel_slider.dart';
 import 'package:qate3_app/constants/custom_appbar.dart';
-import 'package:qate3_app/constants/custom_text.dart';
 
 class AwarenessScreen extends StatelessWidget {
   const AwarenessScreen({Key? key}) : super(key: key);
@@ -11,6 +10,7 @@ class AwarenessScreen extends StatelessWidget {
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(
+        backgroundColor: Theme.of(context).colorScheme.primary,
         appBar:
             const CustomAppBar(title: 'توعية بأهمية المقاطعة', isHome: true),
         body: LayoutBuilder(
@@ -25,7 +25,7 @@ class AwarenessScreen extends StatelessWidget {
                   imageUrl5: 'assets/images/11.jpg',
                   imageUrl6: 'assets/images/12.jpg',
                 ),
-                ..._buildTextSections(constraints),
+                ..._buildTextSections(context, constraints),
               ],
             );
           },
@@ -34,7 +34,8 @@ class AwarenessScreen extends StatelessWidget {
     );
   }
 
-  List<Widget> _buildTextSections(BoxConstraints constraints) {
+  List<Widget> _buildTextSections(
+      BuildContext context, BoxConstraints constraints) {
     double fontSize = _getTextFontSize(constraints);
 
     List<String> textSections = [
@@ -51,29 +52,41 @@ class AwarenessScreen extends StatelessWidget {
 
     return textSections.map((text) {
       if (text.startsWith('**')) {
-        text = text.replaceAll('**', ''); // Remove the '**' characters
-      }
-      return Padding(
-        padding: const EdgeInsets.only(right: 24.0, left: 12.0, top: 14.0),
-        child: RichText(
-          textAlign: TextAlign.right,
-          text: TextSpan(
-            text: text,
+        return Padding(
+          padding: const EdgeInsets.only(right: 24.0, left: 12.0, top: 14.0),
+          child: Text(
+            text.replaceAll('**', ''),
+            textAlign: TextAlign.right,
             style: TextStyle(
-              fontWeight: text.startsWith('كل جنيه')
-                  ? FontWeight.bold
-                  : FontWeight.normal, // Maintain bold style for certain lines
+              fontWeight: FontWeight.bold,
               fontSize: fontSize,
-              color: Colors.black,
+              color: Theme.of(context).brightness == Brightness.dark
+                  ? Colors.white
+                  : Colors.black,
               fontFamily: 'Cairo',
             ),
           ),
-        ),
-      );
+        );
+      } else {
+        return Padding(
+          padding: const EdgeInsets.only(right: 24.0, left: 12.0, top: 14.0),
+          child: Text(
+            text,
+            textAlign: TextAlign.right,
+            style: TextStyle(
+              fontSize: fontSize,
+              color: Theme.of(context).brightness == Brightness.dark
+                  ? Colors.white
+                  : Colors.black,
+              fontFamily: 'Cairo',
+            ),
+          ),
+        );
+      }
     }).toList();
   }
 
   double _getTextFontSize(BoxConstraints constraints) {
-    return constraints.maxWidth > 600 ? 16.0 : 14.0;
+    return constraints.maxWidth > 600 ? 17.0 : 19.8;
   }
 }

@@ -150,24 +150,12 @@ class ScreenLayout extends StatefulWidget {
   const ScreenLayout({Key? key, required this.selectedIndex}) : super(key: key);
 
   @override
-  _ScreenLayoutState createState() =>
-      _ScreenLayoutState(selectedIndex: selectedIndex);
+  _ScreenLayoutState createState() => _ScreenLayoutState();
 }
 
 class _ScreenLayoutState extends State<ScreenLayout> {
-  int selectedIndex = 3;
-  late PageController controller = PageController();
-
-  _ScreenLayoutState({required this.selectedIndex});
-  Future<void> _vibrateFeedback() async {
-    try {
-      if (await Vibrate.canVibrate) {
-        Vibrate.feedback(FeedbackType.impact);
-      }
-    } catch (e) {
-      print('Vibration error: $e');
-    }
-  }
+  late PageController controller;
+  int selectedIndex = 0;
 
   @override
   void initState() {
@@ -191,58 +179,69 @@ class _ScreenLayoutState extends State<ScreenLayout> {
     });
   }
 
-  Future<bool> showQuitConfirmationDialog(BuildContext context) async {
-    return await showDialog(
+  Future<void> _vibrateFeedback() async {
+    try {
+      if (await Vibrate.canVibrate) {
+        Vibrate.feedback(FeedbackType.impact);
+      }
+    } catch (e) {
+      print('Vibration error: $e');
+    }
+  }
+
+  Future<void> showQuitConfirmationDialog(BuildContext context) {
+    return showDialog(
       context: context,
-      builder: (context) {
-        return AlertDialog(
-          title: const Center(
-            child: Text(
-              'هل تود الخروج من التطبيق ؟',
+      builder: (context) => AlertDialog(
+        title: const Center(
+          child: Text(
+            'هل تود الخروج من التطبيق ؟',
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 17.0,
+            ),
+          ),
+        ),
+        actions: <Widget>[
+          TextButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+              _vibrateFeedback();
+            },
+            child: const Text(
+              'لا',
               style: TextStyle(
                 fontWeight: FontWeight.bold,
-                fontSize: 17.0,
+                color: Colors.red,
               ),
             ),
           ),
-          actions: <Widget>[
-            TextButton(
-              onPressed: () {
-                Navigator.of(context).pop(false);
-                _vibrateFeedback();
-              },
-              child: const Text(
-                'لا',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  color: Colors.red,
-                ),
+          TextButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+              _vibrateFeedback();
+              // Perform actions to quit the app here
+              // For example: SystemChannels.platform.invokeMethod('SystemNavigator.pop');
+            },
+            child: const Text(
+              'نعم',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                color: Colors.red,
               ),
             ),
-            TextButton(
-              onPressed: () {
-                Navigator.of(context).pop(true);
-                _vibrateFeedback();
-              },
-              child: const Text(
-                'نعم',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  color: Colors.red,
-                ),
-              ),
-            ),
-          ],
-        );
-      },
+          ),
+        ],
+      ),
     );
   }
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: () async {
-        return await showQuitConfirmationDialog(context);
+    return PopScope(
+      canPop: false,
+      onPopInvoked: (didPop) {
+        showQuitConfirmationDialog(context);
       },
       child: Scaffold(
         body: ScrollConfiguration(
@@ -252,21 +251,23 @@ class _ScreenLayoutState extends State<ScreenLayout> {
             controller: controller,
             children: const [
               SettingsScreen(),
-              SearchScreen(),
+              SearchScreen(isDarkTheme: false),
               AwarenessScreen(),
               HomeScreen(),
             ],
           ),
         ),
         bottomNavigationBar: SlidingClippedNavBar(
-          backgroundColor: Colors.white,
+          backgroundColor: Theme.of(context).primaryColor,
           onButtonPressed: (index) {
             setState(() {
               selectedIndex = index;
             });
-            controller.animateToPage(selectedIndex,
-                duration: const Duration(milliseconds: 400),
-                curve: Curves.easeOutQuad);
+            controller.animateToPage(
+              selectedIndex,
+              duration: const Duration(milliseconds: 400),
+              curve: Curves.easeOutQuad,
+            );
 
             _vibrateFeedback();
           },

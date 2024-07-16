@@ -12,10 +12,8 @@ class Qate3Hafadat extends StatelessWidget {
         return 1;
       },
       barTitle: ' حفاضات الأطفال المقاطعة',
-      imagePath1: 'assets/Children/Qate3/H1.jpg',
-
+      imagePath1: 'assets/Children/Qate3/H1.png',
       title1: 'بامبرز',
-
     );
   }
 }

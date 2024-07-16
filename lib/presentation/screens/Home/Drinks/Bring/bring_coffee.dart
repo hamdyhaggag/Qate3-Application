@@ -11,9 +11,9 @@ class BringCoffee extends StatelessWidget {
         return 3;
       },
       barTitle: ' منتجات القهوة البديلة',
-      imagePath1: 'assets/Drinks/Bring/c1.jpg',
-      imagePath2: 'assets/Drinks/Bring/c2.jpg',
-      imagePath3: 'assets/Drinks/Bring/c4.jpg',
+      imagePath1: 'assets/Drinks/Bring/c1.png',
+      imagePath2: 'assets/Drinks/Bring/c2.png',
+      imagePath3: 'assets/Drinks/Bring/c4.png',
       title1: 'بن العروبة',
       title2: '  حاج عرفة',
       title3: ' عماد أفندي',

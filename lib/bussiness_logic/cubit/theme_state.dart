@@ -1,6 +1,10 @@
-part of 'theme_cubit.dart';
+import 'package:flutter/material.dart';
+
+enum ThemeModeType { light, dark }
 
 @immutable
-sealed class ThemeState {}
+class ThemeState {
+  final ThemeModeType themeModeType;
 
-final class ThemeInitial extends ThemeState {}
+  const ThemeState(this.themeModeType);
+}

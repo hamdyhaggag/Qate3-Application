@@ -19,6 +19,7 @@ class CustomChoice extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Theme.of(context).colorScheme.primary,
       appBar: CustomAppBar(title: title, isHome: false),
       body: Padding(
         padding: EdgeInsets.symmetric(

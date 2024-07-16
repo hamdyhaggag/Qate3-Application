@@ -19,7 +19,7 @@ class KitchenScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final List<CategoryItemData> categoryItems = [
       CategoryItemData(
-        imageUrl: 'assets/home/21.jpg',
+        imageUrl: 'assets/home/21.png',
         title: 'الجبن',
         onTap: () => navigateTo(
             context,
@@ -30,7 +30,7 @@ class KitchenScreen extends StatelessWidget {
             )),
       ),
       CategoryItemData(
-        imageUrl: 'assets/home/23.jpg',
+        imageUrl: 'assets/home/23.png',
         title: ' النوتيلا',
         onTap: () => navigateTo(
             context,
@@ -41,7 +41,7 @@ class KitchenScreen extends StatelessWidget {
             )),
       ),
       CategoryItemData(
-        imageUrl: 'assets/home/24.jpg',
+        imageUrl: 'assets/home/24.png',
         title: ' البهارات',
         onTap: () => navigateTo(
             context,
@@ -52,7 +52,7 @@ class KitchenScreen extends StatelessWidget {
             )),
       ),
       CategoryItemData(
-        imageUrl: 'assets/home/25.jpg',
+        imageUrl: 'assets/home/25.png',
         title: ' منتجات إضافية',
         onTap: () => navigateTo(
             context,
@@ -64,7 +64,7 @@ class KitchenScreen extends StatelessWidget {
       ),
     ];
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Theme.of(context).primaryColor,
       appBar: const CustomAppBar(title: 'قسم مستلزمات المطبخ', isHome: false),
       body: SingleChildScrollView(
         child: GridView.builder(

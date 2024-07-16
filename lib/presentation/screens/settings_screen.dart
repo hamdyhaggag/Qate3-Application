@@ -9,198 +9,126 @@ import 'SettingsScreen/contribute.dart';
 import 'SettingsScreen/privacy_policy.dart';
 
 class SettingsScreen extends StatelessWidget {
-  const SettingsScreen({super.key});
+  const SettingsScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.white,
-        appBar: const CustomAppBar(title: 'الإعدادات', isHome: true),
-        body: Padding(
-          padding: const EdgeInsets.all(10),
-          child: Directionality(
-            textDirection: TextDirection.rtl,
-            child: ListView(
-              children: [
-                SettingsGroup(
-                  items: [
-                    SettingsItem(
-                      onTap: () {
-                        navigateTo(context, const AppInfo());
-                      },
-                      icons: FontAwesomeIcons.circleInfo,
-                      iconStyle: IconStyle(
-                        iconsColor: Colors.white,
-                        withBackground: true,
-                        backgroundColor: Colors.red,
-                      ),
-                      title: 'معلومات عن التطبيق',
-                      subtitle: 'اعرف أكتر عن التطبيق',
-                      trailing: SizedBox(
-                        width: 24.0,
-                        child: Container(),
-                      ),
-                    ),
-                    SettingsItem(
-                      onTap: () {
-                        navigateTo(context, const PrivacyPolicy());
-                      },
-                      icons: FontAwesomeIcons.shield,
-                      iconStyle: IconStyle(
-                        iconsColor: Colors.white,
-                        withBackground: true,
-                        backgroundColor: Colors.red,
-                      ),
-                      title: 'سياسة الخصوصية',
-                      subtitle: "حماية خصوصيتك على الإنترنت",
-                      trailing: SizedBox(
-                        width: 24.0,
-                        child: Container(),
-                      ),
-                    ),
-                    SettingsItem(
-                      onTap: () {
-                        shareFeedback(context);
-                      },
-                      icons: FontAwesomeIcons.solidStar,
-                      iconStyle: IconStyle(
-                        backgroundColor: Colors.red,
-                      ),
-                      title: 'تقييم التطبيق',
-                      subtitle: 'يرجى ترك تقييم إيجابي',
-                      titleMaxLine: 1,
-                      subtitleMaxLine: 1,
-                      trailing: SizedBox(
-                        width: 24.0,
-                        child: Container(),
-                      ),
-                    ),
-                    SettingsItem(
-                      onTap: () {
-                        donate(context);
-                      },
-                      icons: FontAwesomeIcons.wallet,
-                      iconStyle: IconStyle(
-                        backgroundColor: Colors.red,
-                      ),
-                      title: 'إدعم التطبيق',
-                      subtitle: "كن رفيقنا في التطوير",
-                      titleMaxLine: 1,
-                      subtitleMaxLine: 1,
-                      trailing: SizedBox(
-                        width: 24.0,
-                        child: Container(),
-                      ),
-                    ),
-                    SettingsItem(
-                      onTap: () {
-                        sendEmail();
-                      },
-                      icons: FontAwesomeIcons.magnifyingGlass,
-                      iconStyle: IconStyle(
-                        backgroundColor: Colors.red,
-                      ),
-                      title: 'إسأل عن منتج',
-                      subtitle: "لو فيه منتج مش موجود",
-                      titleMaxLine: 1,
-                      subtitleMaxLine: 1,
-                      trailing: SizedBox(
-                        width: 24.0,
-                        child: Container(),
-                      ),
-                    ),
-                    SettingsItem(
-                      onTap: () {
-                        openFormLink();
-                      },
-                      icons: FontAwesomeIcons.solidEnvelope,
-                      iconStyle: IconStyle(
-                        iconsColor: Colors.white,
-                        withBackground: true,
-                        backgroundColor: Colors.red,
-                      ),
-                      title: 'تواصل معنا',
-                      subtitle: 'شارك اقتراحاتك و شكواك معنا',
-                      trailing: SizedBox(
-                        width: 24.0,
-                        child: Container(),
-                      ),
-                    ),
-                    SettingsItem(
-                      onTap: () {
-                        shareOptions(context);
-                      },
-                      icons: FontAwesomeIcons.shareNodes,
-                      iconStyle: IconStyle(
-                        backgroundColor: Colors.red,
-                      ),
-                      title: 'مشاركة التطبيق',
-                      subtitle: "شارك التطبيق لتساعد في نصرة القضية",
-                      trailing: SizedBox(
-                        width: 24.0,
-                        child: Container(),
-                      ),
-                    ),
-                    SettingsItem(
-                      onTap: () {
-                        _launchURL(
-                            'https://www.egyptianrc.org/arabic/Donate/online-donation');
-                      },
-                      icons: FontAwesomeIcons.handHoldingDollar,
-                      iconStyle: IconStyle(
-                        backgroundColor: Colors.red,
-                      ),
-                      title: ' تبرع إلى الهلال الأحمر',
-                      subtitle: "تبرع الآن لتساعد في إغاثة إخواننا في غزة",
-                      trailing: SizedBox(
-                        width: 24.0,
-                        child: Container(),
-                      ),
-                    ),
-                    SettingsItem(
-                      onTap: () {
-                        navigateTo(context, const ContributeScreen());
-                      },
-                      icons: FontAwesomeIcons.layerGroup,
-                      iconStyle: IconStyle(
-                        backgroundColor: Colors.red,
-                      ),
-                      title: ' المساهمون في التطبيق',
-                      subtitle: "شكر خاص لمساهمينا",
-                      trailing: SizedBox(
-                        width: 24.0,
-                        child: Container(),
-                      ),
-                    ),
-                    SettingsItem(
-                      onTap: () {
-                        contactDev(context);
-                      },
-                      icons: FontAwesomeIcons.dev,
-                      iconStyle: IconStyle(
-                        iconsColor: Colors.white,
-                        withBackground: true,
-                        backgroundColor: Colors.red,
-                      ),
-                      title: 'تواصل مع مطور التطبيق',
-                      subtitle: 'طرق التواصل مع المطور ',
-                      trailing: SizedBox(
-                        width: 24.0,
-                        child: Container(),
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
+      backgroundColor: Theme.of(context).primaryColor,
+      appBar: const CustomAppBar(title: 'الإعدادات', isHome: true),
+      body: Padding(
+        padding: const EdgeInsets.all(10),
+        child: Directionality(
+          textDirection: TextDirection.rtl,
+          child: ListView(
+            children: _buildSettingsItems(context),
           ),
-        ));
+        ),
+      ),
+    );
+  }
+
+  List<SettingsItem> _buildSettingsItems(BuildContext context) {
+    return [
+      _createSettingsItem(
+        context,
+        icon: FontAwesomeIcons.circleInfo,
+        title: 'معلومات عن التطبيق',
+        subtitle: 'اعرف أكتر عن التطبيق',
+        onTap: () => navigateTo(context, const AppInfo()),
+      ),
+      _createSettingsItem(
+        context,
+        icon: FontAwesomeIcons.shield,
+        title: 'سياسة الخصوصية',
+        subtitle: 'حماية خصوصيتك على الإنترنت',
+        onTap: () => navigateTo(context, const PrivacyPolicy()),
+      ),
+      _createSettingsItem(
+        context,
+        icon: FontAwesomeIcons.solidStar,
+        title: 'تقييم التطبيق',
+        subtitle: 'يرجى ترك تقييم إيجابي',
+        onTap: () => shareFeedback(context),
+      ),
+      _createSettingsItem(
+        context,
+        icon: FontAwesomeIcons.wallet,
+        title: 'إدعم التطبيق',
+        subtitle: 'كن رفيقنا في التطوير',
+        onTap: () => donate(context),
+      ),
+      _createSettingsItem(
+        context,
+        icon: FontAwesomeIcons.magnifyingGlass,
+        title: 'إسأل عن منتج',
+        subtitle: 'لو فيه منتج مش موجود',
+        onTap: () => sendEmail(),
+      ),
+      _createSettingsItem(
+        context,
+        icon: FontAwesomeIcons.solidEnvelope,
+        title: 'تواصل معنا',
+        subtitle: 'شارك اقتراحاتك و شكواك معنا',
+        onTap: () => openFormLink(),
+      ),
+      _createSettingsItem(
+        context,
+        icon: FontAwesomeIcons.shareNodes,
+        title: 'مشاركة التطبيق',
+        subtitle: 'شارك التطبيق لتساعد في نصرة القضية',
+        onTap: () => shareOptions(context),
+      ),
+      _createSettingsItem(
+        context,
+        icon: FontAwesomeIcons.handHoldingDollar,
+        title: 'تبرع إلى الهلال الأحمر',
+        subtitle: 'تبرع الآن لتساعد في إغاثة إخواننا في غزة',
+        onTap: () => _launchURL(
+            'https://www.egyptianrc.org/arabic/Donate/online-donation'),
+      ),
+      _createSettingsItem(
+        context,
+        icon: FontAwesomeIcons.layerGroup,
+        title: 'المساهمون في التطبيق',
+        subtitle: 'شكر خاص لمساهمينا',
+        onTap: () => navigateTo(context, const ContributeScreen()),
+      ),
+      _createSettingsItem(
+        context,
+        icon: FontAwesomeIcons.dev,
+        title: 'تواصل مع مطور التطبيق',
+        subtitle: 'طرق التواصل مع المطور',
+        onTap: () => contactDev(context),
+      ),
+    ];
+  }
+
+  SettingsItem _createSettingsItem(
+    BuildContext context, {
+    required IconData icon,
+    required String title,
+    required String subtitle,
+    required void Function() onTap,
+  }) {
+    return SettingsItem(
+      onTap: onTap,
+      icons: icon,
+      iconStyle: IconStyle(
+        iconsColor: Colors.white,
+        withBackground: true,
+        backgroundColor: Colors.red,
+      ),
+      title: title,
+      subtitle: subtitle,
+      trailing: const SizedBox(width: 24.0),
+    );
   }
 
   void _launchURL(String urlString) async {
-    Uri url = Uri.parse(urlString);
-    if (await url_launcher.canLaunchUrl(url)) {
-      await url_launcher.launchUrl(url);
+    final Uri url = Uri.parse(urlString);
+    if (await url_launcher.canLaunch(url.toString())) {
+      await url_launcher.launch(url.toString());
     } else {
       throw 'Could not launch $urlString';
     }

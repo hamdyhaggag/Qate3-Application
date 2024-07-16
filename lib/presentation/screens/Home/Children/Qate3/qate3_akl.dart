@@ -12,20 +12,18 @@ class Qate3Akl extends StatelessWidget {
         return 6;
       },
       barTitle: ' كورن فليكس المقاطعة',
-      imagePath1: 'assets/Children/Qate3/E1.jpg',
-      imagePath2: 'assets/Children/Qate3/E2.jpg',
-      imagePath3: 'assets/Children/Qate3/E3.jpg',
-      imagePath4: 'assets/Children/Qate3/E4.jpg',
-      imagePath5: 'assets/Children/Qate3/E5.jpg',
-      imagePath6: 'assets/Children/Qate3/E6.jpg',
-
+      imagePath1: 'assets/Children/Qate3/E1.png',
+      imagePath2: 'assets/Children/Qate3/E2.png',
+      imagePath3: 'assets/Children/Qate3/E3.png',
+      imagePath4: 'assets/Children/Qate3/E4.png',
+      imagePath5: 'assets/Children/Qate3/E5.png',
+      imagePath6: 'assets/Children/Qate3/E6.png',
       title1: 'سيريلاك',
       title2: 'كانتري',
       title3: 'تشوكابيك',
       title4: ' كوكو بافس',
       title5: 'نيسكويك',
       title6: 'بليدينا',
-
     );
   }
 }

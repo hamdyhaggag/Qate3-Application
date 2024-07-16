@@ -8,9 +8,9 @@ class BenzenScreen extends StatelessWidget {
   const BenzenScreen({super.key});
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-        backgroundColor: Colors.white,
-        body: CustomChoice(
+    return Scaffold(
+        backgroundColor: Theme.of(context).primaryColor,
+        body: const CustomChoice(
             title: 'الزيوت ومحطات البنزين',
             screen1: Qate3Benzen(),
             screen2: BringBenzen()));

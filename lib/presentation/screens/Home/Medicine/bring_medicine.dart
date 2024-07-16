@@ -12,17 +12,16 @@ class BringMedicine extends StatelessWidget {
         return 10;
       },
       barTitle: 'منتجات الأدوية البديلة',
-      imagePath1: 'assets/Medicine/Bring/1.jpg',
-      imagePath2: 'assets/Medicine/Bring/2.jpg',
-      imagePath3: 'assets/Medicine/Bring/3.jpg',
-      imagePath4: 'assets/Medicine/Bring/4.jpg',
-      imagePath5: 'assets/Medicine/Bring/5.jpg',
-      imagePath6: 'assets/Medicine/Bring/6.jpg',
-      imagePath7: 'assets/Medicine/Bring/7.jpg',
-      imagePath8: 'assets/Medicine/Bring/8.jpg',
-      imagePath9: 'assets/Medicine/Bring/9.jpg',
-      imagePath10: 'assets/Medicine/Bring/10.jpg',
-
+      imagePath1: 'assets/Medicine/Bring/1.png',
+      imagePath2: 'assets/Medicine/Bring/2.png',
+      imagePath3: 'assets/Medicine/Bring/3.png',
+      imagePath4: 'assets/Medicine/Bring/4.png',
+      imagePath5: 'assets/Medicine/Bring/5.png',
+      imagePath6: 'assets/Medicine/Bring/6.png',
+      imagePath7: 'assets/Medicine/Bring/7.png',
+      imagePath8: 'assets/Medicine/Bring/8.png',
+      imagePath9: 'assets/Medicine/Bring/9.png',
+      imagePath10: 'assets/Medicine/Bring/10.png',
       title1: 'Misr Pharma ',
       title2: ' Alex Pharma',
       title3: 'Gypto Pharma',
@@ -33,7 +32,6 @@ class BringMedicine extends StatelessWidget {
       title8: 'CID ',
       title9: 'MUP ',
       title10: 'Epico',
-
     );
   }
 }

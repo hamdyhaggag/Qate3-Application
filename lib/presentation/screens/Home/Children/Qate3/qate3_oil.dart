@@ -12,12 +12,10 @@ class Qate3Oil extends StatelessWidget {
         return 2;
       },
       barTitle: ' الزيوت للأطفال مقاطعة',
-      imagePath1: 'assets/Children/Qate3/O1.jpg',
-      imagePath2: 'assets/Children/Qate3/O2.jpg',
-
+      imagePath1: 'assets/Children/Qate3/O1.png',
+      imagePath2: 'assets/Children/Qate3/O2.png',
       title1: 'منتجات جونسون',
       title2: 'منتجات سانوسان',
-
     );
   }
 }

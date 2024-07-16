@@ -18,7 +18,7 @@ class ChildrenScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final List<CategoryItemData> categoryItems = [
       CategoryItemData(
-        imageUrl: 'assets/Children/Qate3/MILK1.jpg',
+        imageUrl: 'assets/Children/Qate3/MILK1.png',
         title: ' الحليب',
         onTap: () => navigateTo(
             context,
@@ -29,7 +29,7 @@ class ChildrenScreen extends StatelessWidget {
             )),
       ),
       CategoryItemData(
-        imageUrl: 'assets/Children/Bring/O1.jpg',
+        imageUrl: 'assets/Children/Bring/O1.png',
         title: ' الزيوت و الشامبو',
         onTap: () => navigateTo(
             context,
@@ -40,7 +40,7 @@ class ChildrenScreen extends StatelessWidget {
             )),
       ),
       CategoryItemData(
-        imageUrl: 'assets/Children/Qate3/E1.jpg',
+        imageUrl: 'assets/Children/Qate3/E1.png',
         title: 'كورن فليكس',
         onTap: () => navigateTo(
             context,
@@ -51,7 +51,7 @@ class ChildrenScreen extends StatelessWidget {
             )),
       ),
       CategoryItemData(
-        imageUrl: 'assets/Children/Bring/H3.jpg',
+        imageUrl: 'assets/Children/Bring/H3.png',
         title: 'الحفاضات',
         onTap: () => navigateTo(
             context,
@@ -63,7 +63,7 @@ class ChildrenScreen extends StatelessWidget {
       ),
     ];
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Theme.of(context).primaryColor,
       appBar: const CustomAppBar(title: 'قسم مستلزمات الأطفال', isHome: false),
       body: SingleChildScrollView(
         child: GridView.builder(

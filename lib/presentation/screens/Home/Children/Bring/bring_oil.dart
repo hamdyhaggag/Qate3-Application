@@ -12,21 +12,19 @@ class BringOil extends StatelessWidget {
         return 13;
       },
       barTitle: 'بديل الزيوت للأطفال',
-      imagePath1: 'assets/Children/Bring/O1.jpg',
-      imagePath2: 'assets/Children/Bring/O2.jpg',
-      imagePath3: 'assets/Children/Bring/O3.jpg',
-      imagePath4: 'assets/Children/Bring/O4.jpg',
-      imagePath5: 'assets/Children/Bring/O5.jpg',
-      imagePath6: 'assets/Children/Bring/O6.jpg',
-      imagePath7: 'assets/Children/Bring/O7.jpg',
-      imagePath8: 'assets/Children/Bring/O8.jpg',
-      imagePath9: 'assets/Children/Bring/O9.jpg',
-      imagePath10: 'assets/Children/Bring/O10.jpg',
-      imagePath11: 'assets/Children/Bring/O11.jpg',
-      imagePath12: 'assets/Children/Bring/O12.jpg',
-      imagePath13: 'assets/Children/Bring/O13.jpg',
-
-
+      imagePath1: 'assets/Children/Bring/O1.png',
+      imagePath2: 'assets/Children/Bring/O2.png',
+      imagePath3: 'assets/Children/Bring/O3.png',
+      imagePath4: 'assets/Children/Bring/O4.png',
+      imagePath5: 'assets/Children/Bring/O5.png',
+      imagePath6: 'assets/Children/Bring/O6.png',
+      imagePath7: 'assets/Children/Bring/O7.png',
+      imagePath8: 'assets/Children/Bring/O8.png',
+      imagePath9: 'assets/Children/Bring/O9.png',
+      imagePath10: 'assets/Children/Bring/O10.png',
+      imagePath11: 'assets/Children/Bring/O11.png',
+      imagePath12: 'assets/Children/Bring/O12.png',
+      imagePath13: 'assets/Children/Bring/O13.png',
       title1: 'نونو',
       title2: 'بيبي',
       title3: 'بلانكي',
@@ -40,8 +38,6 @@ class BringOil extends StatelessWidget {
       title11: 'ديفول',
       title12: 'آي كير',
       title13: 'بيبي وايبس',
-
-
     );
   }
 }

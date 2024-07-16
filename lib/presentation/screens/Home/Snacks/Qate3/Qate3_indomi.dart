@@ -11,9 +11,8 @@ class Qate3Indomi extends StatelessWidget {
         return 1;
       },
       barTitle: ' منتجات الإندومي المقاطعة',
-      imagePath1: 'assets/Snacks/Qate3/ind1.jpg',
+      imagePath1: 'assets/Snacks/Qate3/ind1.png',
       title1: 'كيلوجز نودلز',
-
     );
   }
 }

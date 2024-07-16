@@ -50,7 +50,7 @@ class BringModel extends StatelessWidget {
     this.imagePath21 = '',
     this.title22 = '',
     this.imagePath22 = '',
-    this.title23= '',
+    this.title23 = '',
     this.imagePath23 = '',
   }) : super(key: key);
 
@@ -106,7 +106,7 @@ class BringModel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Theme.of(context).primaryColor,
       appBar: CustomAppBar(title: barTitle, isHome: false),
       body: Padding(
         padding: EdgeInsets.symmetric(

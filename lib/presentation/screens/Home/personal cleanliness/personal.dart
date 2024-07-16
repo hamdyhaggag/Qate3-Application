@@ -19,7 +19,7 @@ class PersonalScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final List<CategoryItemData> categoryItems = [
       CategoryItemData(
-        imageUrl: 'assets/home/26.jpg',
+        imageUrl: 'assets/home/26.png',
         title: 'مزيل العرق',
         onTap: () => navigateTo(
             context,
@@ -30,7 +30,7 @@ class PersonalScreen extends StatelessWidget {
             )),
       ),
       CategoryItemData(
-        imageUrl: 'assets/home/27.jpg',
+        imageUrl: 'assets/home/27.png',
         title: 'الشامبو',
         onTap: () => navigateTo(
             context,
@@ -41,7 +41,7 @@ class PersonalScreen extends StatelessWidget {
             )),
       ),
       CategoryItemData(
-        imageUrl: 'assets/home/28.jpg',
+        imageUrl: 'assets/home/28.png',
         title: ' البرفيوم و اللوشن',
         onTap: () => navigateTo(
             context,
@@ -52,7 +52,7 @@ class PersonalScreen extends StatelessWidget {
             )),
       ),
       CategoryItemData(
-        imageUrl: 'assets/home/29.jpg',
+        imageUrl: 'assets/home/29.png',
         title: 'العناية بالفم و الأسنان',
         onTap: () => navigateTo(
             context,
@@ -64,7 +64,7 @@ class PersonalScreen extends StatelessWidget {
       ),
     ];
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Theme.of(context).primaryColor,
       appBar: const CustomAppBar(title: 'قسم العناية الشخصية', isHome: false),
       body: GridView.builder(
         shrinkWrap: true,

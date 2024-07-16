@@ -8,9 +8,9 @@ class CleanScreen extends StatelessWidget {
   const CleanScreen({super.key});
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-        backgroundColor: Colors.white,
-        body: CustomChoice(
+    return Scaffold(
+        backgroundColor: Theme.of(context).primaryColor,
+        body: const  CustomChoice(
             title: 'المنظفات', screen1: Qate3Clean(), screen2: BringClean()));
   }
 }

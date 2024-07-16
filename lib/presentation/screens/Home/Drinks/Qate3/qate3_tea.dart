@@ -11,9 +11,9 @@ class Qate3Tea extends StatelessWidget {
         return 3;
       },
       barTitle: ' منتجات الشاي المقاطعة',
-      imagePath1: 'assets/Drinks/Qate3/t1.jpg',
-      imagePath2: 'assets/Drinks/Qate3/t2.jpg',
-      imagePath3: 'assets/Drinks/Qate3/t3.jpg',
+      imagePath1: 'assets/Drinks/Qate3/t1.png',
+      imagePath2: 'assets/Drinks/Qate3/t2.png',
+      imagePath3: 'assets/Drinks/Qate3/t3.png',
       title1: ' ليبتون',
       title2: 'أحمد تي',
       title3: ' تويننجز',

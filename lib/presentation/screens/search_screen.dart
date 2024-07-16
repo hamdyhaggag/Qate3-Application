@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
-import '../widgets.dart';
 import 'Home/Banks/bank.dart';
 import 'Home/Benzen/benzen.dart';
 import 'Home/Children/children.dart';
@@ -48,6 +46,9 @@ class CustomSearchScreenItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      color: Theme.of(context).brightness == Brightness.dark
+          ? Colors.grey.shade800
+          : Colors.white30,
       elevation: 1,
       margin: const EdgeInsets.symmetric(vertical: 2, horizontal: 6),
       shape: RoundedRectangleBorder(
@@ -76,61 +77,67 @@ class CustomSearchScreenItem extends StatelessWidget {
 }
 
 class SearchScreen extends StatefulWidget {
-  const SearchScreen({Key? key}) : super(key: key);
+  final bool isDarkTheme;
+
+  const SearchScreen({Key? key, required this.isDarkTheme}) : super(key: key);
 
   @override
   _SearchScreenState createState() => _SearchScreenState();
 }
 
 class _SearchScreenState extends State<SearchScreen> {
-  final List<ItemModel> items = [
-    ItemModel('المياة', (context) => navigateTo(context, const Qate3Water())),
-    ItemModel('المشروبات \nالغازية',
-        (context) => navigateTo(context, const Qate3Soda())),
-    ItemModel('الألبان', (context) => navigateTo(context, const Qate3Milk())),
-    ItemModel('القهوة', (context) => navigateTo(context, const Qate3Coffee())),
-    ItemModel(
-        'النسكافية', (context) => navigateTo(context, const Qate3Nescafe())),
-    ItemModel('الشيبسي', (context) => navigateTo(context, const Qate3Chipsy())),
-    ItemModel(
-        'الشيكولاته', (context) => navigateTo(context, const Qate3Chocolate())),
-    ItemModel(
-        'البسكويت', (context) => navigateTo(context, const Qate3Bescauit())),
-    ItemModel('زبادي', (context) => navigateTo(context, const Qate3Zbady())),
-    ItemModel(
-        'أيس كريم', (context) => navigateTo(context, const Qate3Icecream())),
-    ItemModel('الجبن', (context) => navigateTo(context, const Qate3Gebna())),
-    ItemModel(
-        'البهارات', (context) => navigateTo(context, const Qate3Boharat())),
-    ItemModel(
-        'مزيل العرق', (context) => navigateTo(context, const Qate3Spray())),
-    ItemModel('الشامبو', (context) => navigateTo(context, const Qate3Shampo())),
-    ItemModel(
-        'البرفيوم', (context) => navigateTo(context, const Qate3Perfium())),
-    ItemModel(
-        'مسحوق\n الغسيل', (context) => navigateTo(context, const Qate3Clean())),
-    ItemModel('معجون\n أسنان',
-        (context) => navigateTo(context, const Qate3Toothpaste())),
-    ItemModel('الشاي', (context) => navigateTo(context, const Qate3Tea())),
-    ItemModel('السيارات', (context) => navigateTo(context, const CarsScreen())),
-    ItemModel('الأجهزة الكهربائية',
-        (context) => navigateTo(context, const DevicesScreen())),
-    ItemModel('البنوك', (context) => navigateTo(context, const BankScreen())),
-    ItemModel(
-        'الملابس', (context) => navigateTo(context, const ClothesScreen())),
-    ItemModel(
-        'الطيران', (context) => navigateTo(context, const FlightScreen())),
-    ItemModel('محطات البنزين',
-        (context) => navigateTo(context, const BenzenScreen())),
-    ItemModel('مستلزمات الأطفال',
-        (context) => navigateTo(context, const ChildrenScreen())),
-  ];
-
-  List<ItemModel> filteredItems = [];
+  late List<ItemModel> items;
+  late List<ItemModel> filteredItems;
 
   @override
   void initState() {
     super.initState();
+    items = [
+      ItemModel('المياة', (context) => navigateTo(context, const Qate3Water())),
+      ItemModel('المشروبات \nالغازية',
+          (context) => navigateTo(context, const Qate3Soda())),
+      ItemModel('الألبان', (context) => navigateTo(context, const Qate3Milk())),
+      ItemModel(
+          'القهوة', (context) => navigateTo(context, const Qate3Coffee())),
+      ItemModel(
+          'النسكافية', (context) => navigateTo(context, const Qate3Nescafe())),
+      ItemModel(
+          'الشيبسي', (context) => navigateTo(context, const Qate3Chipsy())),
+      ItemModel('الشيكولاته',
+          (context) => navigateTo(context, const Qate3Chocolate())),
+      ItemModel(
+          'البسكويت', (context) => navigateTo(context, const Qate3Bescauit())),
+      ItemModel('زبادي', (context) => navigateTo(context, const Qate3Zbady())),
+      ItemModel(
+          'أيس كريم', (context) => navigateTo(context, const Qate3Icecream())),
+      ItemModel('الجبن', (context) => navigateTo(context, const Qate3Gebna())),
+      ItemModel(
+          'البهارات', (context) => navigateTo(context, const Qate3Boharat())),
+      ItemModel(
+          'مزيل العرق', (context) => navigateTo(context, const Qate3Spray())),
+      ItemModel(
+          'الشامبو', (context) => navigateTo(context, const Qate3Shampo())),
+      ItemModel(
+          'البرفيوم', (context) => navigateTo(context, const Qate3Perfium())),
+      ItemModel('مسحوق\n الغسيل',
+          (context) => navigateTo(context, const Qate3Clean())),
+      ItemModel('معجون\n أسنان',
+          (context) => navigateTo(context, const Qate3Toothpaste())),
+      ItemModel('الشاي', (context) => navigateTo(context, const Qate3Tea())),
+      ItemModel(
+          'السيارات', (context) => navigateTo(context, const CarsScreen())),
+      ItemModel('الأجهزة الكهربائية',
+          (context) => navigateTo(context, const DevicesScreen())),
+      ItemModel('البنوك', (context) => navigateTo(context, const BankScreen())),
+      ItemModel(
+          'الملابس', (context) => navigateTo(context, const ClothesScreen())),
+      ItemModel(
+          'الطيران', (context) => navigateTo(context, const FlightScreen())),
+      ItemModel('محطات البنزين',
+          (context) => navigateTo(context, const BenzenScreen())),
+      ItemModel('مستلزمات الأطفال',
+          (context) => navigateTo(context, const ChildrenScreen())),
+    ];
     filteredItems = List.from(items);
   }
 
@@ -139,9 +146,9 @@ class _SearchScreenState extends State<SearchScreen> {
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: Theme.of(context).colorScheme.primary,
         appBar: AppBar(
-          backgroundColor: Colors.white,
+          backgroundColor: Theme.of(context).colorScheme.primary,
           elevation: 0,
           title: SizedBox(
             height: 38,
@@ -149,7 +156,7 @@ class _SearchScreenState extends State<SearchScreen> {
               onChanged: (value) => onSearch(value),
               decoration: InputDecoration(
                 filled: true,
-                fillColor: Colors.white,
+                fillColor: Theme.of(context).colorScheme.primary,
                 contentPadding: const EdgeInsets.all(0),
                 prefixIcon: const Icon(
                   FontAwesomeIcons.magnifyingGlass,
@@ -159,14 +166,17 @@ class _SearchScreenState extends State<SearchScreen> {
                   borderRadius: BorderRadius.circular(50),
                   borderSide: BorderSide.none,
                 ),
-                hintStyle: const TextStyle(fontSize: 19, color: Colors.grey),
+                hintStyle: TextStyle(
+                  fontSize: 19,
+                  color: widget.isDarkTheme ? Colors.white : Colors.grey,
+                ),
                 hintText: "بتبحث عن إيه ؟",
               ),
             ),
           ),
         ),
         body: Container(
-          color: Colors.white,
+          color: Theme.of(context).colorScheme.primary,
           padding: const EdgeInsets.all(8.0),
           child: GridView.builder(
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -198,7 +208,7 @@ class _SearchScreenState extends State<SearchScreen> {
     return screenWidth > 600 ? 3.5 : 2.7;
   }
 
-  onSearch(String search) {
+  void onSearch(String search) {
     setState(() {
       filteredItems = items
           .where(
@@ -206,5 +216,9 @@ class _SearchScreenState extends State<SearchScreen> {
           )
           .toList();
     });
+  }
+
+  void navigateTo(BuildContext context, Widget page) {
+    Navigator.push(context, MaterialPageRoute(builder: (context) => page));
   }
 }

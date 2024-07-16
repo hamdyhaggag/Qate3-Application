@@ -8,9 +8,9 @@ class RestaurentScreeen extends StatelessWidget {
   const RestaurentScreeen({super.key});
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-        backgroundColor: Colors.white,
-        body: CustomChoice(
+    return Scaffold(
+        backgroundColor: Theme.of(context).primaryColor,
+        body: const CustomChoice(
             title: 'المطاعم',
             screen1: Qate3Restaurent(),
             screen2: BringRestaurent()));

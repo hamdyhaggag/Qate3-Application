@@ -1,7 +1,6 @@
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:qate3_app/constants/carousel_slider.dart';
-import 'package:qate3_app/constants/colors.dart';
 import 'package:qate3_app/constants/custom_category_item.dart';
 
 import '../../constants/custom_appbar.dart';
@@ -23,9 +22,11 @@ import 'Home/personal cleanliness/personal.dart';
 import 'Home/restaurent/restaurent.dart';
 import 'brand.dart';
 
-
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key});
+  const HomeScreen({
+    Key? key,
+  });
+  final bool isDarkTheme = false;
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -54,105 +55,109 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     final List<CategoryItemData> categoryItems = [
       CategoryItemData(
-        imageUrl: 'assets/home/1.jpg',
+        imageUrl: 'assets/home/1.png',
         title: 'المشروبات',
         subtitle: 'قسم المياة الغازية',
         onTap: () => navigateTo(context, const DrinksScreen()),
       ),
       CategoryItemData(
-        imageUrl: 'assets/home/2.jpg',
+        imageUrl: 'assets/home/2.png',
         title: 'سناكس',
         subtitle: ' قسم السناكس',
         onTap: () => navigateTo(context, const SnacksScreeen()),
       ),
       CategoryItemData(
-        imageUrl: 'assets/home/3.jpg',
+        imageUrl: 'assets/home/3.png',
         title: 'المطاعم',
         subtitle: 'قسم الوجبات السريعة',
         onTap: () => navigateTo(context, const RestaurentScreeen()),
       ),
       CategoryItemData(
-        imageUrl: 'assets/home/4.jpg',
+        imageUrl: 'assets/home/4.png',
         title: ' مستلزمات المطبخ',
         subtitle: 'قسم المطبخ',
         onTap: () => navigateTo(context, const KitchenScreen()),
       ),
       CategoryItemData(
-        imageUrl: 'assets/home/5.jpg',
+        imageUrl: 'assets/home/5.png',
         title: ' المنظفات',
         subtitle: 'قسم مسحوق الغسيل ',
         onTap: () => navigateTo(context, const CleanScreen()),
       ),
       CategoryItemData(
-        imageUrl: 'assets/home/54.jpg',
+        imageUrl: 'assets/home/54.png',
         title: '  مستلزمات الأطفال',
         subtitle: 'قسم الأطفال',
         onTap: () => navigateTo(context, const ChildrenScreen()),
       ),
       CategoryItemData(
-        imageUrl: 'assets/home/52.jpg',
+        imageUrl: 'assets/home/52.png',
         title: '  شركات الأدوية',
         subtitle: 'قسم الأدوية',
         onTap: () => navigateTo(context, const MedicineScreen()),
       ),
       CategoryItemData(
-        imageUrl: 'assets/home/6.jpg',
+        imageUrl: 'assets/home/6.png',
         title: ' مستحضرات التجميل',
         subtitle: 'قسم الكوزماتيكس',
         onTap: () => navigateTo(context, const CosmeticsScreen()),
       ),
       CategoryItemData(
-        imageUrl: 'assets/home/7.jpg',
+        imageUrl: 'assets/home/7.png',
         title: 'العناية الشخصية',
         subtitle: 'قسم مزيل العرق ',
         onTap: () => navigateTo(context, const PersonalScreen()),
       ),
       CategoryItemData(
-        imageUrl: 'assets/home/8.jpg',
+        imageUrl: 'assets/home/8.png',
         title: ' الملابس',
         subtitle: 'قسم محلات الملابس',
         onTap: () => navigateTo(context, const ClothesScreen()),
       ),
       CategoryItemData(
-        imageUrl: 'assets/home/32.jpg',
+        imageUrl: 'assets/home/32.png',
         title: ' علامات تجارية',
         subtitle: ' مقاطعة براندات ',
         onTap: () => navigateTo(context, const BrandsScreen()),
       ),
       CategoryItemData(
-        imageUrl: 'assets/home/47.jpg',
+        imageUrl: 'assets/home/47.png',
         title: ' السيارات ',
         subtitle: ' مقاطعة السيارات ',
         onTap: () => navigateTo(context, const CarsScreen()),
       ),
       CategoryItemData(
-        imageUrl: 'assets/home/48.jpg',
+        imageUrl: 'assets/home/48.png',
         title: ' محطات البنزين ',
         subtitle: ' مقاطعة محطات البنزين ',
         onTap: () => navigateTo(context, const BenzenScreen()),
       ),
       CategoryItemData(
-        imageUrl: 'assets/home/49.jpg',
+        imageUrl: 'assets/home/49.png',
         title: ' الأجهزة الكهربائية ',
         subtitle: ' مقاطعة الأجهزة ',
         onTap: () => navigateTo(context, const DevicesScreen()),
       ),
       CategoryItemData(
-        imageUrl: 'assets/home/50.jpg',
+        imageUrl: 'assets/home/50.png',
         title: ' البنوك  ',
         subtitle: ' مقاطعة البنوك ',
         onTap: () => navigateTo(context, const BankScreen()),
       ),
       CategoryItemData(
-        imageUrl: 'assets/home/51.jpg',
+        imageUrl: 'assets/home/51.png',
         title: ' رحلات الطيران  ',
         subtitle: ' مقاطعة الطيران ',
         onTap: () => navigateTo(context, const FlightScreen()),
       ),
     ];
     return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: const CustomAppBar(title: 'أهلاً بك في تطبيق قاطع', isHome: true),
+      backgroundColor: Theme.of(context).colorScheme.primary,
+      appBar: const CustomAppBar(
+        title: 'أهلاً بك في تطبيق قاطع',
+        isHome: true,
+        showSwitch: true,
+      ),
       body: LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
           double screenWidth = MediaQuery.of(context).size.width;
@@ -165,7 +170,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   imageUrl1: 'assets/images/1.jpg',
                   imageUrl2: 'assets/images/2.jpg',
                   imageUrl3: 'assets/images/3.jpg',
-                  imageUrl4: 'assets/images/4.jpg',
+                  imageUrl4: 'assets/images/4.png',
                   imageUrl5: 'assets/images/5.jpg',
                 ),
                 Padding(
@@ -175,7 +180,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       'المنتجات على حسب الأقسام',
                       style: TextStyle(
                         fontFamily: 'Cairo',
-                        color: AppColors.blackColor,
+                        color: Theme.of(context).brightness == Brightness.dark
+                            ? Colors.white
+                            : Colors.black,
                         fontWeight: FontWeight.bold,
                         fontSize: screenWidth > 600 ? 30 : 19,
                       ),
@@ -187,13 +194,13 @@ class _HomeScreenState extends State<HomeScreen> {
                   physics: const NeverScrollableScrollPhysics(),
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: screenWidth > 600 ? 4 : 2,
-                    childAspectRatio: 0.71,
+                    childAspectRatio: 0.66,
                   ),
                   itemCount: categoryItems.length,
                   itemBuilder: (BuildContext context, int index) {
                     final item = categoryItems[index];
                     return Padding(
-                      padding: EdgeInsets.all(screenWidth > 600 ? 16.0 : 7.0),
+                      padding: EdgeInsets.all(screenWidth > 600 ? 14.0 : 12.0),
                       child: GestureDetector(
                         onTap: item.onTap,
                         child: CustomCategoryItem(
