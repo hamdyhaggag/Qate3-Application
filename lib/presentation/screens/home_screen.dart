@@ -2,7 +2,6 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:qate3_app/constants/carousel_slider.dart';
 import 'package:qate3_app/constants/custom_category_item.dart';
-
 import '../../constants/custom_appbar.dart';
 import '../widgets.dart';
 import 'Home/Banks/bank.dart';
