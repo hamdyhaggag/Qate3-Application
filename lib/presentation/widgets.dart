@@ -1,20 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:logger/logger.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
-
 import '../../constants/app_text.dart';
 
-navigateAndFinish(context, widget) {
-  return Navigator.pushAndRemoveUntil(
+final logger = Logger();
+
+void navigateAndFinish(BuildContext context, Widget widget) {
+  Navigator.pushAndRemoveUntil(
     context,
     MaterialPageRoute(builder: (context) => widget),
     (route) => false,
   );
 }
 
-navigateTo(context, widget) {
-  return Navigator.push(
+void navigateTo(BuildContext context, Widget widget) {
+  Navigator.push(
     context,
     MaterialPageRoute(builder: (context) => widget),
   );
@@ -22,22 +24,17 @@ navigateTo(context, widget) {
 
 const String googlePlayUrl =
     'https://play.google.com/store/apps/details?id=com.qate3.app.qate3_app';
-void _launchURL(String link) async {
-  Uri url = Uri.parse(link);
 
-  if (!await launchUrl(
-    url,
-    mode: LaunchMode.externalApplication,
-  )) {
+Future<void> _launchURL(String link) async {
+  final Uri url = Uri.parse(link);
+  if (!await launchUrl(url, mode: LaunchMode.externalApplication)) {
     throw 'Could not launch $url';
   }
 }
 
 Widget buildRow(IconData icon, String url, String title, Color color) {
   return InkWell(
-    onTap: () {
-      _launchURL(url);
-    },
+    onTap: () => _launchURL(url),
     child: SizedBox(
       height: 40,
       child: Row(
@@ -55,7 +52,7 @@ Widget buildRow(IconData icon, String url, String title, Color color) {
   );
 }
 
-donate(context) {
+void donate(BuildContext context) {
   showDialog(
     context: context,
     builder: (BuildContext context) {
@@ -97,19 +94,15 @@ donate(context) {
   );
 }
 
-void shareOptions(BuildContext context) async {
+Future<void> shareOptions(BuildContext context) async {
   const String text = googlePlayUrl;
   const String subject = "تطبيق قاطع";
-
   await Share.share(text, subject: subject);
 }
 
-////////////////////////////////////////////////
-void openGooglePlayForFeedback() async {
+Future<void> openGooglePlayForFeedback() async {
   const String packageName = 'com.qate3.app.qate3_app';
-  const String googlePlayUrl = 'market://details?id=$packageName';
-
-  final Uri googlePlayUri = Uri.parse(googlePlayUrl);
+  final Uri googlePlayUri = Uri.parse('market://details?id=$packageName');
 
   if (await canLaunchUrl(googlePlayUri)) {
     await launchUrl(googlePlayUri);
@@ -122,8 +115,7 @@ void shareFeedback(BuildContext context) {
   openGooglePlayForFeedback();
 }
 
-////////////////////////////////////////////////
-void sendEmail() async {
+Future<void> sendEmail() async {
   final Uri emailLaunchUri = Uri(
     scheme: 'mailto',
     path: 'arabianatech@gmail.com',
@@ -134,26 +126,24 @@ void sendEmail() async {
   );
 
   try {
-    await launch(emailLaunchUri.toString());
+    await launchUrl(emailLaunchUri);
   } catch (e) {
-    print('Error launching email: $e');
+    logger.e('Error launching email', error: e);
   }
 }
 
-//////////////////////
-void openFormLink() async {
+Future<void> openFormLink() async {
   const String formLink =
       'https://6m0oi2hw.forms.app/ttbyk-ktaa-llktrht-o-lmshkl-o-ltkyym';
 
   try {
-    await launch(formLink);
+    await launchUrl(Uri.parse(formLink));
   } catch (e) {
-    print('Error launching form link: $e');
+    logger.e('Error launching form link', error: e);
   }
 }
 
-//////////////////////
-contactDev(context) {
+void contactDev(BuildContext context) {
   showDialog(
     context: context,
     builder: (BuildContext context) {

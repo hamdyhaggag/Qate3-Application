@@ -82,10 +82,10 @@ class SearchScreen extends StatefulWidget {
   const SearchScreen({Key? key, required this.isDarkTheme}) : super(key: key);
 
   @override
-  _SearchScreenState createState() => _SearchScreenState();
+  SearchScreenState createState() => SearchScreenState();
 }
 
-class _SearchScreenState extends State<SearchScreen> {
+class SearchScreenState extends State<SearchScreen> {
   late List<ItemModel> items;
   late List<ItemModel> filteredItems;
 

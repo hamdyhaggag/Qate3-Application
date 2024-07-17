@@ -4,9 +4,9 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart' as url_launcher;
 import '../../../constants/custom_appbar.dart';
 import '../widgets.dart';
-import 'SettingsScreen/app_info.dart';
-import 'SettingsScreen/contribute.dart';
-import 'SettingsScreen/privacy_policy.dart';
+import 'Home/SettingsScreen/app_info.dart';
+import 'Home/SettingsScreen/contribute.dart';
+import 'Home/SettingsScreen/privacy_policy.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({Key? key}) : super(key: key);
@@ -92,7 +92,7 @@ class SettingsScreen extends StatelessWidget {
         icon: FontAwesomeIcons.layerGroup,
         title: 'المساهمون في التطبيق',
         subtitle: 'شكر خاص لمساهمينا',
-        onTap: () => navigateTo(context, const ContributeScreen()),
+        onTap: () => navigateTo(context, ContributeScreen()),
       ),
       _createSettingsItem(
         context,
@@ -127,8 +127,8 @@ class SettingsScreen extends StatelessWidget {
 
   void _launchURL(String urlString) async {
     final Uri url = Uri.parse(urlString);
-    if (await url_launcher.canLaunch(url.toString())) {
-      await url_launcher.launch(url.toString());
+    if (await url_launcher.canLaunchUrl(url.toString() as Uri)) {
+      await url_launcher.launchUrl(url.toString() as Uri);
     } else {
       throw 'Could not launch $urlString';
     }

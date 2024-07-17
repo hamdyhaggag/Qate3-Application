@@ -1,5 +1,6 @@
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
+import 'package:logger/logger.dart';
 import 'package:qate3_app/constants/carousel_slider.dart';
 import 'package:qate3_app/constants/custom_category_item.dart';
 import '../../constants/custom_appbar.dart';
@@ -22,9 +23,8 @@ import 'Home/restaurent/restaurent.dart';
 import 'brand.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({
-    Key? key,
-  });
+  const HomeScreen({Key? key}) : super(key: key);
+
   final bool isDarkTheme = false;
 
   @override
@@ -32,19 +32,26 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  @override
+  void initState() {
+    super.initState();
+    requestPermission();
+  }
+
+  var logger = Logger();
+
   void requestPermission() async {
     FirebaseMessaging messaging = FirebaseMessaging.instance;
     NotificationSettings settings = await messaging.requestPermission(
-        alert: true,
-        announcement: false,
-        badge: true,
-        carPlay: false,
-        criticalAlert: false,
-        provisional: false,
-        sound: true);
+      alert: true,
+      badge: true,
+      sound: true,
+    );
+
     if (settings.authorizationStatus == AuthorizationStatus.authorized) {
-      print('User Granted Permission');
+      logger.i('User Granted Permission');
     }
+
     FirebaseMessaging.onMessage.listen((RemoteMessage message) {
       navigateTo(context, const HomeScreen());
     });
@@ -150,6 +157,7 @@ class _HomeScreenState extends State<HomeScreen> {
         onTap: () => navigateTo(context, const FlightScreen()),
       ),
     ];
+
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.primary,
       appBar: const CustomAppBar(
@@ -210,7 +218,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     );
                   },
-                )
+                ),
               ],
             ),
           );

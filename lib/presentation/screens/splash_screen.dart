@@ -6,10 +6,10 @@ class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
 
   @override
-  _SplashScreenState createState() => _SplashScreenState();
+  SplashScreenState createState() => SplashScreenState();
 }
 
-class _SplashScreenState extends State<SplashScreen>
+class SplashScreenState extends State<SplashScreen>
     with SingleTickerProviderStateMixin {
   late AnimationController _animationController;
   late Animation<double> _animation;
@@ -20,7 +20,7 @@ class _SplashScreenState extends State<SplashScreen>
 
     _animationController = AnimationController(
       vsync: this,
-      duration: const Duration(seconds: 2),
+      duration: const Duration(seconds: 1),
     );
 
     _animation = CurvedAnimation(
@@ -30,7 +30,7 @@ class _SplashScreenState extends State<SplashScreen>
 
     _animationController.forward();
 
-    Timer(const Duration(seconds: 3), () {
+    Timer(const Duration(seconds: 2), () {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
@@ -81,27 +81,6 @@ class _SplashScreenState extends State<SplashScreen>
                           width: screenSize.width * 0.9,
                         ),
                       ),
-                      // Positioned(
-                      //   bottom: screenSize.height * 0.090,
-                      //   child: AnimatedBuilder(
-                      //     animation: _animation,
-                      //     builder: (context, child) {
-                      //       return Opacity(
-                      //         opacity: _animation.value,
-                      //         child: child,
-                      //       );
-                      //     },
-                      //     child: Text(
-                      //       "مـــن أجـــل فــلــســطــيــن",
-                      //       style: TextStyle(
-                      //         fontSize: screenSize.width * 0.04,
-                      //         color: const Color(0xff007a3c),
-                      //         fontWeight: FontWeight.bold,
-                      //         fontFamily: 'Cairo',
-                      //       ),
-                      //     ),
-                      //   ),
-                      // ),
                     ],
                   ),
                 ],

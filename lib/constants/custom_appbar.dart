@@ -1,13 +1,13 @@
-import 'package:day_night_switch/day_night_switch.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:day_night_switch/day_night_switch.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
 import '../bussiness_logic/cubit/theme_cubit.dart';
 import '../bussiness_logic/cubit/theme_state.dart';
 import 'colors.dart';
 
-class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
+class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
   const CustomAppBar({
     Key? key,
     required this.title,
@@ -20,7 +20,35 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final bool showSwitch;
 
   @override
+  CustomAppBarState createState() => CustomAppBarState();
+
+  @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
+}
+
+class CustomAppBarState extends State<CustomAppBar> {
+  bool switchValue = false;
+  late SharedPreferences prefs;
+
+  @override
+  void initState() {
+    super.initState();
+    loadSwitchState();
+  }
+
+  Future<void> loadSwitchState() async {
+    prefs = await SharedPreferences.getInstance();
+    setState(() {
+      switchValue = prefs.getBool('switchValue') ?? false;
+    });
+  }
+
+  Future<void> saveSwitchState(bool value) async {
+    setState(() {
+      switchValue = value;
+    });
+    await prefs.setBool('switchValue', value);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -33,13 +61,13 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         elevation: 0,
         backgroundColor: Colors.transparent,
         title: Align(
-          alignment: showSwitch
+          alignment: widget.showSwitch
               ? AlignmentDirectional.topEnd
-              : (isHome
+              : (widget.isHome
                   ? AlignmentDirectional.center
                   : AlignmentDirectional.topEnd),
           child: Text(
-            title,
+            widget.title,
             style: TextStyle(
               fontFamily: 'Cairo',
               color: isDarkMode ? Colors.white : AppColors.blackColor,
@@ -50,7 +78,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         ),
         leadingWidth: 0.0,
         leading: const SizedBox(),
-        actions: !isHome
+        actions: !widget.isHome
             ? [
                 IconButton(
                   onPressed: () {
@@ -60,22 +88,25 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                   },
                   icon: Icon(
                     FontAwesomeIcons.chevronRight,
-                    color: isDarkMode
-                        ? Colors.white
-                        : Theme.of(context).primaryColor,
+                    color: isDarkMode ? Colors.white : Colors.black,
                   ),
                 ),
                 const SizedBox(width: 3),
               ]
             : [
-                if (showSwitch)
+                if (widget.showSwitch)
                   BlocBuilder<ThemeCubit, ThemeState>(
                     builder: (context, themeState) => Transform.scale(
                       scale: 0.4,
                       child: DayNightSwitch(
-                        value: themeState.themeModeType == ThemeModeType.dark,
+                        value: switchValue,
                         onChanged: (value) {
+                          setState(() {
+                            switchValue = value;
+                          });
                           context.read<ThemeCubit>().toggleTheme();
+                          saveSwitchState(
+                              value); // Save state to SharedPreferences
                         },
                         nightColor: Colors.black87,
                         dayColor: const Color(0xFF770301),

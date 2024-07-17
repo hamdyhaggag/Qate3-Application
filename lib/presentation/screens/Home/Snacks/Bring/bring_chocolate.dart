@@ -18,7 +18,7 @@ class BringChocolate extends StatelessWidget {
       imagePath4: 'assets/Snacks/Bring/cho4.png',
       imagePath5: 'assets/Snacks/Bring/cho5.png',
       imagePath6: 'assets/kitchen/Bring/n5.png',
-      imagePath7: 'assets/Snacks/Bring/cho5.png',
+      imagePath7: 'assets/Snacks/Bring/cho6.png',
       title1: ' كتاكيتو',
       title2: ' ديسباسيتو',
       title3: ' كورونا',

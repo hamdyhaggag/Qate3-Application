@@ -106,15 +106,9 @@ void _showWhatsNewDialog(BuildContext context) {
                 textDirection: TextDirection.rtl,
                 child: Text(
                   '''
-● تم إضافة قسم جديد لمستلزمات الأطفال و يشمل :
-                - الحفاضات
-                - الحليب
-                - الزيوت و الشامبو
-                - الكورن فليكس
-● تم إضافة قسم جديد للأدوية .
+● تم إضافة زر التبديل إلى الوضع الليلي .
 ● تم تعديل منتجات متعددة و تنظيمها .
 ● تم إضافةالعديد من المنتجات المختلفة في جميع الأقسام .
-● تم إضافة طريقة جديدة للتواصل معنا بشكل أسهل و أسرع .
   ''',
                   style: TextStyle(
                     color: Colors.black,
@@ -150,10 +144,10 @@ class ScreenLayout extends StatefulWidget {
   const ScreenLayout({Key? key, required this.selectedIndex}) : super(key: key);
 
   @override
-  _ScreenLayoutState createState() => _ScreenLayoutState();
+  ScreenLayoutState createState() => ScreenLayoutState();
 }
 
-class _ScreenLayoutState extends State<ScreenLayout> {
+class ScreenLayoutState extends State<ScreenLayout> {
   late PageController controller;
   int selectedIndex = 0;
 
