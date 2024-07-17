@@ -4,7 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:day_night_switch/day_night_switch.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../bussiness_logic/cubit/theme_cubit.dart';
-import '../bussiness_logic/cubit/theme_state.dart';
+import '../bussiness_logic/cubit/theme_state.dart'; // Ensure ThemeState and ThemeModeType are correctly defined
 import 'colors.dart';
 
 class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
@@ -33,27 +33,40 @@ class CustomAppBarState extends State<CustomAppBar> {
   @override
   void initState() {
     super.initState();
-    loadSwitchState();
+    _initializePreferences();
   }
 
-  Future<void> loadSwitchState() async {
+  Future<void> _initializePreferences() async {
     prefs = await SharedPreferences.getInstance();
-    setState(() {
-      switchValue = prefs.getBool('switchValue') ?? false;
-    });
+    bool? cachedSwitchValue = prefs.getBool('switchValue');
+    if (cachedSwitchValue != null) {
+      switchValue = cachedSwitchValue;
+      if (switchValue !=
+          (BlocProvider.of<ThemeCubit>(context).state.themeModeType ==
+              ThemeModeType.dark)) {
+        context.read<ThemeCubit>().toggleTheme();
+      }
+    } else {
+      switchValue = (BlocProvider.of<ThemeCubit>(context).state.themeModeType ==
+          ThemeModeType.dark);
+    }
+    setState(() {});
   }
 
-  Future<void> saveSwitchState(bool value) async {
+  Future<void> _toggleSwitch(bool value) async {
     setState(() {
       switchValue = value;
     });
     await prefs.setBool('switchValue', value);
+    context.read<ThemeCubit>().toggleTheme();
   }
 
   @override
   Widget build(BuildContext context) {
     bool isSmallScreen = MediaQuery.of(context).size.width < 600;
-    bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
+    bool isDarkMode =
+        BlocProvider.of<ThemeCubit>(context).state.themeModeType ==
+            ThemeModeType.dark;
 
     return SafeArea(
       child: AppBar(
@@ -101,12 +114,7 @@ class CustomAppBarState extends State<CustomAppBar> {
                       child: DayNightSwitch(
                         value: switchValue,
                         onChanged: (value) {
-                          setState(() {
-                            switchValue = value;
-                          });
-                          context.read<ThemeCubit>().toggleTheme();
-                          saveSwitchState(
-                              value); // Save state to SharedPreferences
+                          _toggleSwitch(value);
                         },
                         nightColor: Colors.black87,
                         dayColor: const Color(0xFF770301),
