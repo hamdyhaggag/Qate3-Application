@@ -2,7 +2,7 @@ name: qate3_app
 description: "A new Flutter project."
 
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
-version: 1.4.0+15
+version: 1.4.0+16
 
 
 environment:
@@ -57,7 +57,6 @@ flutter:
   uses-material-design: true
 
   assets:
-
     - assets/home/
     - assets/images/
     - assets/cars/Bring/
@@ -90,6 +89,7 @@ flutter:
     - assets/Medicine/Qate3/
     - assets/Children/Bring/
     - assets/Children/Qate3/
+    - shorebird.yaml
   fonts:
     - family: Cairo
       fonts:
