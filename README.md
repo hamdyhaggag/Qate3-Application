@@ -48,10 +48,29 @@ The app is updated regularly to ensure accurate and up-to-date information
    flutter run
    ```
 
-## Usage
-1. **Navigating the app:** Description of how to navigate the app.
-2. **Using feature 1:** Instructions for using feature 1.
-3. **Using feature 2:** Instructions for using feature 2.
+## UsageNavigating the App
+Welcome to the Qate3 App! Navigation is streamlined for ease of use. From the Splash Screen, you’ll quickly transition to the main interface. Use the bottom navigation bar to move between the Home Screen, Awareness Screen, Search Screen, and Settings Screen. Each section is crafted to provide a smooth and engaging experience.
+
+**Exploring the Home Screen**
+The Home Screen is your dashboard for exploring boycotted products and alternatives. Here’s how to make the most of it:
+
+Browse Products: Scroll through the list of boycotted items. Tap on any product to view detailed information including boycott reasons and suggested alternatives.
+Quick Access: Use the buttons for quick access to the latest updates and important announcements. Swipe through categories to find what you need efficiently.
+**Discovering the Awareness Screen**
+The Awareness Screen is your educational hub. Here’s what you can do:
+
+Learn More: Dive into articles, infographics, about the impact of your consumer choices. This section provides valuable insights into the boycott and its significance.
+Stay Updated: Access the latest content and updates to stay informed about the Palestinian cause and ethical consumerism.
+**Utilizing the Search Screen**
+Need to find specific information? The Search Screen has you covered:
+
+Search for Products: Enter keywords or browse through categories to find detailed information about boycotted companies and alternative products.
+Filter Results: Use filters to refine your search and find exactly what you’re looking for quickly and easily.
+**Customizing Your Experience**
+On the Settings Screen, you can tailor the app to fit your preferences:
+
+Manage Notifications: Adjust your notification settings to receive updates about new boycotted products or important announcements.
+Customize Appearance: Change themes and display options to suit your personal preferences.
 
 
 ## Contributing
