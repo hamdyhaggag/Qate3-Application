@@ -84,6 +84,7 @@ Push to the branch (git push origin feature/your-feature-name).
 Create a Pull Request.
 
 ## License
+```
 MIT License
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -103,3 +104,4 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+```
