@@ -1,24 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_vibrate/flutter_vibrate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:logger/logger.dart';
 import 'package:qate3_app/presentation/screens/search_screen.dart';
 import 'package:qate3_app/presentation/screens/settings_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sliding_clipped_nav_bar/sliding_clipped_nav_bar.dart';
-
 import 'awareness_screen.dart';
 import 'home_screen.dart';
 
 class CreativeDialog extends StatelessWidget {
-  const CreativeDialog({Key? key}) : super(key: key);
+  CreativeDialog({Key? key}) : super(key: key);
+
+  final Logger _logger = Logger();
 
   Future<void> _vibrateFeedback() async {
     try {
       if (await Vibrate.canVibrate) {
         Vibrate.feedback(FeedbackType.impact);
       }
-    } catch (e) {
-      print('Vibration error: $e');
+    } catch (e, stackTrace) {
+      _logger.e('Vibration error', error: e, stackTrace: stackTrace);
     }
   }
 
@@ -164,7 +167,7 @@ class ScreenLayoutState extends State<ScreenLayout> {
         Future.delayed(const Duration(milliseconds: 500), () {
           showDialog(
             context: context,
-            builder: (context) => const CreativeDialog(),
+            builder: (context) => CreativeDialog(),
           );
 
           prefs.setBool('dialogShown', true);
@@ -214,8 +217,7 @@ class ScreenLayoutState extends State<ScreenLayout> {
             onPressed: () {
               Navigator.of(context).pop();
               _vibrateFeedback();
-              // Perform actions to quit the app here
-              // For example: SystemChannels.platform.invokeMethod('SystemNavigator.pop');
+              SystemNavigator.pop();
             },
             child: const Text(
               'نعم',
