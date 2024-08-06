@@ -1,7 +1,6 @@
 # Qate3 - Application
 
 [![Flutter](https://img.shields.io/badge/Flutter-v3.2.1-blue)](https://flutter.dev)
-[![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 [![Google Play Store](https://img.shields.io/badge/Google_Play-Download-green)](https://play.google.com/store/apps/details?id=com.qate3.app.qate3_app&pli=1)
 
 The Boycott application is a professional and pioneering solution that supports the Palestinian cause by encouraging the sustainable boycott of companies that support the occupation. The application provides accurate information about boycotted products and provides unsupported alternatives to users.
