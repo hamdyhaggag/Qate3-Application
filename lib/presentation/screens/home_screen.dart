@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
 import 'package:qate3_app/constants/carousel_slider.dart';
 import 'package:qate3_app/constants/custom_category_item.dart';
+import 'package:qate3_app/presentation/screens/tv_channels.dart';
 import '../../constants/custom_appbar.dart';
 import '../widgets.dart';
 import 'Home/Banks/bank.dart';
@@ -125,6 +126,12 @@ class _HomeScreenState extends State<HomeScreen> {
         title: ' علامات تجارية',
         subtitle: ' مقاطعة براندات ',
         onTap: () => navigateTo(context, const BrandsScreen()),
+      ),
+      CategoryItemData(
+        imageUrl: 'assets/home/55.png',
+        title: 'القنوات و البرامج',
+        subtitle: ' مقاطعة القنوات التليفزيونية ',
+        onTap: () => navigateTo(context, const TvChannels()),
       ),
       CategoryItemData(
         imageUrl: 'assets/home/47.png',
