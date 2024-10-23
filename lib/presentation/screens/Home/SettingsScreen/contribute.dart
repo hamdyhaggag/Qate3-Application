@@ -5,7 +5,7 @@ import 'package:qate3_app/constants/custom_appbar.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class ContributeScreen extends StatefulWidget {
-  ContributeScreen({super.key});
+  const ContributeScreen({super.key});
 
   @override
   State<ContributeScreen> createState() => _ContributeScreenState();
@@ -111,16 +111,18 @@ class _ContributeScreenState extends State<ContributeScreen> {
 
   var logger = Logger();
 
-  void _launchURL(String url) async {
-    try {
-      Uri uri = Uri.parse(url);
-      if (await canLaunchUrl(uri.toString() as Uri)) {
-        await launchUrl(uri.toString() as Uri);
-      } else {
-        logger.e('Could not launch $url. No suitable handler found.');
-      }
-    } catch (e) {
-      logger.e('Error launching URL: $e');
+  Future<void> _launchURL(String url) async {
+    final Uri uri = Uri.parse(url);
+
+    if (await canLaunchUrl(uri)) {
+      await launchUrl(
+        uri,
+        mode: LaunchMode.inAppWebView, // Open in an in-app WebView
+        webViewConfiguration: const WebViewConfiguration(
+            enableJavaScript: true), // Enable JavaScript
+      );
+    } else {
+      throw 'Could not launch $url';
     }
   }
 }

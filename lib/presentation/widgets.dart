@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:logger/logger.dart';
@@ -25,26 +27,69 @@ void navigateTo(BuildContext context, Widget widget) {
 const String googlePlayUrl =
     'https://play.google.com/store/apps/details?id=com.qate3.app.qate3_app';
 
-Future<void> _launchURL(String link) async {
-  final Uri url = Uri.parse(link);
-  if (!await launchUrl(url, mode: LaunchMode.externalApplication)) {
-    throw 'Could not launch $url';
+Future<void> _launchUrl(String url) async {
+  final Uri uri = Uri.parse(url);
+
+  if (uri.scheme == 'mailto') {
+    if (await canLaunchUrl(uri)) {
+      await launchUrl(uri, mode: LaunchMode.externalApplication);
+    } else {
+      // Show a user-friendly message or log the error
+      debugPrint('No email client found to handle mailto link: $url');
+      throw 'Could not launch email client: $url';
+    }
+  } else {
+    if (await canLaunchUrl(uri)) {
+      await launchUrl(
+        uri,
+        mode: LaunchMode.inAppWebView,
+        webViewConfiguration:
+            const WebViewConfiguration(enableJavaScript: true),
+      );
+    } else {
+      // Handle web URL failure more gracefully
+      debugPrint('Could not launch web URL: $url');
+      throw 'Could not launch web URL: $url';
+    }
   }
 }
 
-Widget buildRow(IconData icon, String url, String title, Color color) {
-  return InkWell(
-    onTap: () => _launchURL(url),
-    child: SizedBox(
-      height: 40,
+Widget buildRow(BuildContext context, IconData icon, String url, String text,
+    Color textColor) {
+  return GestureDetector(
+    onTap: () {
+      _launchUrl(url);
+    },
+    child: Container(
+      margin: const EdgeInsets.symmetric(vertical: 8.0),
+      padding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 16.0),
+      decoration: BoxDecoration(
+        color: Theme.of(context).colorScheme.secondary.withOpacity(0.1),
+        borderRadius: BorderRadius.circular(12.0),
+        boxShadow: const [
+          BoxShadow(
+            color: Colors.black12,
+            blurRadius: 4.0,
+            spreadRadius: 1.0,
+            offset: Offset(0, 2),
+          ),
+        ],
+      ),
       child: Row(
-        textDirection: TextDirection.rtl,
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Icon(icon, color: color, size: 25),
-          AppText(
-            title,
-            color: Colors.black,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Icon(icon, color: textColor, size: 24.0),
+          const SizedBox(width: 12),
+          Expanded(
+            child: Text(
+              text,
+              style: TextStyle(
+                color: textColor,
+                fontSize: 16.0,
+                fontWeight: FontWeight.bold,
+              ),
+              textAlign: TextAlign.center,
+            ),
           ),
         ],
       ),
@@ -71,19 +116,21 @@ void donate(BuildContext context) {
             children: <Widget>[
               Center(
                 child: buildRow(
-                  FontAwesomeIcons.moneyCheckDollar,
-                  'https://www.buymeacoffee.com/hamdyhaggag74',
-                  'Buy Me A Coffee',
-                  Colors.white,
+                  context, // Passing the correct BuildContext
+                  FontAwesomeIcons.moneyCheckDollar, // Correct IconData
+                  'https://www.buymeacoffee.com/hamdyhaggag74', // Correct URL string
+                  'Buy Me A Coffee', // Correct title string
+                  Colors.white, // Correct Color
                 ),
               ),
               const SizedBox(height: 10),
               Center(
                 child: buildRow(
-                  FontAwesomeIcons.paypal,
-                  'https://www.paypal.com/paypalme/hamdyhaggag74',
-                  'paypal',
-                  Colors.white,
+                  context, // Passing the correct BuildContext
+                  FontAwesomeIcons.paypal, // Correct IconData
+                  'https://www.paypal.com/paypalme/hamdyhaggag74', // Correct URL string
+                  'PayPal', // Correct title string
+                  Colors.white, // Correct Color
                 ),
               ),
             ],
@@ -121,7 +168,24 @@ Future<void> sendEmail() async {
     path: 'arabianatech@gmail.com',
     queryParameters: {
       'subject': 'الإقتراحات أو الشكاوي بخصوص تطبيق قاطع',
-      'body': 'تمت تعبئة هذة الرسالة تلقائيا امسح نص الرسالة و اترك رسالتك',
+      'body': '',
+    },
+  );
+
+  try {
+    await launchUrl(emailLaunchUri);
+  } catch (e) {
+    logger.e('Error launching email', error: e);
+  }
+}
+
+Future<void> sendEmail2() async {
+  final Uri emailLaunchUri = Uri(
+    scheme: 'mailto',
+    path: 'hamdyhaggag74@gmail.com',
+    queryParameters: {
+      'subject': 'تطبيق قاطع',
+      'body': '',
     },
   );
 
@@ -143,51 +207,150 @@ Future<void> openFormLink() async {
   }
 }
 
-void contactDev(BuildContext context) {
-  showDialog(
+// void contactDev(BuildContext context) {
+//   showDialog(
+//     context: context,
+//     builder: (BuildContext context) {
+//       return AlertDialog(
+//         title: AppText(
+//           'تواصل من خلال :',
+//           textDirection: TextDirection.rtl,
+//           color: Colors.red,
+//           fontWeight: FontWeight.bold,
+//           fontFamily: 'Cairo',
+//         ),
+//         content: SingleChildScrollView(
+//           child: Column(
+//             mainAxisSize: MainAxisSize.min,
+//             crossAxisAlignment: CrossAxisAlignment.center,
+//             children: <Widget>[
+//               Center(
+//                 child: buildRow(
+//                   context,
+//                   FontAwesomeIcons.solidEnvelope,
+//                   'mailto:hamdyhaggag74@gmail.com',
+//                   'البريد الإلكتروني',
+//                   Theme.of(context).brightness == Brightness.dark
+//                       ? Colors.white
+//                       : Colors.black,
+//                 ),
+//               ),
+//               // const SizedBox(height: 10),
+//               // Center(
+//               //   child: buildRow(
+//               //     context,
+//               //     FontAwesomeIcons.facebook,
+//               //     'https://www.facebook.com/hamdyhaggag74',
+//               //     'فيسبوك',
+//               //    Theme.of(context).brightness == Brightness.dark
+//               //                       ? Colors.white
+//               //                       : Colors.black,
+//               //   ),
+//               // ),
+//               const SizedBox(height: 10),
+//               Center(
+//                 child: buildRow(
+//                   context,
+//                   FontAwesomeIcons.linkedin,
+//                   'https://www.linkedin.com/in/hamdyhaggag74/',
+//                   'لينكد إن',
+//                   Theme.of(context).brightness == Brightness.dark
+//                       ? Colors.white
+//                       : Colors.black,
+//                 ),
+//               ),
+//             ],
+//           ),
+//         ),
+//       );
+//     },
+//   );
+// }
+
+void integrateWithVodafoneCash(BuildContext context) {
+  showModalBottomSheet(
     context: context,
+    shape: const RoundedRectangleBorder(
+      borderRadius: BorderRadius.vertical(top: Radius.circular(20.0)),
+    ),
+    backgroundColor: Theme.of(context).colorScheme.primary,
+    isScrollControlled: true,
     builder: (BuildContext context) {
-      return AlertDialog(
-        title: AppText(
-          'تواصل من خلال :',
-          textDirection: TextDirection.rtl,
-          color: Colors.red,
-          fontWeight: FontWeight.bold,
-          fontFamily: 'Cairo',
+      return SingleChildScrollView(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            Center(
+              child: buildRow(
+                context,
+                FontAwesomeIcons.moneyCheckDollar,
+                'https://www.buymeacoffee.com/hamdyhaggag74',
+                'Buy Me A Coffee',
+                Theme.of(context).brightness == Brightness.dark
+                    ? Colors.white
+                    : Colors.black,
+              ),
+            ),
+            const SizedBox(height: 10),
+            Center(
+              child: buildRow(
+                context,
+                FontAwesomeIcons.paypal,
+                'https://www.paypal.com/paypalme/hamdyhaggag74',
+                'Paypal',
+                Theme.of(context).brightness == Brightness.dark
+                    ? Colors.white
+                    : Colors.black,
+              ),
+            ),
+          ],
         ),
-        content: SingleChildScrollView(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              Center(
-                child: buildRow(
-                  FontAwesomeIcons.solidEnvelope,
-                  'mailto:hamdyhaggag74@gmail.com',
-                  'البريد الإلكتروني',
-                  Colors.red,
-                ),
+      );
+    },
+  );
+}
+
+void integrateWithBuyMeACoffee(BuildContext context) {
+  showModalBottomSheet(
+    context: context,
+    shape: const RoundedRectangleBorder(
+      borderRadius: BorderRadius.vertical(top: Radius.circular(20.0)),
+    ),
+    backgroundColor: Theme.of(context).colorScheme.primary,
+    isScrollControlled: true,
+    builder: (BuildContext context) {
+      return SingleChildScrollView(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            Center(
+              child: buildRow(
+                context,
+                FontAwesomeIcons.moneyCheckDollar,
+                'https://www.buymeacoffee.com/hamdyhaggag74',
+                'Buy Me A Coffee',
+                Theme.of(context).brightness == Brightness.dark
+                    ? Colors.white
+                    : Colors.black,
               ),
-              const SizedBox(height: 10),
-              Center(
-                child: buildRow(
-                  FontAwesomeIcons.facebook,
-                  'https://www.facebook.com/hamdyhaggag74/',
-                  'فيسبوك',
-                  Colors.red,
-                ),
+            ),
+            const SizedBox(height: 10),
+            Center(
+              child: buildRow(
+                context,
+                FontAwesomeIcons.paypal,
+                'https://www.paypal.com/paypalme/hamdyhaggag74',
+                'Paypal',
+                Theme.of(context).brightness == Brightness.dark
+                    ? Colors.white
+                    : Colors.black,
               ),
-              const SizedBox(height: 10),
-              Center(
-                child: buildRow(
-                  FontAwesomeIcons.linkedin,
-                  'https://www.linkedin.com/in/hamdyhaggag74/',
-                  'لينكد إن',
-                  Colors.red,
-                ),
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
       );
     },

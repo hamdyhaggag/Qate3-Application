@@ -1,5 +1,10 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:qate3_app/constants/app_text.dart';
 import 'package:qate3_app/constants/custom_appbar.dart';
+import 'package:qate3_app/presentation/widgets.dart';
 
 class Support {
   final String logoUrl;
@@ -127,10 +132,94 @@ class SupporterScreen extends StatelessWidget {
                             const SizedBox(height: 8.0),
                             ElevatedButton(
                               onPressed: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => SupporterScreen()),
+                                showDialog(
+                                  context: context,
+                                  barrierDismissible:
+                                      true, // Allows closing the dialog when tapping outside
+                                  builder: (BuildContext context) {
+                                    return BackdropFilter(
+                                      filter: ImageFilter.blur(
+                                          sigmaX: 3.0, sigmaY: 3.0),
+                                      child: AlertDialog(
+                                        title: const Text(
+                                          'اختر طريقة الدعم',
+                                          textAlign: TextAlign.center,
+                                          style: TextStyle(
+                                              fontFamily: 'Cairo',
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.w800),
+                                        ),
+                                        content: Column(
+                                          mainAxisSize: MainAxisSize.min,
+                                          children: <Widget>[
+                                            ElevatedButton(
+                                              onPressed: () {
+                                                Navigator.pop(context);
+                                                integrateWithVodafoneCash(
+                                                    context);
+                                              },
+                                              style: ElevatedButton.styleFrom(
+                                                backgroundColor:
+                                                    Theme.of(context)
+                                                        .colorScheme
+                                                        .secondary,
+                                                padding:
+                                                    const EdgeInsets.symmetric(
+                                                        vertical: 22.0,
+                                                        horizontal: 30),
+                                                shape: RoundedRectangleBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          12.0),
+                                                ),
+                                              ),
+                                              child: const Text(
+                                                'الدعم من داخل مصر',
+                                                style: TextStyle(
+                                                  fontFamily: 'Cairo',
+                                                  fontWeight: FontWeight.w600,
+                                                  fontSize: 14,
+                                                  color: Colors.white,
+                                                ),
+                                              ),
+                                            ),
+                                            const SizedBox(height: 10),
+                                            ElevatedButton(
+                                              onPressed: () {
+                                                Navigator.pop(context);
+                                                integrateWithBuyMeACoffee(
+                                                    context);
+                                              },
+                                              style: ElevatedButton.styleFrom(
+                                                backgroundColor:
+                                                    Theme.of(context)
+                                                        .colorScheme
+                                                        .secondary,
+                                                padding:
+                                                    const EdgeInsets.symmetric(
+                                                        vertical: 22.0,
+                                                        horizontal: 30),
+                                                shape: RoundedRectangleBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          12.0),
+                                                ),
+                                              ),
+                                              child: const Text(
+                                                'الدعم من خارج مصر',
+                                                style: TextStyle(
+                                                  fontFamily: 'Cairo',
+                                                  fontWeight: FontWeight.w600,
+                                                  fontSize: 14,
+                                                  color: Colors.white,
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    );
+                                  },
                                 );
                               },
                               style: ElevatedButton.styleFrom(
@@ -139,8 +228,7 @@ class SupporterScreen extends StatelessWidget {
                                 padding: const EdgeInsets.symmetric(
                                     vertical: 12.0, horizontal: 24.0),
                                 shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(
-                                      30.0), // Rounded button
+                                  borderRadius: BorderRadius.circular(30.0),
                                 ),
                               ),
                               child: const Center(

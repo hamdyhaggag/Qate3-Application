@@ -2,6 +2,7 @@ import 'package:babstrap_settings_screen/babstrap_settings_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart' as url_launcher;
+import 'package:url_launcher/url_launcher_string.dart';
 import '../../../constants/custom_appbar.dart';
 import '../widgets.dart';
 import 'Home/SettingsScreen/app_info.dart';
@@ -92,14 +93,14 @@ class SettingsScreen extends StatelessWidget {
         icon: FontAwesomeIcons.layerGroup,
         title: 'المساهمون في التطبيق',
         subtitle: 'شكر خاص لمساهمينا',
-        onTap: () => navigateTo(context, ContributeScreen()),
+        onTap: () => navigateTo(context, const ContributeScreen()),
       ),
       _createSettingsItem(
         context,
         icon: FontAwesomeIcons.dev,
         title: 'تواصل مع مطور التطبيق',
         subtitle: 'طرق التواصل مع المطور',
-        onTap: () => contactDev(context),
+        onTap: () => sendEmail2(),
       ),
     ];
   }
@@ -125,12 +126,18 @@ class SettingsScreen extends StatelessWidget {
     );
   }
 
-  void _launchURL(String urlString) async {
-    final Uri url = Uri.parse(urlString);
-    if (await url_launcher.canLaunchUrl(url.toString() as Uri)) {
-      await url_launcher.launchUrl(url.toString() as Uri);
+  Future<void> _launchURL(String url) async {
+    final Uri uri = Uri.parse(url);
+
+    if (await url_launcher.canLaunchUrl(uri)) {
+      await url_launcher.launchUrl(
+        uri,
+        mode: LaunchMode.inAppWebView, // Open in an in-app WebView
+        webViewConfiguration: const WebViewConfiguration(
+            enableJavaScript: true), // Enable JavaScript
+      );
     } else {
-      throw 'Could not launch $urlString';
+      throw 'Could not launch $url';
     }
   }
 }
