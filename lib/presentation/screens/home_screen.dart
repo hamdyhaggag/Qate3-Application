@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
 import 'package:qate3_app/constants/carousel_slider.dart';
 import 'package:qate3_app/constants/custom_category_item.dart';
+import 'package:qate3_app/presentation/screens/supporter_screen.dart';
 import 'package:qate3_app/presentation/screens/tv_channels.dart';
 import '../../constants/custom_appbar.dart';
 import '../widgets.dart';
@@ -164,6 +165,7 @@ class _HomeScreenState extends State<HomeScreen> {
         onTap: () => navigateTo(context, const FlightScreen()),
       ),
     ];
+    double screenWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.primary,
@@ -174,8 +176,6 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       body: LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
-          double screenWidth = MediaQuery.of(context).size.width;
-
           return SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -186,6 +186,88 @@ class _HomeScreenState extends State<HomeScreen> {
                   imageUrl3: 'assets/images/3.jpg',
                   imageUrl4: 'assets/images/4.png',
                   imageUrl5: 'assets/images/5.jpg',
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 20.0, vertical: 20.0),
+                  child: Card(
+                    elevation: 2.0,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12.0),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Row(
+                        children: [
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(8.0),
+                            child: Image.asset(
+                              'assets/home/61.png',
+                              width: 90,
+                              height: 90,
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                          const SizedBox(width: 16.0),
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.end,
+                              children: [
+                                Text(
+                                  'أبرز الداعمون للتطبيق',
+                                  style: TextStyle(
+                                    fontFamily: 'Cairo',
+                                    color: Theme.of(context).brightness ==
+                                            Brightness.dark
+                                        ? Colors.white
+                                        : Colors.black,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: screenWidth > 600 ? 20 : 18,
+                                  ),
+                                ),
+                                const SizedBox(height: 12.0),
+                                Text(
+                                  textDirection: TextDirection.rtl,
+                                  "نود أن نشكر داعمينا على إسهامهم في تطوير هذا التطبيق اضغط هنا لتتعرف على المزيد عنهم",
+                                  style: TextStyle(
+                                    fontSize: 14,
+                                    color:
+                                        Theme.of(context).colorScheme.onSurface,
+                                  ),
+                                ),
+                                const SizedBox(height: 8.0),
+                                ElevatedButton(
+                                  onPressed: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              SupporterScreen()),
+                                    );
+                                  },
+                                  style: ElevatedButton.styleFrom(
+                                    backgroundColor:
+                                        Theme.of(context).colorScheme.secondary,
+                                  ),
+                                  child: Text(
+                                    'اعرف المزيد',
+                                    style: TextStyle(
+                                      fontFamily: 'Cairo',
+                                      fontWeight: FontWeight.w600,
+                                      color: Theme.of(context).brightness ==
+                                              Brightness.dark
+                                          ? Colors.white
+                                          : Colors.white,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
                 ),
                 Padding(
                   padding: EdgeInsets.all(screenWidth > 600 ? 24.0 : 12.0),
