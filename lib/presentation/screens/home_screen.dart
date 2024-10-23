@@ -191,6 +191,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   padding: const EdgeInsets.symmetric(
                       horizontal: 20.0, vertical: 20.0),
                   child: Card(
+                    color: Theme.of(context).brightness == Brightness.dark
+                        ? Colors.black12.withOpacity(0.1)
+                        : Colors.white,
                     elevation: 2.0,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12.0),

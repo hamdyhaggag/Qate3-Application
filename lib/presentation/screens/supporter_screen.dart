@@ -21,7 +21,7 @@ class SupporterScreen extends StatelessWidget {
   final List<Support> sponsors = [
     Support(
       logoUrl: 'assets/home/62.png',
-      name: 'محمد مصطفى الفهلوي',
+      name: 'محمد الفهلوي',
       type: SponsorType.premium,
       description: 'داعم ذهبي',
     ),
@@ -45,7 +45,7 @@ class SupporterScreen extends StatelessWidget {
     ),
     Support(
       logoUrl: 'assets/home/68.png',
-      name: ' فرح خالد',
+      name: 'فرح خالد',
       type: SponsorType.premium,
       description: 'داعم ذهبي',
     ),
@@ -57,7 +57,7 @@ class SupporterScreen extends StatelessWidget {
     ),
     Support(
       logoUrl: 'assets/home/66.png',
-      name: ' فاطمة الزهراء أحمد',
+      name: 'فاطمة الزهراء أحمد',
       type: SponsorType.bronze,
       description: 'داعم رئيسي',
     ),
@@ -73,11 +73,95 @@ class SupporterScreen extends StatelessWidget {
       body: Directionality(
         textDirection: TextDirection.rtl,
         child: Padding(
-          padding: const EdgeInsets.all(12.0),
+          padding: const EdgeInsets.symmetric(horizontal: 20.0),
           child: ListView.builder(
-            itemCount: sponsors.length,
+            itemCount: sponsors.length + 1,
             itemBuilder: (context, index) {
-              return SponsorCard(sponsor: sponsors[index]);
+              if (index < sponsors.length) {
+                return SponsorCard(sponsor: sponsors[index]);
+              } else {
+                return Align(
+                  alignment: Alignment.center,
+                  child: FractionallySizedBox(
+                    widthFactor: 0.99,
+                    child: Card(
+                      color: Theme.of(context).brightness == Brightness.dark
+                          ? Colors.black12.withOpacity(0.1)
+                          : Colors.white,
+                      elevation: 2.0,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(16.0),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Text(
+                              'هل تودّ أن تكون من الداعمين؟',
+                              style: TextStyle(
+                                fontFamily: 'Cairo',
+                                color: Theme.of(context).brightness ==
+                                        Brightness.dark
+                                    ? Colors.white
+                                    : Colors.black,
+                                fontWeight: FontWeight.bold,
+                                fontSize:
+                                    MediaQuery.of(context).size.width > 600
+                                        ? 22
+                                        : 20,
+                              ),
+                            ),
+                            const SizedBox(height: 10.0),
+                            Text(
+                              'انضم إلينا وكن جزءاً من فريقنا الداعم كل مساهمة تُحدث فرقاً!',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontSize: 14,
+                                color: Theme.of(context)
+                                    .colorScheme
+                                    .onSurface
+                                    .withOpacity(0.7),
+                              ),
+                            ),
+                            const SizedBox(height: 8.0),
+                            ElevatedButton(
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => SupporterScreen()),
+                                );
+                              },
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor:
+                                    Theme.of(context).colorScheme.secondary,
+                                padding: const EdgeInsets.symmetric(
+                                    vertical: 12.0, horizontal: 24.0),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(
+                                      30.0), // Rounded button
+                                ),
+                              ),
+                              child: const Center(
+                                child: Text(
+                                  'ادعم التطبيق الآن',
+                                  style: TextStyle(
+                                    fontFamily: 'Cairo',
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 14,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                );
+              }
             },
           ),
         ),
@@ -128,8 +212,11 @@ class SponsorCard extends StatelessWidget {
       width: double.infinity,
       height: screenWidth * 0.26,
       child: Card(
-        elevation: 6,
-        margin: const EdgeInsets.symmetric(vertical: 5),
+        color: Theme.of(context).brightness == Brightness.dark
+            ? Colors.black12.withOpacity(0.1)
+            : Colors.white,
+        elevation: 2,
+        margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 5),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(15),
         ),
@@ -165,8 +252,11 @@ class SponsorCard extends StatelessWidget {
                     Text(
                       sponsor.description,
                       style: TextStyle(
-                        fontSize: screenWidth * 0.034,
-                        color: Colors.black54,
+                        fontSize: screenWidth * 0.032,
+                        color: Theme.of(context).brightness == Brightness.dark
+                            ? Colors.white
+                            : Colors.black,
+                        fontWeight: FontWeight.w600,
                       ),
                     ),
                   ],
