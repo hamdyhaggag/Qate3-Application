@@ -121,9 +121,12 @@ class SponsorCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Get screen width and height
+    double screenWidth = MediaQuery.of(context).size.width;
+
     return SizedBox(
       width: double.infinity,
-      height: 100,
+      height: screenWidth * 0.26,
       child: Card(
         elevation: 6,
         margin: const EdgeInsets.symmetric(vertical: 5),
@@ -139,8 +142,8 @@ class SponsorCard extends StatelessWidget {
                 borderRadius: BorderRadius.circular(8.0),
                 child: Image.asset(
                   sponsor.logoUrl,
-                  height: 50,
-                  width: 50,
+                  height: screenWidth * 0.13,
+                  width: screenWidth * 0.13,
                   fit: BoxFit.cover,
                 ),
               ),
@@ -152,8 +155,8 @@ class SponsorCard extends StatelessWidget {
                   children: [
                     Text(
                       sponsor.name,
-                      style: const TextStyle(
-                        fontSize: 12,
+                      style: TextStyle(
+                        fontSize: screenWidth * 0.035,
                         fontWeight: FontWeight.bold,
                         color: Colors.red,
                       ),
@@ -161,8 +164,8 @@ class SponsorCard extends StatelessWidget {
                     const SizedBox(height: 4),
                     Text(
                       sponsor.description,
-                      style: const TextStyle(
-                        fontSize: 14,
+                      style: TextStyle(
+                        fontSize: screenWidth * 0.034,
                         color: Colors.black54,
                       ),
                     ),
