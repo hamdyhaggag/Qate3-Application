@@ -7,7 +7,7 @@ class BringMilk extends StatelessWidget {
   Widget build(BuildContext context) {
     return BringModel(
       itemCountCallback: (index) {
-        return 11;
+        return 12;
       },
       barTitle: ' منتجات الألبان البديلة',
       imagePath1: 'assets/Drinks/Bring/m1.png',
@@ -21,6 +21,7 @@ class BringMilk extends StatelessWidget {
       imagePath9: 'assets/Drinks/Bring/m9.png',
       imagePath10: 'assets/Drinks/Bring/m10.png',
       imagePath11: 'assets/Drinks/Bring/m11.png',
+      imagePath12: 'assets/Drinks/Qate3/m5.png',
       title1: 'توب فاليو',
       title2: ' دومتي ',
       title3: 'ريري',
@@ -32,6 +33,7 @@ class BringMilk extends StatelessWidget {
       title9: 'عبور لاند',
       title10: 'لمار',
       title11: 'بخيره',
+      title12: 'المراعي',
     );
   }
 }
