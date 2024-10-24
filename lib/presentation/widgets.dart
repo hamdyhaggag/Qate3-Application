@@ -64,14 +64,16 @@ Widget buildRow(BuildContext context, IconData icon, String url, String text,
       margin: const EdgeInsets.symmetric(vertical: 8.0),
       padding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 16.0),
       decoration: BoxDecoration(
-        color: Theme.of(context).colorScheme.secondary.withOpacity(0.1),
+        color: Theme.of(context).colorScheme.secondary,
         borderRadius: BorderRadius.circular(12.0),
-        boxShadow: const [
+        boxShadow: [
           BoxShadow(
-            color: Colors.black12,
+            color: Theme.of(context).brightness == Brightness.dark
+                ? Colors.black12.withOpacity(0.5)
+                : Colors.red,
             blurRadius: 4.0,
             spreadRadius: 1.0,
-            offset: Offset(0, 2),
+            offset: const Offset(0, 2),
           ),
         ],
       ),
@@ -105,7 +107,9 @@ void donate(BuildContext context) {
         title: AppText(
           'ادعمنا من خلال :',
           textDirection: TextDirection.rtl,
-          color: Colors.white,
+          color: Theme.of(context).brightness == Brightness.dark
+              ? Colors.white
+              : Colors.red,
           fontWeight: FontWeight.bold,
           fontFamily: 'Cairo',
         ),
@@ -116,21 +120,25 @@ void donate(BuildContext context) {
             children: <Widget>[
               Center(
                 child: buildRow(
-                  context, // Passing the correct BuildContext
-                  FontAwesomeIcons.moneyCheckDollar, // Correct IconData
-                  'https://www.buymeacoffee.com/hamdyhaggag74', // Correct URL string
-                  'Buy Me A Coffee', // Correct title string
-                  Colors.white, // Correct Color
+                  context,
+                  FontAwesomeIcons.moneyCheckDollar,
+                  'https://www.buymeacoffee.com/hamdyhaggag74',
+                  'Buy Me A Coffee',
+                  Theme.of(context).brightness == Brightness.dark
+                      ? Colors.white
+                      : Colors.white,
                 ),
               ),
               const SizedBox(height: 10),
               Center(
                 child: buildRow(
-                  context, // Passing the correct BuildContext
-                  FontAwesomeIcons.paypal, // Correct IconData
-                  'https://www.paypal.com/paypalme/hamdyhaggag74', // Correct URL string
-                  'PayPal', // Correct title string
-                  Colors.white, // Correct Color
+                  context,
+                  FontAwesomeIcons.paypal,
+                  'https://www.paypal.com/paypalme/hamdyhaggag74',
+                  'PayPal',
+                  Theme.of(context).brightness == Brightness.dark
+                      ? Colors.white
+                      : Colors.white,
                 ),
               ),
             ],
@@ -267,51 +275,6 @@ Future<void> openFormLink() async {
 //   );
 // }
 
-void integrateWithVodafoneCash(BuildContext context) {
-  showModalBottomSheet(
-    context: context,
-    shape: const RoundedRectangleBorder(
-      borderRadius: BorderRadius.vertical(top: Radius.circular(20.0)),
-    ),
-    backgroundColor: Theme.of(context).colorScheme.primary,
-    isScrollControlled: true,
-    builder: (BuildContext context) {
-      return SingleChildScrollView(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            Center(
-              child: buildRow(
-                context,
-                FontAwesomeIcons.moneyCheckDollar,
-                'https://www.buymeacoffee.com/hamdyhaggag74',
-                'Buy Me A Coffee',
-                Theme.of(context).brightness == Brightness.dark
-                    ? Colors.white
-                    : Colors.black,
-              ),
-            ),
-            const SizedBox(height: 10),
-            Center(
-              child: buildRow(
-                context,
-                FontAwesomeIcons.paypal,
-                'https://www.paypal.com/paypalme/hamdyhaggag74',
-                'Paypal',
-                Theme.of(context).brightness == Brightness.dark
-                    ? Colors.white
-                    : Colors.black,
-              ),
-            ),
-          ],
-        ),
-      );
-    },
-  );
-}
-
 void integrateWithBuyMeACoffee(BuildContext context) {
   showModalBottomSheet(
     context: context,
@@ -335,7 +298,7 @@ void integrateWithBuyMeACoffee(BuildContext context) {
                 'Buy Me A Coffee',
                 Theme.of(context).brightness == Brightness.dark
                     ? Colors.white
-                    : Colors.black,
+                    : Colors.white,
               ),
             ),
             const SizedBox(height: 10),
@@ -347,7 +310,7 @@ void integrateWithBuyMeACoffee(BuildContext context) {
                 'Paypal',
                 Theme.of(context).brightness == Brightness.dark
                     ? Colors.white
-                    : Colors.black,
+                    : Colors.white,
               ),
             ),
           ],
@@ -356,3 +319,117 @@ void integrateWithBuyMeACoffee(BuildContext context) {
     },
   );
 }
+
+void integrateWithEgyptianPayments(BuildContext context) {
+  showModalBottomSheet(
+    context: context,
+    shape: const RoundedRectangleBorder(
+      borderRadius: BorderRadius.vertical(top: Radius.circular(20.0)),
+    ),
+    backgroundColor: Theme.of(context).colorScheme.primary,
+    isScrollControlled: true,
+    builder: (BuildContext context) {
+      return SingleChildScrollView(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            const Text(
+              'Choose Payment Method',
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 20),
+
+            // Fawry
+            buildRow(
+              context,
+              FontAwesomeIcons.moneyBillWave,
+              'https://fawry.com/integration',
+              'Fawry',
+              Theme.of(context).brightness == Brightness.dark
+                  ? Colors.white
+                  : Colors.white,
+            ),
+            const SizedBox(height: 10),
+            // Vodafone Cash
+            buildRow(
+              context,
+              FontAwesomeIcons.wallet,
+              'https://vodafone.cash/payment',
+              'Vodafone Cash',
+              Theme.of(context).brightness == Brightness.dark
+                  ? Colors.white
+                  : Colors.white,
+            ),
+            const SizedBox(height: 10),
+
+            // Etisalat Cash
+            buildRow(
+              context,
+              FontAwesomeIcons.wallet,
+              'https://etisalat.cash/payment',
+              'Etisalat Cash',
+              Theme.of(context).brightness == Brightness.dark
+                  ? Colors.white
+                  : Colors.white,
+            ),
+            const SizedBox(height: 10),
+
+            // Orange Cash
+            buildRow(
+              context,
+              FontAwesomeIcons.wallet,
+              'https://orange.cash/payment',
+              'Orange Cash',
+              Theme.of(context).brightness == Brightness.dark
+                  ? Colors.white
+                  : Colors.white,
+            ),
+            const SizedBox(height: 10),
+
+            // We Pay
+            buildRow(
+              context,
+              FontAwesomeIcons.wallet,
+              'https://we.pay/payment',
+              'We Pay',
+              Theme.of(context).brightness == Brightness.dark
+                  ? Colors.white
+                  : Colors.white,
+            ),
+          ],
+        ),
+      );
+    },
+  );
+}
+
+// Widget buildPaymentOption(
+//     BuildContext context, IconData icon, String title, String url) {
+//   return GestureDetector(
+//     onTap: () {
+//       // Perform the respective payment action here (e.g., redirect to URL or call API)
+//       _launchPaymentURL(url);
+//     },
+//     child: Row(
+//       mainAxisAlignment: MainAxisAlignment.center,
+//       children: <Widget>[
+//         Icon(icon,
+//             color: Theme.of(context).brightness == Brightness.dark
+//                 ? Colors.white
+//                 : Colors.black),
+//         const SizedBox(width: 10),
+//         Text(
+//           title,
+//           style: TextStyle(
+//             fontSize: 16,
+//             color: Theme.of(context).brightness == Brightness.dark
+//                 ? Colors.white
+//                 : Colors.black,
+//           ),
+//         ),
+//       ],
+//     ),
+//   );
+// }

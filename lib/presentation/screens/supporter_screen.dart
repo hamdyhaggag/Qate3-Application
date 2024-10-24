@@ -1,8 +1,5 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:qate3_app/constants/app_text.dart';
 import 'package:qate3_app/constants/custom_appbar.dart';
 import 'package:qate3_app/presentation/widgets.dart';
 
@@ -155,7 +152,7 @@ class SupporterScreen extends StatelessWidget {
                                             ElevatedButton(
                                               onPressed: () {
                                                 Navigator.pop(context);
-                                                integrateWithVodafoneCash(
+                                                integrateWithEgyptianPayments(
                                                     context);
                                               },
                                               style: ElevatedButton.styleFrom(
