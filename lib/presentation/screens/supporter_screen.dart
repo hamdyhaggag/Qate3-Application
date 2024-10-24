@@ -90,7 +90,9 @@ class SupporterScreen extends StatelessWidget {
                       color: Theme.of(context).brightness == Brightness.dark
                           ? Colors.black12.withOpacity(0.1)
                           : Colors.white,
-                      elevation: 2.0,
+                      elevation: 6.0,
+                      margin: const EdgeInsets.symmetric(
+                          vertical: 5, horizontal: 5),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(16.0),
                       ),
