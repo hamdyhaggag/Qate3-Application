@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:logger/logger.dart';
@@ -321,115 +319,177 @@ void integrateWithBuyMeACoffee(BuildContext context) {
 }
 
 void integrateWithEgyptianPayments(BuildContext context) {
+  final screenWidth = MediaQuery.of(context).size.width;
+
   showModalBottomSheet(
     context: context,
     shape: const RoundedRectangleBorder(
       borderRadius: BorderRadius.vertical(top: Radius.circular(20.0)),
     ),
-    backgroundColor: Theme.of(context).colorScheme.primary,
+    backgroundColor: Theme.of(context).colorScheme.surface,
     isScrollControlled: true,
     builder: (BuildContext context) {
-      return SingleChildScrollView(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'Choose Payment Method',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 20),
-
-            // Fawry
-            buildRow(
-              context,
-              FontAwesomeIcons.moneyBillWave,
-              'https://fawry.com/integration',
-              'Fawry',
-              Theme.of(context).brightness == Brightness.dark
-                  ? Colors.white
-                  : Colors.white,
-            ),
-            const SizedBox(height: 10),
-            // Vodafone Cash
-            buildRow(
-              context,
-              FontAwesomeIcons.wallet,
-              'https://vodafone.cash/payment',
-              'Vodafone Cash',
-              Theme.of(context).brightness == Brightness.dark
-                  ? Colors.white
-                  : Colors.white,
-            ),
-            const SizedBox(height: 10),
-
-            // Etisalat Cash
-            buildRow(
-              context,
-              FontAwesomeIcons.wallet,
-              'https://etisalat.cash/payment',
-              'Etisalat Cash',
-              Theme.of(context).brightness == Brightness.dark
-                  ? Colors.white
-                  : Colors.white,
-            ),
-            const SizedBox(height: 10),
-
-            // Orange Cash
-            buildRow(
-              context,
-              FontAwesomeIcons.wallet,
-              'https://orange.cash/payment',
-              'Orange Cash',
-              Theme.of(context).brightness == Brightness.dark
-                  ? Colors.white
-                  : Colors.white,
-            ),
-            const SizedBox(height: 10),
-
-            // We Pay
-            buildRow(
-              context,
-              FontAwesomeIcons.wallet,
-              'https://we.pay/payment',
-              'We Pay',
-              Theme.of(context).brightness == Brightness.dark
-                  ? Colors.white
-                  : Colors.white,
-            ),
-          ],
+      return Directionality(
+        textDirection: TextDirection.rtl,
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              ExpansionTile(
+                leading: CircleAvatar(
+                  backgroundColor: Colors.red.shade100,
+                  child: ClipOval(
+                    child: Image.asset(
+                      'assets/home/73.png',
+                      fit: BoxFit.cover,
+                      width: 40,
+                      height: 40,
+                    ),
+                  ),
+                ),
+                title: const Text('انستاباي'),
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      'hamdyhaggag@instapay',
+                      style: TextStyle(
+                        fontSize: screenWidth * 0.032,
+                        color: Theme.of(context).brightness == Brightness.dark
+                            ? Colors.white
+                            : Colors.black,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 10),
+              ExpansionTile(
+                leading: CircleAvatar(
+                  backgroundColor: Colors.red.shade100,
+                  child: ClipOval(
+                    child: Image.asset(
+                      'assets/home/69.png',
+                      fit: BoxFit.cover,
+                      width: 40,
+                      height: 40,
+                    ),
+                  ),
+                ),
+                title: const Text('فودافون كاش'),
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      'اتصل على الكود الخاص بالتحويل من اليمين إلى اليسار\n*9*7*01090333932*المبلغ المُراد تحويله#\nانقر على علامة اتصال لتحويل الأموال.\nستظهر لك رسالة تطلب منك إدخال الرقم السري الخاص بالمحفظة،\n واكتبه في الخانة المخصصة لها.\nستصلك رسالة تؤكد نجاح التحويل، وتأكيد الرقم الذي حولت له، خلال ثوانٍ قليلة.',
+                      style: TextStyle(
+                        fontSize: screenWidth * 0.032,
+                        color: Theme.of(context).brightness == Brightness.dark
+                            ? Colors.white
+                            : Colors.black,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 10),
+              ExpansionTile(
+                leading: CircleAvatar(
+                  backgroundColor: Colors.red.shade100,
+                  child: ClipOval(
+                    child: Image.asset(
+                      'assets/home/70.png',
+                      fit: BoxFit.cover,
+                      width: 40,
+                      height: 40,
+                    ),
+                  ),
+                ),
+                title: const Text('اتصالات كاش'),
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      'كود تحويل اتصالات كاش لفودافون كاش هو \n# 777 * \nوأكمل الخطوات التالية بعد طلبه:\nاضغط على زر تحويل الأموال \nثم ادخل الرقم الكاش 01090333932 \nاكتب المبلغ المطلوب تحويله.\nستصلك رسالة تُفيد بأن عملية التحويل تمت بنجاح.',
+                      style: TextStyle(
+                        fontSize: screenWidth * 0.032,
+                        color: Theme.of(context).brightness == Brightness.dark
+                            ? Colors.white
+                            : Colors.black,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 10),
+              ExpansionTile(
+                leading: CircleAvatar(
+                  backgroundColor: Colors.red.shade100,
+                  child: ClipOval(
+                    child: Image.asset(
+                      'assets/home/71.png',
+                      fit: BoxFit.cover,
+                      width: 40,
+                      height: 40,
+                    ),
+                  ),
+                ),
+                title: const Text('اورانج كاش'),
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      'كود تحويل اورنج كاش إلى فودافون كاش هو \n #7115# وثم اتبع الخطوات التالية:\nستظهر لك قائمة اختر من بينها تحويل الأموال.\nحدد المرسل إليه من قائمة اورنج كاش وادخل الرقم 01090333932\nاكتب القيمة المالية التي ستُحول.\n أدخل رقم 1 ليتم التأكيد.\nاكتب الرقم السري الخاص بالمحفظة.\nسيستلم المستقبل والمحول رسالة تعرض تفاصيل الإجراء الذي تم.',
+                      style: TextStyle(
+                        fontSize: screenWidth * 0.032,
+                        color: Theme.of(context).brightness == Brightness.dark
+                            ? Colors.white
+                            : Colors.black,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 10),
+              ExpansionTile(
+                leading: CircleAvatar(
+                  backgroundColor: Colors.red.shade100,
+                  child: ClipOval(
+                    child: Image.asset(
+                      'assets/home/72.png',
+                      fit: BoxFit.cover,
+                      width: 40,
+                      height: 40,
+                    ),
+                  ),
+                ),
+                title: const Text('وي باي'),
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      '# المبلغ المراد تحويله *01090333932*551*',
+                      style: TextStyle(
+                        fontSize: screenWidth * 0.032,
+                        color: Theme.of(context).brightness == Brightness.dark
+                            ? Colors.white
+                            : Colors.black,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
       );
     },
   );
 }
-
-// Widget buildPaymentOption(
-//     BuildContext context, IconData icon, String title, String url) {
-//   return GestureDetector(
-//     onTap: () {
-//       // Perform the respective payment action here (e.g., redirect to URL or call API)
-//       _launchPaymentURL(url);
-//     },
-//     child: Row(
-//       mainAxisAlignment: MainAxisAlignment.center,
-//       children: <Widget>[
-//         Icon(icon,
-//             color: Theme.of(context).brightness == Brightness.dark
-//                 ? Colors.white
-//                 : Colors.black),
-//         const SizedBox(width: 10),
-//         Text(
-//           title,
-//           style: TextStyle(
-//             fontSize: 16,
-//             color: Theme.of(context).brightness == Brightness.dark
-//                 ? Colors.white
-//                 : Colors.black,
-//           ),
-//         ),
-//       ],
-//     ),
-//   );
-// }
