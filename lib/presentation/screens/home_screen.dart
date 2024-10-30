@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
 import 'package:qate3_app/constants/carousel_slider.dart';
 import 'package:qate3_app/constants/custom_category_item.dart';
+import 'package:qate3_app/presentation/screens/sponsor.dart';
 import 'package:qate3_app/presentation/screens/supporter_screen.dart';
 import 'package:qate3_app/presentation/screens/tv_channels.dart';
 import '../../constants/custom_appbar.dart';
@@ -189,12 +190,84 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(
-                      horizontal: 20.0, vertical: 20.0),
+                      horizontal: 20.0, vertical: 10.0),
                   child: Card(
                     color: Theme.of(context).brightness == Brightness.dark
                         ? Colors.black12.withOpacity(0.1)
                         : Colors.white,
-                    elevation: 2.0,
+                    elevation: 3.0,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12.0),
+                    ),
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => SupporterScreen(),
+                          ),
+                        );
+                      },
+                      child: Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: Row(
+                          children: [
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(8.0),
+                              child: Image.asset(
+                                'assets/home/74.png',
+                                width: 80,
+                                height: 80,
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                            const SizedBox(width: 16.0),
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.end,
+                                children: [
+                                  Text(
+                                    'أبرز الداعمون للتطبيق',
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 18,
+                                      color: Theme.of(context).brightness ==
+                                              Brightness.dark
+                                          ? Colors.white
+                                          : Colors.black,
+                                    ),
+                                    textDirection: TextDirection
+                                        .rtl, // Set text direction to RTL
+                                  ),
+                                  const SizedBox(height: 8.0),
+                                  Text(
+                                    "نود أن نشكر داعمينا على إسهامهم في تطوير هذا التطبيق اضغط هنا لتتعرف على المزيد عنهم",
+                                    style: TextStyle(
+                                      fontSize: 14,
+                                      color: Theme.of(context)
+                                          .colorScheme
+                                          .onSurface,
+                                    ),
+                                    textDirection: TextDirection.rtl,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 20.0,
+                  ),
+                  child: Card(
+                    color: Theme.of(context).brightness == Brightness.dark
+                        ? Colors.black12.withOpacity(0.1)
+                        : Colors.white,
+                    elevation: 3.0,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12.0),
                     ),
@@ -217,7 +290,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               crossAxisAlignment: CrossAxisAlignment.end,
                               children: [
                                 Text(
-                                  'أبرز الداعمون للتطبيق',
+                                  'شركاء قاطع',
                                   style: TextStyle(
                                     fontFamily: 'Cairo',
                                     color: Theme.of(context).brightness ==
@@ -231,21 +304,21 @@ class _HomeScreenState extends State<HomeScreen> {
                                 const SizedBox(height: 12.0),
                                 Text(
                                   textDirection: TextDirection.rtl,
-                                  "نود أن نشكر داعمينا على إسهامهم في تطوير هذا التطبيق اضغط هنا لتتعرف على المزيد عنهم",
+                                  "اكتشفوا أفضل البدائل مع شركائنا المميزين – كل اللي تحتاجوه لدعم اختياركم",
                                   style: TextStyle(
                                     fontSize: 14,
                                     color:
                                         Theme.of(context).colorScheme.onSurface,
                                   ),
                                 ),
-                                const SizedBox(height: 8.0),
+                                const SizedBox(height: 6.0),
                                 ElevatedButton(
                                   onPressed: () {
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
                                           builder: (context) =>
-                                              SupporterScreen()),
+                                              SponsorsScreen()),
                                     );
                                   },
                                   style: ElevatedButton.styleFrom(
