@@ -52,6 +52,7 @@ class BringChipsy extends StatelessWidget {
       title16: ' ليالينا',
       title17: ' رو',
       title18: ' تايجر',
+      isCertified18: true,
       title19: ' اكسترانو',
       title20: ' نايس',
       title21: ' سول',

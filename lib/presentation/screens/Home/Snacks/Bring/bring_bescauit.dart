@@ -27,6 +27,7 @@ class BringBescauit extends StatelessWidget {
       title4: ' نواعم',
       title5: 'أولكر',
       title6: 'دومتي ساندوتش',
+      isCertified6: true,
       title7: 'سوفت كرواسون',
       title8: 'برانش كرواسون',
       title9: 'ماجيك',

@@ -1,17 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:qate3_app/constants/custom_appbar.dart';
+import 'package:url_launcher/url_launcher.dart'; // Import the url_launcher package
 
 class Sponsor {
   final String logoUrl;
   final String name;
   final String description;
   final SponsorType type;
+  final String url;
 
   Sponsor({
     required this.logoUrl,
     required this.name,
     required this.description,
     required this.type,
+    required this.url,
   });
 }
 
@@ -20,27 +23,29 @@ enum SponsorType { premium, silver, bronze, basic }
 class SponsorsScreen extends StatelessWidget {
   final List<Sponsor> sponsors = [
     Sponsor(
+      logoUrl: 'assets/home/75.png',
+      name: 'شريك متميز ',
+      description:
+          'جبنة دومتي، نكهة فريدة وجودة لا تُضاهى، تجعل كل وجبة لحظة مميزة. استمتع بمذاقها الرائع واصنع ذكريات لا تُنسى!',
+      type: SponsorType.premium,
+      url: 'https://www.facebook.com/DomtyDairy?mibextid=ZbWKwL',
+    ),
+    Sponsor(
+      logoUrl: 'assets/home/76.png',
+      name: 'شريك متميز ',
+      description:
+          'شيبسي تايجر ، قرمشة بطعم جريء يزودك بالطاقة والمتعة في كل لحظة. خليك جاهز للتحدي مع طعم ما يتنساش!',
+      type: SponsorType.premium,
+      url: 'https://www.facebook.com/TigerChips?mibextid=ZbWKwL',
+    ),
+    Sponsor(
       logoUrl: 'assets/Drinks/Bring/c6.png',
       name: 'شريك متميز ',
       description:
           'نقدم أجود منتجات القهوة والنسكافيه، عشان كل فنجان يكون له طعم مميز وذكريات حلوة.',
       type: SponsorType.premium,
+      url: 'https://www.facebook.com/getkafeta?mibextid=ZbWKwL',
     ),
-    Sponsor(
-      logoUrl: 'assets/Drinks/Bring/s7.png',
-      name: 'شريك فضي ',
-      description:
-          'نقدم أجود منتجات القهوة والنسكافيه، عشان كل فنجان يكون له طعم مميز وذكريات حلوة.',
-      type: SponsorType.silver,
-    ),
-    Sponsor(
-      logoUrl: 'assets/Drinks/Bring/s8.png',
-      name: 'شريك برونزي ',
-      description:
-          'نقدم أجود منتجات القهوة والنسكافيه، عشان كل فنجان يكون له طعم مميز وذكريات حلوة.',
-      type: SponsorType.bronze,
-    ),
-
   ];
 
   SponsorsScreen({super.key});
@@ -114,7 +119,6 @@ class SponsorCard extends StatelessWidget {
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-
                 ClipRRect(
                   borderRadius: BorderRadius.circular(8.0),
                   child: Image.asset(
@@ -125,7 +129,6 @@ class SponsorCard extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(width: 16),
-
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -147,7 +150,6 @@ class SponsorCard extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(height: 8),
-
                       buildStars(sponsor.type),
                     ],
                   ),
@@ -155,12 +157,20 @@ class SponsorCard extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 16),
-
             Align(
               alignment: Alignment.centerLeft,
               child: ElevatedButton.icon(
-                onPressed: () {
-
+                onPressed: () async {
+                  final Uri url = Uri.parse(sponsor.url);
+                  if (await canLaunchUrl(url)) {
+                    await launchUrl(
+                      url,
+                      mode: LaunchMode
+                          .inAppWebView, // Opens the link in an in-app WebView
+                    );
+                  } else {
+                    throw 'Could not launch $url';
+                  }
                 },
                 icon: const Icon(Icons.info),
                 label: const Text('أعرف المزيد'),

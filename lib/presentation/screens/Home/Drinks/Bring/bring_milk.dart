@@ -24,6 +24,7 @@ class BringMilk extends StatelessWidget {
       imagePath12: 'assets/Drinks/Qate3/m5.png',
       title1: 'توب فاليو',
       title2: ' دومتي ',
+      isCertified2: true,
       title3: 'ريري',
       title4: 'ريماس لاند',
       title5: ' روس جاردن',

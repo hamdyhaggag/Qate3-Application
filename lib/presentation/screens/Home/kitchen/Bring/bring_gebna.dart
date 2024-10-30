@@ -30,6 +30,7 @@ class BringGebna extends StatelessWidget {
       title7: 'هيلثي',
       title8: 'رودس ',
       title9: 'دومتي',
+      isCertified9: true,
       title10: 'ريماس لاند',
     );
   }
