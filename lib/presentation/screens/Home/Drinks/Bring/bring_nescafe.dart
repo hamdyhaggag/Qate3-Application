@@ -21,6 +21,7 @@ class BringNescafe extends StatelessWidget {
       imagePath8: 'assets/Drinks/Bring/n2.png',
       title1: 'علي كافية',
       title2: ' كافيتا ',
+      isCertified2: true,
       title3: 'ناتشي',
       title4: ' كوفي بريك',
       title5: ' بارلي ',

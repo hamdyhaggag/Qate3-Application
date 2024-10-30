@@ -52,6 +52,29 @@ class BringModel extends StatelessWidget {
     this.imagePath22 = '',
     this.title23 = '',
     this.imagePath23 = '',
+    this.isCertified1 = false,
+    this.isCertified2 = false,
+    this.isCertified3 = false,
+    this.isCertified4 = false,
+    this.isCertified5 = false,
+    this.isCertified6 = false,
+    this.isCertified7 = false,
+    this.isCertified8 = false,
+    this.isCertified9 = false,
+    this.isCertified10 = false,
+    this.isCertified11 = false,
+    this.isCertified12 = false,
+    this.isCertified13 = false,
+    this.isCertified14 = false,
+    this.isCertified15 = false,
+    this.isCertified16 = false,
+    this.isCertified17 = false,
+    this.isCertified18 = false,
+    this.isCertified19 = false,
+    this.isCertified20 = false,
+    this.isCertified21 = false,
+    this.isCertified22 = false,
+    this.isCertified23 = false,
   }) : super(key: key);
 
   final String barTitle;
@@ -102,6 +125,29 @@ class BringModel extends StatelessWidget {
   final String imagePath22;
   final String title23;
   final String imagePath23;
+  final bool isCertified1;
+  final bool isCertified2;
+  final bool isCertified3;
+  final bool isCertified4;
+  final bool isCertified5;
+  final bool isCertified6;
+  final bool isCertified7;
+  final bool isCertified8;
+  final bool isCertified9;
+  final bool isCertified10;
+  final bool isCertified11;
+  final bool isCertified12;
+  final bool isCertified13;
+  final bool isCertified14;
+  final bool isCertified15;
+  final bool isCertified16;
+  final bool isCertified17;
+  final bool isCertified18;
+  final bool isCertified19;
+  final bool isCertified20;
+  final bool isCertified21;
+  final bool isCertified22;
+  final bool isCertified23;
 
   @override
   Widget build(BuildContext context) {
@@ -131,53 +177,53 @@ class BringModel extends StatelessWidget {
   ChoiceModel getChoiceModel(int index) {
     switch (index) {
       case 0:
-        return ChoiceModel(imagePath1, title1);
+        return ChoiceModel(imagePath1, title1, isCertified1);
       case 1:
-        return ChoiceModel(imagePath2, title2);
+        return ChoiceModel(imagePath2, title2, isCertified2);
       case 2:
-        return ChoiceModel(imagePath3, title3);
+        return ChoiceModel(imagePath3, title3, isCertified3);
       case 3:
-        return ChoiceModel(imagePath4, title4);
+        return ChoiceModel(imagePath4, title4, isCertified4);
       case 4:
-        return ChoiceModel(imagePath5, title5);
+        return ChoiceModel(imagePath5, title5, isCertified5);
       case 5:
-        return ChoiceModel(imagePath6, title6);
+        return ChoiceModel(imagePath6, title6, isCertified6);
       case 6:
-        return ChoiceModel(imagePath7, title7);
+        return ChoiceModel(imagePath7, title7, isCertified7);
       case 7:
-        return ChoiceModel(imagePath8, title8);
+        return ChoiceModel(imagePath8, title8, isCertified8);
       case 8:
-        return ChoiceModel(imagePath9, title9);
+        return ChoiceModel(imagePath9, title9, isCertified9);
       case 9:
-        return ChoiceModel(imagePath10, title10);
+        return ChoiceModel(imagePath10, title10, isCertified10);
       case 10:
-        return ChoiceModel(imagePath11, title11);
+        return ChoiceModel(imagePath11, title11, isCertified11);
       case 11:
-        return ChoiceModel(imagePath12, title12);
+        return ChoiceModel(imagePath12, title12, isCertified12);
       case 12:
-        return ChoiceModel(imagePath13, title13);
+        return ChoiceModel(imagePath13, title13, isCertified13);
       case 13:
-        return ChoiceModel(imagePath14, title14);
+        return ChoiceModel(imagePath14, title14, isCertified14);
       case 14:
-        return ChoiceModel(imagePath15, title15);
+        return ChoiceModel(imagePath15, title15, isCertified15);
       case 15:
-        return ChoiceModel(imagePath16, title16);
+        return ChoiceModel(imagePath16, title16, isCertified16);
       case 16:
-        return ChoiceModel(imagePath17, title17);
+        return ChoiceModel(imagePath17, title17, isCertified17);
       case 17:
-        return ChoiceModel(imagePath18, title18);
+        return ChoiceModel(imagePath18, title18, isCertified18);
       case 18:
-        return ChoiceModel(imagePath19, title19);
+        return ChoiceModel(imagePath19, title19, isCertified19);
       case 19:
-        return ChoiceModel(imagePath20, title20);
+        return ChoiceModel(imagePath20, title20, isCertified20);
       case 20:
-        return ChoiceModel(imagePath21, title21);
+        return ChoiceModel(imagePath21, title21, isCertified21);
       case 21:
-        return ChoiceModel(imagePath22, title22);
+        return ChoiceModel(imagePath22, title22, isCertified22);
       case 22:
-        return ChoiceModel(imagePath23, title23);
+        return ChoiceModel(imagePath23, title23, isCertified23);
       default:
-        return ChoiceModel('assets/images/greencircle.svg', 'Default');
+        return ChoiceModel('assets/images/greencircle.svg', 'Default', false);
     }
   }
 
@@ -193,9 +239,59 @@ class BringModel extends StatelessWidget {
           SizedBox(height: MediaQuery.of(context).size.height * 0.01),
           AspectRatio(
             aspectRatio: 1.52,
-            child: Image.asset(
-              choice.imagePath,
-              fit: BoxFit.contain,
+            child: Stack(
+              children: [
+                Positioned.fill(
+                  child: Image.asset(
+                    choice.imagePath,
+                    fit: BoxFit.contain,
+                  ),
+                ),
+                if (choice.isCertified)
+                  Positioned(
+                    top: MediaQuery.of(context).size.height *
+                        0.0001, // Adjust top position based on screen height
+                    right: MediaQuery.of(context).size.width *
+                        0.07, // Adjust right position based on screen width
+                    child: Container(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: MediaQuery.of(context).size.width *
+                            0.03, // Horizontal padding
+                        vertical: MediaQuery.of(context).size.height *
+                            0.005, // Vertical padding
+                      ),
+                      decoration: BoxDecoration(
+                        color: Colors.green.withOpacity(0.8),
+                        borderRadius: BorderRadius.circular(12.0),
+                      ),
+                      child: Row(
+                        mainAxisSize: MainAxisSize
+                            .min, // Adjust Row to only take necessary space
+                        children: [
+                          Icon(
+                            Icons.check_circle, // Verification icon
+                            color: Colors.white,
+                            size: MediaQuery.of(context).size.width *
+                                0.035, // Adjust icon size
+                          ),
+                          const SizedBox(
+                              width: 5.0), // Space between text and icon
+
+                          Text(
+                            'شريك معتمد',
+                            style: TextStyle(
+                              fontSize:
+                                  MediaQuery.of(context).size.width * 0.03,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                              fontFamily: 'Cairo',
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+              ],
             ),
           ),
           SizedBox(height: MediaQuery.of(context).size.height * 0.007),
@@ -217,7 +313,8 @@ class BringModel extends StatelessWidget {
 class ChoiceModel {
   final String imagePath;
   final String title;
+  final bool isCertified;
   final Color borderColor = Colors.green;
 
-  ChoiceModel(this.imagePath, this.title);
+  ChoiceModel(this.imagePath, this.title, [this.isCertified = false]);
 }

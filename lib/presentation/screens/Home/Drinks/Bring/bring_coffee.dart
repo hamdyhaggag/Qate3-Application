@@ -17,6 +17,7 @@ class BringCoffee extends StatelessWidget {
       imagePath4: 'assets/Drinks/Bring/c1.png',
       imagePath5: 'assets/Drinks/Bring/c5.png',
       title1: 'كافيتا',
+      isCertified1: true,
       title2: '  حاج عرفة',
       title3: ' عماد أفندي',
       title4: ' بن العروبة',
