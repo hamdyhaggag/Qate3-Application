@@ -42,7 +42,7 @@ class SupporterScreen extends StatelessWidget {
     Support(
       logoUrl: 'assets/home/64.png',
       name: 'آيه حمادة',
-      type: SponsorType.silver,
+      type: SponsorType.premium,
       description: 'داعم ذهبي',
     ),
     Support(

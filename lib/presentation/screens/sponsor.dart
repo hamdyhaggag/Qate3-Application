@@ -1,6 +1,7 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:qate3_app/constants/custom_appbar.dart';
-import 'package:url_launcher/url_launcher.dart'; // Import the url_launcher package
+import 'package:url_launcher/url_launcher.dart';
 
 class Sponsor {
   final String logoUrl;
@@ -26,7 +27,7 @@ class SponsorsScreen extends StatelessWidget {
       logoUrl: 'assets/home/75.png',
       name: 'شريك متميز ',
       description:
-          'جبنة دومتي، نكهة فريدة وجودة لا تُضاهى، تجعل كل وجبة لحظة مميزة. استمتع بمذاقها الرائع واصنع ذكريات لا تُنسى!',
+          'جبنة دومتي، نكهة فريدة وجودة لا تُضاهى، تجعل كل وجبة لحظة مميزة، استمتع بمذاقها الرائع واصنع ذكريات لا تُنسى!',
       type: SponsorType.premium,
       url: 'https://www.facebook.com/DomtyDairy?mibextid=ZbWKwL',
     ),
@@ -34,7 +35,7 @@ class SponsorsScreen extends StatelessWidget {
       logoUrl: 'assets/home/76.png',
       name: 'شريك متميز ',
       description:
-          'شيبسي تايجر ، قرمشة بطعم جريء يزودك بالطاقة والمتعة في كل لحظة. خليك جاهز للتحدي مع طعم ما يتنساش!',
+          'شيبسي تايجر ، قرمشة بطعم جريء يزودك بالطاقة والمتعة في كل لحظة، خليك جاهز للتحدي مع طعم ما يتنساش!',
       type: SponsorType.premium,
       url: 'https://www.facebook.com/TigerChips?mibextid=ZbWKwL',
     ),
@@ -106,14 +107,20 @@ class SponsorCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+
     return Card(
+      color: Theme.of(context).brightness == Brightness.dark
+          ? Colors.black12.withOpacity(0.1)
+          : Colors.white,
       elevation: 4,
-      margin: const EdgeInsets.symmetric(vertical: 8),
+      margin: EdgeInsets.symmetric(vertical: screenHeight * 0.01),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(12),
       ),
       child: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: EdgeInsets.all(screenWidth * 0.04),
         child: Column(
           children: [
             Row(
@@ -123,59 +130,84 @@ class SponsorCard extends StatelessWidget {
                   borderRadius: BorderRadius.circular(8.0),
                   child: Image.asset(
                     sponsor.logoUrl,
-                    height: 100,
-                    width: 100,
+                    height: screenWidth * 0.25,
+                    width: screenWidth * 0.25,
                     fit: BoxFit.cover,
                   ),
                 ),
-                const SizedBox(width: 16),
+                SizedBox(width: screenWidth * 0.04),
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
                         sponsor.name,
-                        style: const TextStyle(
-                          fontSize: 18,
+                        style: TextStyle(
+                          fontSize: screenWidth * 0.05,
                           fontWeight: FontWeight.bold,
                           color: Colors.red,
                         ),
                       ),
-                      const SizedBox(height: 4),
+                      SizedBox(height: screenHeight * 0.005),
                       Text(
                         sponsor.description,
-                        style: const TextStyle(
-                          fontSize: 14,
-                          color: Colors.black54,
+                        style: TextStyle(
+                          fontSize: screenWidth * 0.035,
+                          color: Theme.of(context).brightness == Brightness.dark
+                              ? Colors.white
+                              : Colors.black,
                         ),
                       ),
-                      const SizedBox(height: 8),
+                      SizedBox(height: screenHeight * 0.01),
                       buildStars(sponsor.type),
                     ],
                   ),
                 ),
               ],
             ),
-            const SizedBox(height: 16),
+            SizedBox(height: screenHeight * 0.02),
             Align(
               alignment: Alignment.centerLeft,
               child: ElevatedButton.icon(
                 onPressed: () async {
                   final Uri url = Uri.parse(sponsor.url);
-                  if (await canLaunchUrl(url)) {
-                    await launchUrl(
-                      url,
-                      mode: LaunchMode
-                          .inAppWebView, // Opens the link in an in-app WebView
+                  try {
+                    showDialog(
+                      context: context,
+                      barrierDismissible: false,
+                      builder: (BuildContext context) {
+                        return const Center(child: CircularProgressIndicator());
+                      },
                     );
-                  } else {
-                    throw 'Could not launch $url';
+
+                    if (await canLaunchUrl(url)) {
+                      await launchUrl(
+                        url,
+                        mode: LaunchMode.externalApplication,
+                      );
+                    } else {
+                      debugPrint(
+                          'Could not launch the URL. Please check your internet connection or try again later.');
+                    }
+                  } catch (e) {
+                    debugPrint(
+                        'An error occurred while trying to open the URL: $e');
+                  } finally {
+                    Navigator.of(context).pop();
                   }
                 },
-                icon: const Icon(Icons.info),
-                label: const Text('أعرف المزيد'),
+                icon: const Icon(
+                  Icons.info,
+                  color: Colors.white,
+                ),
+                label: const Text('أعرف المزيد',
+                    style: TextStyle(color: Colors.white)),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.red,
+                  padding: EdgeInsets.symmetric(
+                    vertical: screenHeight * 0.015,
+                    horizontal: screenWidth * 0.04,
+                  ),
                 ),
               ),
             ),
