@@ -354,7 +354,7 @@ void integrateWithEgyptianPayments(BuildContext context) {
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Text(
-                      'hamdyhaggag@instapay',
+                      'hamdyhaggag74@instapay',
                       style: TextStyle(
                         fontSize: screenWidth * 0.032,
                         color: Theme.of(context).brightness == Brightness.dark
