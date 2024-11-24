@@ -1,13 +1,14 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_vibrate/flutter_vibrate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:logger/logger.dart';
-import 'package:qate3_app/presentation/screens/search_screen.dart';
 import 'package:qate3_app/presentation/screens/settings_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sliding_clipped_nav_bar/sliding_clipped_nav_bar.dart';
 import 'awareness_screen.dart';
+import 'help_screen.dart';
 import 'home_screen.dart';
 
 class CreativeDialog extends StatelessWidget {
@@ -182,7 +183,9 @@ class ScreenLayoutState extends State<ScreenLayout> {
         Vibrate.feedback(FeedbackType.impact);
       }
     } catch (e) {
-      print('Vibration error: $e');
+      if (kDebugMode) {
+        print('Vibration error: $e');
+      }
     }
   }
 
@@ -245,11 +248,11 @@ class ScreenLayoutState extends State<ScreenLayout> {
           child: PageView(
             physics: const NeverScrollableScrollPhysics(),
             controller: controller,
-            children: const [
-              SettingsScreen(),
-              SearchScreen(isDarkTheme: false),
-              AwarenessScreen(),
-              HomeScreen(),
+            children: [
+              const SettingsScreen(),
+              HelpScreen(), // SearchScreen(isDarkTheme: false),
+              const AwarenessScreen(),
+              const HomeScreen(),
             ],
           ),
         ),

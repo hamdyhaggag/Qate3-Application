@@ -14,8 +14,9 @@ class AppText extends StatelessWidget {
   final double? height;
   final String fontFamily;
 
-  AppText(
+  const AppText(
     this.text, {
+    super.key,
     this.fontSize = 14,
     this.color = Colors.black,
     this.fontWeight = FontWeight.w100,
@@ -35,7 +36,7 @@ class AppText extends StatelessWidget {
       text,
       textAlign: align,
       textDirection: textDirection,
-      textScaleFactor: 1,
+      textScaler: const TextScaler.linear(1),
       style: TextStyle(
         color: color,
         fontSize: fontSize,
