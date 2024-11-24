@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 import '../../constants/custom_appbar.dart';
 import '../../constants/custom_text_field.dart';
 
@@ -9,6 +10,36 @@ class HelpScreen extends StatelessWidget {
   final TextEditingController descriptionController = TextEditingController();
 
   HelpScreen({super.key});
+
+  Future<void> _sendToTelegram() async {
+    const String botToken = '8100092622:AAELF65fSmUSc8H9UUcrYP-Fk5ESMBqfNBM';
+    const String chatId = '-1002467130525';
+    final String message = '''
+الاسم: ${nameController.text}
+البريد الإلكتروني: ${emailController.text}
+الوصف: ${descriptionController.text}
+    ''';
+
+    final Uri url = Uri.parse(
+        'https://api.telegram.org/bot$botToken/sendMessage?chat_id=$chatId&text=${Uri.encodeComponent(message)}');
+
+    try {
+      final response = await http.get(url);
+      if (response.statusCode == 200) {
+        if (kDebugMode) {
+          print('Message sent to Telegram successfully!');
+        }
+      } else {
+        if (kDebugMode) {
+          print('Failed to send message: ${response.body}');
+        }
+      }
+    } catch (e) {
+      if (kDebugMode) {
+        print('Error: $e');
+      }
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -90,12 +121,8 @@ class HelpScreen extends StatelessWidget {
                     // Send Button
                     Center(
                       child: ElevatedButton(
-                        onPressed: () {
-                          if (kDebugMode) {
-                            print('الاسم: ${nameController.text}');
-                            print('البريد الإلكتروني: ${emailController.text}');
-                            print('الوصف: ${descriptionController.text}');
-                          }
+                        onPressed: () async {
+                          await _sendToTelegram();
                         },
                         style: ElevatedButton.styleFrom(
                           padding: const EdgeInsets.symmetric(
@@ -123,7 +150,6 @@ class HelpScreen extends StatelessWidget {
     );
   }
 
-  // Helper method to validate generic input
   String? _validateInput(String? value, String errorMessage) {
     if (value == null || value.isEmpty) {
       return errorMessage;
@@ -131,7 +157,6 @@ class HelpScreen extends StatelessWidget {
     return null;
   }
 
-  // Helper method to validate email input
   String? _validateEmail(String? value) {
     if (value == null || value.isEmpty) {
       return 'البريد الإلكتروني مطلوب';
@@ -141,7 +166,6 @@ class HelpScreen extends StatelessWidget {
     return null;
   }
 
-  // Determines font size based on device width
   double _getTextFontSize(BoxConstraints constraints) {
     return constraints.maxWidth > 600 ? 18.0 : 15.8;
   }
