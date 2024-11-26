@@ -278,8 +278,8 @@ class ScreenLayoutState extends State<ScreenLayout> {
               title: 'الإعدادات',
             ),
             BarItem(
-              icon: FontAwesomeIcons.magnifyingGlass,
-              title: 'البحث',
+              icon: FontAwesomeIcons.toolbox,
+              title: 'الاقتراحات',
             ),
             BarItem(
               icon: FontAwesomeIcons.lightbulb,

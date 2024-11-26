@@ -45,41 +45,58 @@ class CustomTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
-    return SizedBox(
-      width: 347, // Fixed width
-      height: 48, // Fixed height
-      child: TextFormField(
-        controller: controller,
-        onChanged: onChange,
-        onSaved: onSaved,
-        maxLines: maxLines,
-        keyboardType: keyboardType,
-        decoration: InputDecoration(
-          isDense: true,
-          contentPadding: contentPadding ??
-              const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
-          constraints: BoxConstraints(
-            maxHeight: height * 0.0625,
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        SizedBox(
+          width: 347,
+          height: 48,
+          child: TextFormField(
+            controller: controller,
+            onChanged: onChange,
+            onSaved: onSaved,
+            maxLines: maxLines,
+            keyboardType: keyboardType,
+            decoration: InputDecoration(
+              isDense: true,
+              contentPadding: contentPadding ??
+                  const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+              constraints: BoxConstraints(
+                maxHeight: height * 0.0625,
+              ),
+              suffixIcon: suffixIcon,
+              prefixIcon: prefixIcon,
+              hintText: hintText,
+              hintStyle: const TextStyle(
+                color: Color(0xff929BAB),
+                fontSize: 14,
+                fontWeight: FontWeight.normal,
+              ),
+              enabledBorder: enabledBorder ?? borderCustom(),
+              focusedBorder:
+                  focusedBorder ?? borderCustom(AppColors.primaryColor),
+              errorBorder: errorBorder ?? borderCustom(Colors.red),
+              focusedErrorBorder: focusErrorBorder ?? borderCustom(Colors.red),
+              errorStyle: const TextStyle(
+                fontSize: 12,
+                color: Colors.red,
+              ),
+            ),
+            validator: (value) {
+              return validator(value);
+            },
+            obscureText: isObscureText ?? false,
           ),
-          suffixIcon: suffixIcon,
-          prefixIcon: prefixIcon,
-          hintText: hintText,
-          hintStyle: const TextStyle(
-            color: Color(0xff929BAB),
-            fontSize: 14, // Fixed font size
-            fontWeight: FontWeight.normal,
-          ),
-          enabledBorder: enabledBorder ?? borderCustom(),
-          focusedBorder: focusedBorder ?? borderCustom(AppColors.primaryColor),
-          errorBorder: errorBorder ?? borderCustom(Colors.red),
-          focusedErrorBorder: focusErrorBorder ?? borderCustom(Colors.red),
-          errorStyle: const TextStyle(fontSize: 0.01),
         ),
-        validator: (value) {
-          return validator(value);
-        },
-        obscureText: isObscureText ?? false,
-      ),
+        const SizedBox(height: 4),
+        const Text(
+          '',
+          style: TextStyle(
+            fontSize: 12,
+            color: Colors.red,
+          ),
+        ),
+      ],
     );
   }
 
@@ -157,14 +174,17 @@ class DescriptionTextField extends StatelessWidget {
           hintText: hintText,
           hintStyle: const TextStyle(
             color: Color(0xff929BAB),
-            fontSize: 14, // Fixed font size
+            fontSize: 14,
             fontWeight: FontWeight.normal,
           ),
           enabledBorder: enabledBorder ?? borderCustom(),
           focusedBorder: focusedBorder ?? borderCustom(AppColors.primaryColor),
           errorBorder: errorBorder ?? borderCustom(Colors.red),
           focusedErrorBorder: focusErrorBorder ?? borderCustom(Colors.red),
-          errorStyle: const TextStyle(fontSize: 0.01),
+          errorStyle: const TextStyle(
+            fontSize: 12,
+            color: Colors.red,
+          ),
         ),
         validator: (value) {
           return validator(value);
