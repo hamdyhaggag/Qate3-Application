@@ -264,6 +264,9 @@ class _HelpScreenState extends State<HelpScreen> {
       prefixIcon: const Icon(Icons.person),
       validator: (value) => _validateInput(value, 'الاسم مطلوب'),
       maxLines: 1,
+      onChange: (_) {
+        _formKey.currentState!.validate();
+      },
     );
   }
 
@@ -275,6 +278,9 @@ class _HelpScreenState extends State<HelpScreen> {
       prefixIcon: const Icon(Icons.email),
       validator: (value) => _validateEmail(value),
       maxLines: 1,
+      onChange: (_) {
+        _formKey.currentState!.validate();
+      },
     );
   }
 
@@ -285,6 +291,9 @@ class _HelpScreenState extends State<HelpScreen> {
       prefixIcon: const Icon(Icons.description),
       contentPadding: const EdgeInsets.all(16),
       validator: (value) => _validateInput(value, 'الوصف مطلوب'),
+      onChange: (_) {
+        _formKey.currentState!.validate();
+      },
     );
   }
 
@@ -302,6 +311,7 @@ class _HelpScreenState extends State<HelpScreen> {
               complaintTitle = null;
             }
           });
+          _formKey.currentState!.validate();
         },
         validator: (value) => value == null ? 'يرجى اختيار نوع الطلب' : null,
       ),
@@ -394,7 +404,9 @@ Widget _styledDropdown({
             style: const TextStyle(fontFamily: 'Cairo', fontSize: 14),
           ),
         ),
-        onChanged: onChanged,
+        onChanged: (newValue) {
+          onChanged(newValue);
+        },
         validator: validator,
         items: items
             .map((item) => DropdownMenuItem<String>(
