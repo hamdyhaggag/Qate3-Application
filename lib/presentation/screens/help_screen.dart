@@ -4,17 +4,65 @@ import 'package:http/http.dart' as http;
 import '../../constants/custom_appbar.dart';
 import '../../constants/custom_text_field.dart';
 
-class HelpScreen extends StatelessWidget {
+class HelpScreen extends StatefulWidget {
+  const HelpScreen({super.key});
+
+  @override
+  State<HelpScreen> createState() => _HelpScreenState();
+}
+
+class _HelpScreenState extends State<HelpScreen> {
   final TextEditingController nameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController descriptionController = TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
-  HelpScreen({super.key});
+  String? inquiryType;
+  String? complaintTitle;
+
+  final List<String> inquiryOptions = ['استفسار', 'طلب إضافة منتج جديد'];
+  final List<String> complaintTitles = [
+    'المياة',
+    'المشروبات الغازية',
+    'الألبان',
+    'القهوة',
+    'النسكافية',
+    'الشاي',
+    'العصائر',
+    'شيبسي',
+    'لبان',
+    'نودلز',
+    'شيكولاته',
+    'البسكويت',
+    'زبادي',
+    'أيس كريم',
+    'الجبن',
+    'النوتيلا',
+    'البهارات',
+    'منتجات إضافية',
+    'الحليب',
+    'الزيوت و الشامبو',
+    'كورن فليكس',
+    'الحفاضات',
+    'مزيل العرق',
+    'الشامبو',
+    'البرفيوم و اللوشن',
+    'العناية بالفم و الأسنان'
+  ];
 
   Future<void> _sendToTelegram(BuildContext context) async {
-    // Validate form fields synchronously before proceeding
     if (!_formKey.currentState!.validate()) {
+      return;
+    }
+
+    if (inquiryType == 'طلب إضافة منتج جديد' && complaintTitle == null) {
+      _showCustomDialog(
+        context,
+        title: 'خطأ',
+        message: 'يرجى اختيار اسم المنتج',
+        icon: Icons.error,
+        iconColor: Colors.red,
+      );
       return;
     }
 
@@ -23,6 +71,8 @@ class HelpScreen extends StatelessWidget {
     final String message = '''
 الاسم: ${nameController.text}
 البريد الإلكتروني: ${emailController.text}
+نوع الطلب: $inquiryType
+اسم المنتج المراد إضافته: ${complaintTitle ?? "لا يوجد"}
 الوصف: ${descriptionController.text}
     ''';
 
@@ -63,7 +113,7 @@ class HelpScreen extends StatelessWidget {
     _showCustomDialog(
       context,
       title: 'خطأ',
-      message: 'حدث خطأ. حاول مرة أخرى.',
+      message: 'حدث خطأ.. حاول مرة أخرى',
       icon: Icons.error,
       iconColor: Colors.red,
     );
@@ -131,6 +181,10 @@ class HelpScreen extends StatelessWidget {
     nameController.clear();
     emailController.clear();
     descriptionController.clear();
+    setState(() {
+      inquiryType = null;
+      complaintTitle = null;
+    });
   }
 
   @override
@@ -153,8 +207,13 @@ class HelpScreen extends StatelessWidget {
                   const SizedBox(height: 15),
                   _buildEmailField(),
                   const SizedBox(height: 15),
-                  _buildDescriptionField(),
+                  _buildInquiryDropdown(),
+                  const SizedBox(height: 15),
+                  if (inquiryType == 'طلب إضافة منتج جديد')
+                    _buildComplaintDropdown(),
                   const SizedBox(height: 20),
+                  _buildDescriptionField(),
+                  const SizedBox(height: 15),
                   _buildSendButton(context),
                 ],
               ),
@@ -229,24 +288,55 @@ class HelpScreen extends StatelessWidget {
     );
   }
 
+  Widget _buildInquiryDropdown() {
+    return Directionality(
+      textDirection: TextDirection.rtl,
+      child: _styledDropdown(
+        value: inquiryType,
+        items: inquiryOptions,
+        hintText: 'اختر نوع الطلب',
+        onChanged: (value) {
+          setState(() {
+            inquiryType = value;
+            if (value != 'طلب إضافة منتج جديد') {
+              complaintTitle = null;
+            }
+          });
+        },
+        validator: (value) => value == null ? 'يرجى اختيار نوع الطلب' : null,
+      ),
+    );
+  }
+
+  Widget _buildComplaintDropdown() {
+    return Directionality(
+      textDirection: TextDirection.rtl,
+      child: _styledDropdown(
+        value: complaintTitle,
+        items: complaintTitles,
+        hintText: 'اختر القسم الذي تريد إضافة المنتج إليه',
+        onChanged: (value) {
+          setState(() {
+            complaintTitle = value;
+          });
+        },
+        validator: (value) => value == null
+            ? 'يرجى اختيار القسم الذي تريد إضافة المنتج إليه'
+            : null,
+      ),
+    );
+  }
+
   Widget _buildSendButton(BuildContext context) {
     return Center(
       child: ElevatedButton(
-        onPressed: () async {
-          await _sendToTelegram(context);
-        },
+        onPressed: () => _sendToTelegram(context),
         style: ElevatedButton.styleFrom(
-          padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 15),
           backgroundColor: Colors.red,
         ),
         child: const Text(
-          'إرسال',
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 16,
-            color: Colors.white,
-            fontFamily: 'Cairo',
-          ),
+          'إرسال الطلب',
+          style: TextStyle(color: Colors.white, fontFamily: 'Cairo'),
         ),
       ),
     );
@@ -262,9 +352,70 @@ class HelpScreen extends StatelessWidget {
   String? _validateEmail(String? value) {
     if (value == null || value.isEmpty) {
       return 'البريد الإلكتروني مطلوب';
-    } else if (!RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$').hasMatch(value)) {
-      return 'البريد الإلكتروني غير صالح';
+    }
+    if (!RegExp(r"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$")
+        .hasMatch(value)) {
+      return 'يرجى إدخال بريد إلكتروني صالح';
     }
     return null;
   }
+}
+
+Widget _styledDropdown({
+  required String? value,
+  required List<String> items,
+  required String hintText,
+  required Function(String?) onChanged,
+  String? Function(String?)? validator,
+}) {
+  return SizedBox(
+    width: 347,
+    height: 48,
+    child: Container(
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(12),
+        border: Border.all(
+          color: Colors.red,
+          width: 1.5,
+        ),
+      ),
+      child: DropdownButtonFormField<String>(
+        value: value,
+        decoration: const InputDecoration(
+          border: InputBorder.none,
+          contentPadding: EdgeInsets.symmetric(vertical: 8),
+        ),
+        hint: Align(
+          alignment: Alignment.centerRight,
+          child: Text(
+            hintText,
+            style: const TextStyle(fontFamily: 'Cairo', fontSize: 14),
+          ),
+        ),
+        onChanged: onChanged,
+        validator: validator,
+        items: items
+            .map((item) => DropdownMenuItem<String>(
+                  value: item,
+                  child: Align(
+                    alignment: Alignment.centerRight,
+                    child: Text(
+                      item,
+                      style: const TextStyle(
+                          color: Color(0xff929BAB),
+                          fontFamily: 'Cairo',
+                          fontSize: 14),
+                    ),
+                  ),
+                ))
+            .toList(),
+        icon: const Icon(Icons.arrow_drop_down, color: Colors.red),
+        style: const TextStyle(
+            fontFamily: 'Cairo', fontSize: 14, color: Colors.black),
+        dropdownColor: Colors.white,
+      ),
+    ),
+  );
 }
