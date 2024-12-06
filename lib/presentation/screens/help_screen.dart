@@ -416,7 +416,7 @@ Widget _styledDropdown({
                     child: Text(
                       item,
                       style: const TextStyle(
-                          color: Color(0xff929BAB),
+                          color: Colors.black,
                           fontFamily: 'Cairo',
                           fontSize: 14),
                     ),
