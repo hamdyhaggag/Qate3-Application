@@ -59,13 +59,13 @@ class SettingsScreen extends StatelessWidget {
         subtitle: 'كن رفيقنا في التطوير',
         onTap: () => donate(context),
       ),
-      _createSettingsItem(
-        context,
-        icon: FontAwesomeIcons.magnifyingGlass,
-        title: 'إسأل عن منتج',
-        subtitle: 'لو فيه منتج مش موجود',
-        onTap: () => sendEmail(),
-      ),
+      // _createSettingsItem(
+      //   context,
+      //   icon: FontAwesomeIcons.magnifyingGlass,
+      //   title: 'إسأل عن منتج',
+      //   subtitle: 'لو فيه منتج مش موجود',
+      //   onTap: () => sendEmail(),
+      // ),
       _createSettingsItem(
         context,
         icon: FontAwesomeIcons.solidEnvelope,
@@ -83,10 +83,9 @@ class SettingsScreen extends StatelessWidget {
       _createSettingsItem(
         context,
         icon: FontAwesomeIcons.handHoldingDollar,
-        title: 'تبرع إلى الهلال الأحمر',
+        title: 'تبرع لإغاثة غزة',
         subtitle: 'تبرع الآن لتساعد في إغاثة إخواننا في غزة',
-        onTap: () => _launchURL(
-            'https://www.egyptianrc.org/arabic/Donate/online-donation'),
+        onTap: () => _launchURL('https://baitzakat.org.eg/donationChannels/'),
       ),
       _createSettingsItem(
         context,

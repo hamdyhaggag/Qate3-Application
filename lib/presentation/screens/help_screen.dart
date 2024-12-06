@@ -13,6 +13,7 @@ class HelpScreen extends StatelessWidget {
   HelpScreen({super.key});
 
   Future<void> _sendToTelegram(BuildContext context) async {
+    // Validate form fields synchronously before proceeding
     if (!_formKey.currentState!.validate()) {
       return;
     }
@@ -30,20 +31,28 @@ class HelpScreen extends StatelessWidget {
 
     try {
       final response = await http.get(url);
-      if (response.statusCode == 200) {
-        _showCustomDialog(
-          context,
-          title: 'تم إرسال البيانات',
-          message: 'تم الإرسال بنجاح.',
-          icon: Icons.check_circle,
-          iconColor: Colors.green,
-        );
-        _clearTextFields();
-      } else {
-        _handleError(context, 'Failed to send data: ${response.statusCode}');
-      }
+
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (response.statusCode == 200) {
+          _showCustomDialog(
+            context,
+            title: 'تم إرسال البيانات',
+            message: 'تم الإرسال بنجاح',
+            icon: Icons.check_circle,
+            iconColor: Colors.green,
+          );
+          _clearTextFields();
+        } else {
+          _handleError(
+            context,
+            'Failed to send data: ${response.statusCode}',
+          );
+        }
+      });
     } catch (e) {
-      _handleError(context, e.toString());
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        _handleError(context, e.toString());
+      });
     }
   }
 
@@ -69,7 +78,7 @@ class HelpScreen extends StatelessWidget {
   }) {
     showDialog(
       context: context,
-      builder: (BuildContext context) {
+      builder: (BuildContext dialogContext) {
         return AlertDialog(
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12.0),
@@ -101,7 +110,7 @@ class HelpScreen extends StatelessWidget {
               const SizedBox(height: 16),
               ElevatedButton(
                 onPressed: () {
-                  Navigator.of(context).pop(); // Close dialog
+                  Navigator.of(dialogContext).pop();
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.red,
