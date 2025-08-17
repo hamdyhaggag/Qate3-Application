@@ -1,0 +1,2 @@
+D:/qate3_app/android/app/.cxx/Debug/45h395g2/x86/CMakeFiles/edit_cache.dir
+D:/qate3_app/android/app/.cxx/Debug/45h395g2/x86/CMakeFiles/rebuild_cache.dir

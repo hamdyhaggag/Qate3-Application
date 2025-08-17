@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_vibrate/flutter_vibrate.dart';
+import 'package:vibration/vibration.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:logger/logger.dart';
 import 'package:qate3_app/presentation/screens/settings_screen.dart';
@@ -18,8 +18,14 @@ class CreativeDialog extends StatelessWidget {
 
   Future<void> _vibrateFeedback() async {
     try {
-      if (await Vibrate.canVibrate) {
-        Vibrate.feedback(FeedbackType.impact);
+      if (await Vibration.hasVibrator() ?? false) {
+        if (await Vibration.hasAmplitudeControl() ?? false) {
+          Vibration.vibrate(amplitude: 128);
+        } else {
+          Vibration.vibrate();
+          await Future.delayed(const Duration(milliseconds: 100));
+          Vibration.cancel();
+        }
       }
     } catch (e, stackTrace) {
       _logger.e('Vibration error', error: e, stackTrace: stackTrace);
@@ -179,8 +185,14 @@ class ScreenLayoutState extends State<ScreenLayout> {
 
   Future<void> _vibrateFeedback() async {
     try {
-      if (await Vibrate.canVibrate) {
-        Vibrate.feedback(FeedbackType.impact);
+      if (await Vibration.hasVibrator() ?? false) {
+        if (await Vibration.hasAmplitudeControl() ?? false) {
+          Vibration.vibrate(amplitude: 128);
+        } else {
+          Vibration.vibrate();
+          await Future.delayed(const Duration(milliseconds: 100));
+          Vibration.cancel();
+        }
       }
     } catch (e) {
       if (kDebugMode) {

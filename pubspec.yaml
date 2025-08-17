@@ -23,10 +23,11 @@ dependencies:
   font_awesome_flutter: ^10.6.0
   sliding_clipped_nav_bar: ^3.1.0+4
   flutter_svg: ^2.0.9
-  fluttertoast: ^8.2.2
+  toastification: ^2.1.0
   panara_dialogs: ^0.1.4
+  settings_ui: ^2.0.2
   babstrap_settings_screen: ^0.1.6
-  share_plus: ^7.1.0
+  share_plus: ^10.0.2
   shared_preferences: ^2.0.15
   webview_flutter: ^4.4.2
   search_page: ^2.3.0
@@ -35,7 +36,7 @@ dependencies:
   url_launcher: ^6.3.0
   flutter_custom_tabs: ^1.2.1
   email_validator: ^2.1.17
-  flutter_vibrate: ^1.3.0
+  vibration: ^3.1.3
   shimmer: ^3.0.0
   firebase_messaging: ^14.7.5
   firebase_core: ^2.23.0
