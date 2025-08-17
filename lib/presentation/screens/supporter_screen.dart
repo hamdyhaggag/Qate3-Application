@@ -62,17 +62,24 @@ class SupporterScreen extends StatelessWidget {
       name: 'هناء يوسف',
       type: SponsorType.bronze,
       description: 'داعم رئيسي',
-    ),Support(
+    ),
+    Support(
       logoUrl: 'assets/home/67.png',
       name: 'عبدالرحمن السعيد',
       type: SponsorType.bronze,
       description: 'داعم رئيسي',
     ),
     Support(
-      logoUrl: 'assets/home/67.png',
+      logoUrl: 'assets/home/65.png',
       name: 'أحمد ابو النصر',
-      type: SponsorType.basic,
-      description: 'داعم سوبر',
+      type: SponsorType.bronze,
+      description: 'داعم رئيسي',
+    ),
+    Support(
+      logoUrl: 'assets/home/62.png',
+      name: 'عبد الله علي',
+      type: SponsorType.bronze,
+      description: 'داعم رئيسي',
     ),
   ];
 

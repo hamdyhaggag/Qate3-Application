@@ -237,7 +237,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                           : Colors.black,
                                     ),
                                     textDirection: TextDirection
-                                        .rtl, // Set text direction to RTL
+                                        .rtl, 
                                   ),
                                   const SizedBox(height: 8.0),
                                   Text(
@@ -259,92 +259,92 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 20.0,
-                  ),
-                  child: Card(
-                    color: Theme.of(context).brightness == Brightness.dark
-                        ? Colors.black12.withOpacity(0.1)
-                        : Colors.white,
-                    elevation: 3.0,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12.0),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: Row(
-                        children: [
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(8.0),
-                            child: Image.asset(
-                              'assets/home/61.png',
-                              width: 90,
-                              height: 90,
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                          const SizedBox(width: 16.0),
-                          Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.end,
-                              children: [
-                                Text(
-                                  'شركاء قاطع',
-                                  style: TextStyle(
-                                    fontFamily: 'Cairo',
-                                    color: Theme.of(context).brightness ==
-                                            Brightness.dark
-                                        ? Colors.white
-                                        : Colors.black,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: screenWidth > 600 ? 20 : 18,
-                                  ),
-                                ),
-                                const SizedBox(height: 12.0),
-                                Text(
-                                  textDirection: TextDirection.rtl,
-                                  "اكتشفوا أفضل البدائل مع شركائنا المميزين – كل اللي تحتاجوه لدعم اختياركم",
-                                  style: TextStyle(
-                                    fontSize: 14,
-                                    color:
-                                        Theme.of(context).colorScheme.onSurface,
-                                  ),
-                                ),
-                                const SizedBox(height: 6.0),
-                                ElevatedButton(
-                                  onPressed: () {
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) =>
-                                              SponsorsScreen()),
-                                    );
-                                  },
-                                  style: ElevatedButton.styleFrom(
-                                    backgroundColor:
-                                        Theme.of(context).colorScheme.secondary,
-                                  ),
-                                  child: Text(
-                                    'اعرف المزيد',
-                                    style: TextStyle(
-                                      fontFamily: 'Cairo',
-                                      fontWeight: FontWeight.w600,
-                                      color: Theme.of(context).brightness ==
-                                              Brightness.dark
-                                          ? Colors.white
-                                          : Colors.white,
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
+                // Padding(
+                //   padding: const EdgeInsets.symmetric(
+                //     horizontal: 20.0,
+                //   ),
+                //   child: Card(
+                //     color: Theme.of(context).brightness == Brightness.dark
+                //         ? Colors.black12.withOpacity(0.1)
+                //         : Colors.white,
+                //     elevation: 3.0,
+                //     shape: RoundedRectangleBorder(
+                //       borderRadius: BorderRadius.circular(12.0),
+                //     ),
+                //     child: Padding(
+                //       padding: const EdgeInsets.all(16.0),
+                //       child: Row(
+                //         children: [
+                //           ClipRRect(
+                //             borderRadius: BorderRadius.circular(8.0),
+                //             child: Image.asset(
+                //               'assets/home/61.png',
+                //               width: 90,
+                //               height: 90,
+                //               fit: BoxFit.cover,
+                //             ),
+                //           ),
+                //           const SizedBox(width: 16.0),
+                //           // Expanded(
+                //           //   child: Column(
+                //           //     crossAxisAlignment: CrossAxisAlignment.end,
+                //           //     children: [
+                //           //       Text(
+                //           //         'شركاء قاطع',
+                //           //         style: TextStyle(
+                //           //           fontFamily: 'Cairo',
+                //           //           color: Theme.of(context).brightness ==
+                //           //                   Brightness.dark
+                //           //               ? Colors.white
+                //           //               : Colors.black,
+                //           //           fontWeight: FontWeight.bold,
+                //           //           fontSize: screenWidth > 600 ? 20 : 18,
+                //           //         ),
+                //           //       ),
+                //           //       const SizedBox(height: 12.0),
+                //           //       Text(
+                //           //         textDirection: TextDirection.rtl,
+                //           //         "اكتشفوا أفضل البدائل مع شركائنا المميزين – كل اللي تحتاجوه لدعم اختياركم",
+                //           //         style: TextStyle(
+                //           //           fontSize: 14,
+                //           //           color:
+                //           //               Theme.of(context).colorScheme.onSurface,
+                //           //         ),
+                //           //       ),
+                //           //       const SizedBox(height: 6.0),
+                //           //       ElevatedButton(
+                //           //         onPressed: () {
+                //           //           Navigator.push(
+                //           //             context,
+                //           //             MaterialPageRoute(
+                //           //                 builder: (context) =>
+                //           //                     SponsorsScreen()),
+                //           //           );
+                //           //         },
+                //           //         style: ElevatedButton.styleFrom(
+                //           //           backgroundColor:
+                //           //               Theme.of(context).colorScheme.secondary,
+                //           //         ),
+                //           //         child: Text(
+                //           //           'اعرف المزيد',
+                //           //           style: TextStyle(
+                //           //             fontFamily: 'Cairo',
+                //           //             fontWeight: FontWeight.w600,
+                //           //             color: Theme.of(context).brightness ==
+                //           //                     Brightness.dark
+                //           //                 ? Colors.white
+                //           //                 : Colors.white,
+                //           //           ),
+                //           //         ),
+                //           //       ),
+                //           //     ],
+                //           //   ),
+                //           // ),
+                //         ],
+                //       ),
+                //     ),
+                //   ),
+                // ),
                 Padding(
                   padding: EdgeInsets.all(screenWidth > 600 ? 24.0 : 12.0),
                   child: Center(

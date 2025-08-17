@@ -1,7 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:vibration/vibration.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:logger/logger.dart';
 import 'package:qate3_app/presentation/screens/settings_screen.dart';
@@ -15,22 +14,6 @@ class CreativeDialog extends StatelessWidget {
   CreativeDialog({Key? key}) : super(key: key);
 
   final Logger _logger = Logger();
-
-  Future<void> _vibrateFeedback() async {
-    try {
-      if (await Vibration.hasVibrator() ?? false) {
-        if (await Vibration.hasAmplitudeControl() ?? false) {
-          Vibration.vibrate(amplitude: 128);
-        } else {
-          Vibration.vibrate();
-          await Future.delayed(const Duration(milliseconds: 100));
-          Vibration.cancel();
-        }
-      }
-    } catch (e, stackTrace) {
-      _logger.e('Vibration error', error: e, stackTrace: stackTrace);
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -77,7 +60,6 @@ class CreativeDialog extends StatelessWidget {
         TextButton(
           onPressed: () {
             Navigator.of(context).pop();
-            _vibrateFeedback();
             _showWhatsNewDialog(context);
           },
           child: const Text(
@@ -183,24 +165,6 @@ class ScreenLayoutState extends State<ScreenLayout> {
     });
   }
 
-  Future<void> _vibrateFeedback() async {
-    try {
-      if (await Vibration.hasVibrator() ?? false) {
-        if (await Vibration.hasAmplitudeControl() ?? false) {
-          Vibration.vibrate(amplitude: 128);
-        } else {
-          Vibration.vibrate();
-          await Future.delayed(const Duration(milliseconds: 100));
-          Vibration.cancel();
-        }
-      }
-    } catch (e) {
-      if (kDebugMode) {
-        print('Vibration error: $e');
-      }
-    }
-  }
-
   Future<void> showQuitConfirmationDialog(BuildContext context) {
     return showDialog(
       context: context,
@@ -218,7 +182,6 @@ class ScreenLayoutState extends State<ScreenLayout> {
           TextButton(
             onPressed: () {
               Navigator.of(context).pop();
-              _vibrateFeedback();
             },
             child: const Text(
               'لا',
@@ -231,7 +194,6 @@ class ScreenLayoutState extends State<ScreenLayout> {
           TextButton(
             onPressed: () {
               Navigator.of(context).pop();
-              _vibrateFeedback();
               SystemNavigator.pop();
             },
             child: const Text(
@@ -260,11 +222,11 @@ class ScreenLayoutState extends State<ScreenLayout> {
           child: PageView(
             physics: const NeverScrollableScrollPhysics(),
             controller: controller,
-            children: [
-              const SettingsScreen(),
-              HelpScreen(), // SearchScreen(isDarkTheme: false),
-              const AwarenessScreen(),
-              const HomeScreen(),
+            children: const [
+              SettingsScreen(),
+              HelpScreen(),
+              AwarenessScreen(),
+              HomeScreen(),
             ],
           ),
         ),
@@ -279,8 +241,6 @@ class ScreenLayoutState extends State<ScreenLayout> {
               duration: const Duration(milliseconds: 400),
               curve: Curves.easeOutQuad,
             );
-
-            _vibrateFeedback();
           },
           iconSize: 25,
           selectedIndex: selectedIndex,
