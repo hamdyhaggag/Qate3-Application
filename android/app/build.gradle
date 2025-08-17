@@ -28,7 +28,7 @@ if (keystorePropertiesFile.exists()) {
 }
 android {
     namespace "com.qate3.app.qate3_app"
-    compileSdkVersion 34
+    compileSdkVersion 35
     ndkVersion flutter.ndkVersion
 
     compileOptions {

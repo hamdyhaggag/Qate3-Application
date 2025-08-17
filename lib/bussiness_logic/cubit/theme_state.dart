@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-enum ThemeModeType { light, dark }
+enum ThemeModeType { light, dark, system }
 
 @immutable
 class ThemeState {

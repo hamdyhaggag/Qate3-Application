@@ -1,8 +1,12 @@
 import 'package:babstrap_settings_screen/babstrap_settings_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:day_night_switch/day_night_switch.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart' as url_launcher;
 import 'package:url_launcher/url_launcher_string.dart';
+import '../../../bussiness_logic/cubit/theme_cubit.dart';
+import '../../../bussiness_logic/cubit/theme_state.dart';
 import '../../../constants/custom_appbar.dart';
 import '../widgets.dart';
 import 'Home/SettingsScreen/app_info.dart';
@@ -31,6 +35,7 @@ class SettingsScreen extends StatelessWidget {
 
   List<SettingsItem> _buildSettingsItems(BuildContext context) {
     return [
+      _createThemeSwitcher(context),
       _createSettingsItem(
         context,
         icon: FontAwesomeIcons.circleInfo,
@@ -102,6 +107,50 @@ class SettingsScreen extends StatelessWidget {
         onTap: () => sendEmail2(),
       ),
     ];
+  }
+
+  SettingsItem _createThemeSwitcher(BuildContext context) {
+    final themeCubit = BlocProvider.of<ThemeCubit>(context, listen: true);
+    final themeModeType = themeCubit.state.themeModeType;
+
+    return SettingsItem(
+      onTap: () {},
+      icons: themeModeType == ThemeModeType.dark
+          ? Icons.dark_mode
+          : Icons.light_mode,
+      iconStyle: IconStyle(
+        iconsColor: Colors.white,
+        withBackground: true,
+        backgroundColor: Colors.red,
+      ),
+      title: 'المظهر',
+      subtitle: 'اختر وضع التطبيق',
+      trailing: DropdownButton<ThemeModeType>(
+        value: themeModeType,
+        underline: const SizedBox(),
+        dropdownColor: Theme.of(context).cardColor,
+        borderRadius: BorderRadius.circular(12),
+        items: const [
+          DropdownMenuItem(
+            value: ThemeModeType.light,
+            child: Text("الوضع النهاري"),
+          ),
+          DropdownMenuItem(
+            value: ThemeModeType.dark,
+            child: Text("الوضع الليلي"),
+          ),
+          DropdownMenuItem(
+            value: ThemeModeType.system,
+            child: Text("حسب النظام"),
+          ),
+        ],
+        onChanged: (value) {
+          if (value != null) {
+            themeCubit.changeTheme(value);
+          }
+        },
+      ),
+    );
   }
 
   SettingsItem _createSettingsItem(

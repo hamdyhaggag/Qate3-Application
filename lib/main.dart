@@ -42,9 +42,16 @@ class Qate3App extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           theme: lightTheme,
           darkTheme: darkTheme,
-          themeMode: themeState.themeModeType == ThemeModeType.dark
-              ? ThemeMode.dark
-              : ThemeMode.light,
+          themeMode: () {
+            switch (themeState.themeModeType) {
+              case ThemeModeType.light:
+                return ThemeMode.light;
+              case ThemeModeType.dark:
+                return ThemeMode.dark;
+              case ThemeModeType.system:
+                return ThemeMode.system;
+            }
+          }(),
           home: const SplashScreen(),
         );
       },

@@ -173,7 +173,7 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: const CustomAppBar(
         title: 'أهلاً بك في تطبيق قاطع',
         isHome: true,
-        showSwitch: true,
+        showSwitch: false,
       ),
       body: LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
@@ -236,8 +236,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                           ? Colors.white
                                           : Colors.black,
                                     ),
-                                    textDirection: TextDirection
-                                        .rtl, 
+                                    textDirection: TextDirection.rtl,
                                   ),
                                   const SizedBox(height: 8.0),
                                   Text(
